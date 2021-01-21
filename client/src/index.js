@@ -34,7 +34,7 @@ class Flashcard extends Component {
 
 const TitleHeader = () => {
   return (
-    <header className="topic">Topic</header>
+    <header className="topic">TOPIC</header>
   )
 }
 
@@ -49,8 +49,6 @@ const MidsectionWrapper = () => {
 
 const QuestionText = () => {
   const [question, setQuestion] = useState("");
-
-
   return (
     <section className="question">
           <p >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates consectetur sint nesciunt. Doloremque quisquam ipsum sint enim sequi quas aut ipsa aliquam sunt, nemo molestiae similique sapiente quam culpa excepturi.</p>
@@ -88,7 +86,7 @@ const NavButtonWrapper = () => {
 
 ReactDOM.render(
   <React.StrictMode>
-  <Flashcard />
-</React.StrictMode>,
+    <Flashcard />
+  </React.StrictMode>,
 document.getElementById('root')
 );
