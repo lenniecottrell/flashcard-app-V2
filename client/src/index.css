@@ -1,0 +1,173 @@
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: linear-gradient(
+    40deg,
+    rgba(61, 71, 88, 0.7),
+    rgba(61, 71, 88, 1)
+  );
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Wrapper for everything but the background */
+.main-UI {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 50vw;
+  margin-top: auto;
+  padding: 10px;
+}
+
+.card {
+  border: 1px solid black;
+  border-radius: 10px;
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: left;
+  display: flex;
+  background: #808080;
+  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* All the card's children */
+.card > * {
+  padding: 8px;
+  flex: 1 100%;
+}
+
+.nav-btn-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  margin: 5px;
+  padding: 5px;
+  width: 100%;
+}
+
+/* All the nav buttons */
+.nav-btn-wrapper > * {
+  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.4);
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  width: 110px;
+  height: 40px;
+  border: 3px solid white;
+  background: rgba(61, 71, 88, 0.7);
+  font-weight: bold;
+  font-family: fantasy;
+  color: white;
+}
+
+#nextBtn:hover {
+}
+
+.topic {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  max-height: fit-content;
+  background: tomato;
+  border-radius: 10px 10px 0 0;
+  border: 1px solid gray;
+}
+
+.mid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.question {
+  border: 1px solid black;
+  padding: 15px;
+  margin-right: 10px;
+  background: #fffaff;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+}
+
+.info-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex: 0 0 auto;
+  border: 1px solid black;
+  padding: 20px;
+  margin-left: 10px;
+  width: auto;
+  overflow: auto;
+  max-width: 25%;
+  background: #fffaff;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+}
+
+.info-button-wrapper > * {
+  width: auto;
+}
+
+.info-button {
+  border: 1px solid black;
+  border-radius: 10px;
+  height: auto;
+  width: auto;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.25vw;
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.2em;
+  min-width: max-content;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  cursor: pointer;
+}
+
+.view-all {
+  border: 1px solid black;
+  border-radius: 10px;
+  height: auto;
+  width: auto;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.25vw;
+  text-align: center;
+  font-weight: normal;
+  font-size: 1em;
+  min-width: max-content;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  cursor: pointer;
+}
+
+.answer {
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  background: #fffaff;
+  text-align: center;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* @media all and (min-width: 800px) {
+  .topic {
+    order: 1;
+  }
+  .mid {
+    order: 2;
+  }
+  .question {
+    flex: 1 auto;
+    order: 1;
+  }
+  .info-button-wrapper {
+    order: 2;
+  }
+  .answer {
+    order: 4;
+  }
+  .nav-btn-wrapper {
+    order: 5;
+  }
+} */
