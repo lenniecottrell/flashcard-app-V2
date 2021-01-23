@@ -1,43 +1,65 @@
 import React from 'react'
 
-const DButton = () => {
+const DButton = (props) => {
+  const [definition] = useState('');
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    try {
+      const body = {definition};
+      const response = await fetch("http://localhost:5000/")
+    } catch (error) {
+      console.error(error.message)
+    }
+  }
   return (
-    <button className="info-button">
+    <button className="info-button" onClick={this.handleClick}>
       Define
     </button>
   )
 }
 
-const IButton = () => {
+const IButton = (props) => {
   return (
-    <button className="info-button">
+    <button className="info-button" onClick={props.onClick}>
       Information
     </button>
   )
 }
 
-const CButton = () => {
+const CButton = (props) => {
   return (
-    <button className="info-button">
+    <button className="info-button" onClick={props.onClick}>
       Context
     </button>
   )
 }
 
-const EButton = () => {
+const EButton = (props) => {
   return (
-    <button className="info-button">
+    <button className="info-button"  onClick={props.onClick}>
       Example
     </button>
   )
 }
 
-const ViewAll = () => {
+const ViewAll = (props) => {
   return (
-    <button className="view-all">
+    <button className="view-all" onClick={props.onClick}>
       All
     </button>
   )
 }
 
-export { DButton, IButton, CButton, EButton, ViewAll }
+const InfoButtonWrapper = () => {
+  return (
+    <aside className="info-button-wrapper">
+          <DButton />
+          <IButton />
+          <CButton />
+          <EButton />
+          <ViewAll />
+    </aside>
+  )
+}
+export { InfoButtonWrapper }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function NavBar() {
+const NavBar = () => {
   return (
     <nav className="navBar">
       <a href='#'>View All Topics</a>
@@ -11,4 +11,4 @@ function NavBar() {
   )
 }
 
-export default NavBar
+export {NavBar}

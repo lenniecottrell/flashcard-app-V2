@@ -24,4 +24,14 @@ const NextButton = () => {
   )
 }
 
-export {RandomButton, PreviousButton, NextButton}
+const NavButtonWrapper = () => {
+  return (
+  <section className="nav-btn-wrapper">
+    <PreviousButton />
+    <RandomButton />
+    <NextButton />
+  </section>
+  )
+}
+
+export { NavButtonWrapper }
