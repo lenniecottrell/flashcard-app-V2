@@ -84,6 +84,7 @@ body {
 
 .question {
   border: 1px solid black;
+  flex: 1;
   padding: 15px;
   margin-right: 10px;
   background: #fffaff;

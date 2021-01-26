@@ -129,7 +129,7 @@ app.get('/topics/:id_topic/questions', async(req,res) => {
   }
 });
 
-//get a single question from a topic DONE
+//get a single question and accompanying answers from a topic DONE
 app.get('/topics/:id_topic/questions/:id_question', async(req,res) => {
   try {
     console.log(req.params);
@@ -143,9 +143,9 @@ app.get('/topics/:id_topic/questions/:id_question', async(req,res) => {
       res.json("No question was found with those parameters.")
       return;
     }
-    console.log(singleQuestion)
+    //console.log(singleQuestion.rows[0])
     res.json(singleQuestion.rows[0]);
-    console.log("Here is a single question");
+    console.log("Success, you returned a single question");
   } catch (error) {
     console.log("oopsie, something went wrong");
     console.error(error.message);

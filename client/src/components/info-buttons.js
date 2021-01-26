@@ -1,19 +1,21 @@
 import React from 'react'
 
-const DButton = (props) => {
-  const [definition] = useState('');
+//TODO these all need click functions
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    try {
-      const body = {definition};
-      const response = await fetch("http://localhost:5000/")
-    } catch (error) {
-      console.error(error.message)
-    }
-  }
+const DButton = (props) => {
+  // const [definition] = useState('');
+
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const body = {definition};
+  //     const response = await fetch("http://localhost:5000/")
+  //   } catch (error) {
+  //     console.error(error.message)
+  //   }
+  // }
   return (
-    <button className="info-button" onClick={this.handleClick}>
+    <button className="info-button" >
       Define
     </button>
   )
@@ -21,7 +23,7 @@ const DButton = (props) => {
 
 const IButton = (props) => {
   return (
-    <button className="info-button" onClick={props.onClick}>
+    <button className="info-button">
       Information
     </button>
   )
@@ -29,7 +31,7 @@ const IButton = (props) => {
 
 const CButton = (props) => {
   return (
-    <button className="info-button" onClick={props.onClick}>
+    <button className="info-button">
       Context
     </button>
   )
@@ -37,7 +39,7 @@ const CButton = (props) => {
 
 const EButton = (props) => {
   return (
-    <button className="info-button"  onClick={props.onClick}>
+    <button className="info-button">
       Example
     </button>
   )
@@ -45,7 +47,7 @@ const EButton = (props) => {
 
 const ViewAll = (props) => {
   return (
-    <button className="view-all" onClick={props.onClick}>
+    <button className="view-all">
       All
     </button>
   )

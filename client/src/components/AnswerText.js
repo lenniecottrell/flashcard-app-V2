@@ -1,14 +1,29 @@
 import React, { Component } from 'react'
 
-
-let answerText = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit voluptates ipsa iure a modi dolore rem impedit porro nihil facilis!"
-
 export default class AnswerText extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      answerText: answerText
+      answerText: 'Placeholder answer'
     }
+  }
+
+  callAPI() {
+    const body = ''
+    fetch("http://localhost:5000/topics/2/questions/2", {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    body: JSON.stringify(body)
+    }
+  })
+    .then(res => res.text())
+    .then(res => this.setState({answerText: res}))
+    .catch(err => err);
+  }
+
+  componentDidMount() {
+    this.callAPI();
   }
   render() {
     return (

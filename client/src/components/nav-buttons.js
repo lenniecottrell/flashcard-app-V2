@@ -1,5 +1,8 @@
 import React from 'react'
 
+
+//TODO these all need click functions
+
 const RandomButton = () => {
   return (
     <button className="nav-btn" id="randomBtn">

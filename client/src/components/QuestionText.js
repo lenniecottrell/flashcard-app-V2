@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
 
-let text = "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates consectetur sint nesciunt. Doloremque quisquam ipsum sint enim sequi quas aut ipsa aliquam sunt, nemo molestiae similique sapiente quam culpa excepturi."
-
 class QuestionText extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      questionText: text
+      questionText: 'placeholder question'
     }
+  }
+
+  callAPI() {
+    fetch("http://localhost:5000/topics/2/questions/2")
+      .then(res => res.json())
+      .then(data => console.log(data));
+  }
+
+  componentDidMount() {
+    this.callAPI();
   }
 
   render() {

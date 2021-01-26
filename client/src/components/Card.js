@@ -3,26 +3,16 @@ import TopicText from './TopicText'
 import MidsectionWrapper from './MidsectionWrapper'
 import AnswerText from './AnswerText'
 
-export default class Card extends Component {
-  constructor(props) {
-    super(props)
-  
-    this.state = {
-       
-    }
-  }
 
-  render() {
+const Card = () => {
     return (
       <section className="card">
         <TopicText />
         <MidsectionWrapper />
         <AnswerText />
       </section>
-    )
-  }
-}
+      )
+    }
 
-
-
+export default Card;
 
