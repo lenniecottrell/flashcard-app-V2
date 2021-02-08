@@ -16,7 +16,7 @@ const DButton = (props) => {
   // }
   return (
     <button className="info-button" >
-      Define
+      Definition
     </button>
   )
 }

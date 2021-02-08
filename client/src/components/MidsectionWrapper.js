@@ -2,10 +2,12 @@ import React from 'react';
 import {InfoButtonWrapper} from './info-buttons';
 import QuestionText from './QuestionText'
 
-function MidsectionWrapper() {
+function MidsectionWrapper({question, setQuestion}) {
   return (
     <section className="mid">
-      <QuestionText />
+      <QuestionText
+        question={question}
+      />
       <InfoButtonWrapper />
     </section>
   )

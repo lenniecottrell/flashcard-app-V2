@@ -1,30 +1,39 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-class QuestionText extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      questionText: 'placeholder question'
-    }
-  }
+// class QuestionText extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       questionText: 'placeholder question'
+//     }
+//   }
 
-  callAPI() {
-    fetch("http://localhost:5000/topics/2/questions/2")
-      .then(res => res.json())
-      .then(data => console.log(data));
-  }
+//   callAPI() {
+//     fetch("http://localhost:5000/topics/2/questions/2")
+//       .then(res => res.json())
+//       .then(data => console.log(data));
+//   }
 
-  componentDidMount() {
-    this.callAPI();
-  }
+//   componentDidMount() {
+//     this.callAPI();
+//   }
 
-  render() {
-    return(
+//   render() {
+//     return(
+//       <section className="question">
+//             <p>{this.state.questionText}</p>
+//       </section>
+//       )
+//     }
+//   }
+
+
+const QuestionText = ({question}) => {
+      return(
       <section className="question">
-            <p>{this.state.questionText}</p>
+            <p>{question}</p>
       </section>
       )
     }
-  }
 
 export default QuestionText

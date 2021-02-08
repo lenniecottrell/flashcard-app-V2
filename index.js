@@ -9,7 +9,6 @@ app.listen(5000, () => {
   console.log('CORS-enabled web server is listening on port 5000')
 });
 
-
 //-- ROUTES --//
 
 //create a topic DONE
