@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
@@ -67,9 +73,6 @@ body {
   color: white;
 }
 
-#nextBtn:hover {
-}
-
 .topic {
   max-height: fit-content;
   background: tomato;
@@ -95,39 +98,34 @@ body {
 .info-button-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  flex: 0 0 auto;
+  justify-content: space-between;
   border: 1px solid black;
+  border-radius: 10px;
   background: white;
   padding: 20px;
   margin-left: 10px;
-  width: auto;
-  overflow: auto;
-  max-width: 25%;
-  border-radius: 10px;
+  margin-right: 10px;
+  min-width: 25%;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
 }
 
 .info-button-wrapper > * {
+  flex: 0 1 auto;
   background: white;
-  width: auto;
   cursor: pointer;
-}
-
-.info-button::first-letter {
-  font-weight: bold;
 }
 
 .info-button {
   border: 1px solid black;
   border-radius: 10px;
   height: auto;
-  width: auto;
+  width: 135px;
   letter-spacing: 1.5px;
   margin-bottom: 0.25vw;
-  text-align: left;
+  text-align: center;
   font-size: 1.2em;
   min-width: max-content;
+  overflow: scroll;
 }
 
 .view-all {
@@ -145,12 +143,12 @@ body {
 
 .answer {
   font-weight: 300;
+  text-align: center;
   margin: 10px;
+  padding: 20px;
   border: 1px solid black;
   border-radius: 10px;
-  padding: 20px;
   background: #fffaff;
-  text-align: center;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
 }
 

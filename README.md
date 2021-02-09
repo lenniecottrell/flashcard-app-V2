@@ -9,14 +9,19 @@ The flashcard structure if based on a study technique I saw on LinkedIn called t
 
 ## User Story
 
-`AS A junior developer I WANT an app that helps me study programming terminology SO THAT I can deepen my knowledge about programming.`
+`AS A junior developer`
+`I WANT an app that helps me study programming terminology`
+`SO THAT I can deepen my knowledge about programming.`
 
 ## Progress
 
 ### 2/8/2021
 
 I've refactored my components again to use Hooks instead of class components, and everything seems to be working. I removed the database information for now, but that's only because I'm going to study the fetch API a little deeper so I really understand it before I try to implement it.
-I the gap in my progress was because I took some time to learn more about React. It was worth the break!
+
+At the moment I'm drilling all of my props from the top down. I know that it's not best practice, but I'm comfortable with it for now and it works. I plan to learn Redux for state management a little bit down the road, and I'll come back and refactor when I'm ready
+
+The gap in my progress was because I took some time to learn more about React. It was worth the break!
 
 ### 1/26/2021
 
