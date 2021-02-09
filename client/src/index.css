@@ -44,6 +44,13 @@ body {
   font-weight: bold;
 }
 
+/*
+*************************************
+THIS ENTIRE FILE HAS BEEN DEPRICATED.
+ALL STYLES HAVE BEEN UPGRADED TO SASS
+*************************************
+*/
+
 /* All the card's children */
 .card > * {
   padding: 8px;

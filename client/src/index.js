@@ -1,17 +1,18 @@
 import React, { useState }  from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+// import './index.css';
+import './styles/app.scss'
 import { NavButtonWrapper } from './components/nav-buttons';
 import Card from './components/Card';
 
 
 const Flashcard = () => {
- const [topic, setTopic] = useState("Sample Topic")
- const [question, setQuestion] = useState("Placeholder question")
- const [definition, setDefinition] = useState("Shoopa doop")
- const [information, setInformation] = useState(/*fetch information data */)
- const [context, setContext] = useState(/*fetch context data */)
- const [example, setExample] = useState(/*fetch example data */)
+  const [topic, setTopic] = useState("")
+  const [question, setQuestion] = useState("")
+  const [definition, setDefinition] = useState("Shoopa doop")
+  const [information, setInformation] = useState(/*fetch information data */)
+  const [context, setContext] = useState(/*fetch context data */)
+  const [example, setExample] = useState(/*fetch example data */)
 
 
   return (

@@ -14,6 +14,10 @@ const Card = ({topic, setTopic, question, setQuestion, definition, setDefinition
         <MidsectionWrapper
           question={question}
           setQuestion={setQuestion}
+          setDefinition={setDefinition}
+          setInformation={setInformation}
+          setContext={setContext}
+          setExample={setExample}
         />
         <AnswerText
           definition={definition}

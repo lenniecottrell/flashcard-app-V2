@@ -1,19 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 //TODO these all need click functions
 
-const DButton = (props) => {
-  // const [definition] = useState('');
-
-  // const handleClick = (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const body = {definition};
-  //     const response = await fetch("http://localhost:5000/")
-  //   } catch (error) {
-  //     console.error(error.message)
-  //   }
-  // }
+const DButton = () => {
   return (
     <button className="info-button" >
       Definition
@@ -21,7 +10,7 @@ const DButton = (props) => {
   )
 }
 
-const IButton = (props) => {
+const IButton = () => {
   return (
     <button className="info-button">
       Information
@@ -29,7 +18,7 @@ const IButton = (props) => {
   )
 }
 
-const CButton = (props) => {
+const CButton = () => {
   return (
     <button className="info-button">
       Context
@@ -37,7 +26,7 @@ const CButton = (props) => {
   )
 }
 
-const EButton = (props) => {
+const EButton = () => {
   return (
     <button className="info-button">
       Example
@@ -45,7 +34,7 @@ const EButton = (props) => {
   )
 }
 
-const ViewAll = (props) => {
+const ViewAll = () => {
   return (
     <button className="view-all">
       All

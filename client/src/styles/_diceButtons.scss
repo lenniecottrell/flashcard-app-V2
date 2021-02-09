@@ -1,0 +1,45 @@
+.info-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: white;
+  padding: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  min-width: 25%;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+}
+
+.info-button-wrapper > * {
+  flex: 0 1 auto;
+  background: white;
+  cursor: pointer;
+}
+
+.info-button {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: auto;
+  width: 135px;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.25vw;
+  text-align: center;
+  font-size: 1.2em;
+  min-width: max-content;
+}
+
+.view-all {
+  border: 1px solid black;
+  border-radius: 10px;
+  height: auto;
+  width: auto;
+  letter-spacing: 1.5px;
+  margin-top: 15px;
+  margin-bottom: 0.25vw;
+  text-align: center;
+  font-weight: normal;
+  font-size: 1em;
+  min-width: max-content;
+}
