@@ -5,13 +5,17 @@ import React, {useEffect} from 'react'
 const DButton = ({setAnswer}) => {
 
   //   useEffect(() => {
-  //   fetch(`/topics/2/questions/2`)
+  //   fetch(`http://localhost:5000/topics/2/questions/2`)
   //   .then(res => res.json())
-  //   .then((result) => setDefinition(result[0].definition))
+  //   .then((result) => setAnswer(result[0].definition))
   // })
 
   return (
-    <button className="info-button" onClick={() => setAnswer("definition")}>
+      <button className="info-button" onClick={() => {
+        fetch(`http://localhost:5000/topics/2/questions/2`)
+        .then(res => res.json())
+        .then((result) => setAnswer(result.definition))
+      }}>
       Definition
     </button>
   )
@@ -26,7 +30,7 @@ const IButton = ({setAnswer}) => {
     // })
 
   return (
-    <button className="info-button" onClick={() => setAnswer("information")}>
+    <button className="info-button" onClick={() => setAnswer("Information")}>
       Information
     </button>
   )
@@ -41,7 +45,7 @@ const CButton = ({setAnswer}) => {
     // })
 
   return (
-    <button className="info-button" onClick={() => setAnswer(`context`)}>
+    <button className="info-button" onClick={() => setAnswer(`Context`)}>
       Context
     </button>
   )
