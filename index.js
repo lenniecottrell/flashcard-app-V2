@@ -83,10 +83,10 @@ app.post('/topics/questions', async(req,res) => {
   try {
     console.log(req.params);
     console.log(req.body);
-    const {question, definition, information, context, example, fk_topic} = req.body;
+    const {question, definition, information, compare, example, fk_topic} = req.body;
     const newEntry = await pool.query(
-      "INSERT INTO public.tbl_question (question, definition, information, context, example, fk_topic) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
-      [question, definition, information, context, example, fk_topic] //these are variables, assigned from destructuring the request body, that go into the $values
+      "INSERT INTO public.tbl_question (question, definition, information, compare, example, fk_topic) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
+      [question, definition, information, compare, example, fk_topic] //these are variables, assigned from destructuring the request body, that go into the $values
       );
       res.json(newEntry.rows[0]);
       console.log("POST success. You created a question");
@@ -234,20 +234,20 @@ app.put('/topics/:id_topic/questions/:id_question/information', async(req,res) =
   }
 });
 
-//update the context DONE
-app.put('/topics/:id_topic/questions/:id_question/context', async(req,res) => {
+//update the compare DONE
+app.put('/topics/:id_topic/questions/:id_question/compare', async(req,res) => {
   try {
     console.log(req.params);
     console.log(req.body)
     const {id_topic, id_question} = req.params;
-    const { context } = req.body;
-    const updateQuestionContext = await pool.query(
-      "UPDATE public.tbl_question SET context = $1 WHERE id_question = $2 AND fk_topic = $3",
-      [ context, id_question, id_topic]
+    const { compare } = req.body;
+    const updateQuestionCompare = await pool.query(
+      "UPDATE public.tbl_question SET compare = $1 WHERE id_question = $2 AND fk_topic = $3",
+      [ compare, id_question, id_topic]
     );
-    console.log(updateQuestionContext)
-    res.json(`Context was updated: ${ context }`)
-    console.log(`Context was updated: ${ context }`)
+    console.log(updateQuestionCompare)
+    res.json(`Compare was updated: ${ compare }`)
+    console.log(`Compare was updated: ${ compare }`)
   } catch (error) {
     console.log("oopsie, something went wrong");
     console.error(error.message);
@@ -281,9 +281,9 @@ app.put('/topics/:id_topic/questions/:id_question/example', async(req,res) => {
 //   try {
 //     console.log(req.params);
 //     const {id_topic, id_question} = req.params;
-//     const {question:questionUpdate, definition:defUpdate, information:infoUpdate, context:contUpdate, example:exampUpdate} = req.body;
+//     const {question:questionUpdate, definition:defUpdate, information:infoUpdate, compare:contUpdate, example:exampUpdate} = req.body;
 //     const updateQuestion = await pool.query(
-//       "UPDATE public.tbl_question SET (question, definition, information, context, example) = ($1, $2, $3, $4, $5) WHERE id_question = $6 AND fk_topic = $7",
+//       "UPDATE public.tbl_question SET (question, definition, information, compare, example) = ($1, $2, $3, $4, $5) WHERE id_question = $6 AND fk_topic = $7",
 //       [questionUpdate, defUpdate, infoUpdate, contUpdate, exampUpdate, id_question, id_topic]
 //     );
 //       res.json("Success! Question was updated")

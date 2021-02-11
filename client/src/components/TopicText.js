@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 
 
 const TopicText = ({topic, setTopic}) => {
-  // const [topicId, setTopicId] = useState([]);
+
 
   useEffect(() => {
     fetch(`http://localhost:5000/topics/1`)

@@ -1,14 +1,8 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 
 //TODO these all need click functions
 
 const DButton = ({setAnswer}) => {
-
-  //   useEffect(() => {
-  //   fetch(`http://localhost:5000/topics/2/questions/2`)
-  //   .then(res => res.json())
-  //   .then((result) => setAnswer(result[0].definition))
-  // })
 
   return (
       <button className="info-button" onClick={() => {
@@ -23,14 +17,12 @@ const DButton = ({setAnswer}) => {
 
 const IButton = ({setAnswer}) => {
 
-    // useEffect(() => {
-    // fetch(`/topics/2/questions/2`)
-    // .then(res => res.json())
-    // .then((result) => setInformation(result[0].information))
-    // })
-
   return (
-    <button className="info-button" onClick={() => setAnswer("Information")}>
+    <button className="info-button" onClick={() => {
+        fetch(`http://localhost:5000/topics/2/questions/2`)
+        .then(res => res.json())
+        .then((result) => setAnswer(result.information))
+      }}>
       Information
     </button>
   )
@@ -38,29 +30,25 @@ const IButton = ({setAnswer}) => {
 
 const CButton = ({setAnswer}) => {
 
-    // useEffect(() => {
-    // fetch(`/topics/2/questions/2`)
-    // .then(res => res.json())
-    // .then((result) => setContext(result[0].context))
-    // })
-
   return (
-    <button className="info-button" onClick={() => setAnswer(`Context`)}>
-      Context
+    <button className="info-button" onClick={() => {
+        fetch(`http://localhost:5000/topics/2/questions/2`)
+        .then(res => res.json())
+        .then((result) => setAnswer(result.compare))
+      }}>
+      Compare
     </button>
   )
 }
 
 const EButton = ({setAnswer}) => {
 
-    // useEffect(() => {
-    // fetch(`/topics/2/questions/2`)
-    // .then(res => res.json())
-    // .then((result) => setExample(result[0].example))
-    // })
-
   return (
-    <button className="info-button" onClick={() => setAnswer(`Example`)}>
+    <button className="info-button" onClick={() => {
+        fetch(`http://localhost:5000/topics/2/questions/2`)
+        .then(res => res.json())
+        .then((result) => setAnswer(result.example))
+      }}>
       Example
     </button>
   )
@@ -74,27 +62,19 @@ const ViewAll = () => {
   )
 }
 
-const InfoButtonWrapper = ({definition, setDefinition, information, setInformation, context, setContext, example, setExample, setAnswer}) => {
+const InfoButtonWrapper = ({setAnswer}) => {
   return (
     <aside className="info-button-wrapper">
           <DButton 
-            definition={definition}
-            setDefinition={setDefinition}
             setAnswer={setAnswer}
           />
           <IButton 
-            information={information}
-            setInformation={setInformation}
             setAnswer={setAnswer}
           />
           <CButton
-            context={context}
-            setContext={setContext}
             setAnswer={setAnswer}
           />
           <EButton
-            example={example}
-            setExample={setExample}
             setAnswer={setAnswer}
           />
           <ViewAll/>

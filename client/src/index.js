@@ -11,7 +11,7 @@ const Flashcard = () => {
   const [question, setQuestion] = useState("")
   const [definition, setDefinition] = useState("Shoopa doop")
   const [information, setInformation] = useState(/*fetch information data */)
-  const [context, setContext] = useState(/*fetch context data */)
+  const [compare, setCompare] = useState(/*fetch context data */)
   const [example, setExample] = useState(/*fetch example data */)
   const [answer, setAnswer] = useState('');
 
@@ -27,8 +27,8 @@ const Flashcard = () => {
         setDefinition={setDefinition}
         information={information}
         setInformation-={setInformation}
-        context={context}
-        setContext={setContext}
+        compare={compare}
+        setCompare={setCompare}
         example={example}
         setExample={setExample}
         answer={answer}
