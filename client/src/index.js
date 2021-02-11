@@ -13,6 +13,7 @@ const Flashcard = () => {
   const [information, setInformation] = useState(/*fetch information data */)
   const [context, setContext] = useState(/*fetch context data */)
   const [example, setExample] = useState(/*fetch example data */)
+  const [answer, setAnswer] = useState('answer');
 
 
   return (
@@ -30,6 +31,8 @@ const Flashcard = () => {
         setContext={setContext}
         example={example}
         setExample={setExample}
+        answer={answer}
+        setAnswer={setAnswer}
       />
       <NavButtonWrapper />
     </div>

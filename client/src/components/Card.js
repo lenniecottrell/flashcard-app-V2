@@ -4,7 +4,7 @@ import MidsectionWrapper from './MidsectionWrapper'
 import AnswerText from './AnswerText'
 
 
-const Card = ({topic, setTopic, question, setQuestion, definition, setDefinition, information, setInformation, context, setContext, example, setExample}) => {
+const Card = ({topic, setTopic, question, setQuestion, definition, setDefinition, information, setInformation, context, setContext, example, setExample, answer, setAnswer}) => {
     return (
       <section className="card">
         <TopicText 
@@ -18,6 +18,7 @@ const Card = ({topic, setTopic, question, setQuestion, definition, setDefinition
           setInformation={setInformation}
           setContext={setContext}
           setExample={setExample}
+          setAnswer={setAnswer}
         />
         <AnswerText
           definition={definition}
@@ -28,6 +29,7 @@ const Card = ({topic, setTopic, question, setQuestion, definition, setDefinition
           setContext={setContext}
           example={example}
           setExample={setExample}
+          answer={answer}
         />
       </section>
       )

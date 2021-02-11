@@ -9,6 +9,7 @@ const TopicText = ({topic, setTopic}) => {
     .then(res => res.json())
     .then((result) => setTopic(result[0].topic))
   })
+
   return (
     <header className="topic">{topic}</header>
   )
