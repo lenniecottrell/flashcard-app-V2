@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 const TopicText = ({ topic, setTopic }) => {
   useEffect(() => {
-    fetch(`http://localhost:5000/topics/1`)
+    fetch(`http://localhost:5000/topics/${topic}`)
       .then((res) => res.json())
       .then((result) => setTopic(result[0].topic));
   });

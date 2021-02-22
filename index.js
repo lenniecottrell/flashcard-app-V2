@@ -1,21 +1,21 @@
 const express = require("express");
-const cors = require('cors');
+const cors = require("cors");
 const app = express();
-const pool = require('./db');
+const pool = require("./db");
 
 app.use(cors());
 app.use(express.json());
 app.listen(5000, () => {
-  console.log('CORS-enabled web server is listening on port 5000')
+  console.log("CORS-enabled web server is listening on port 5000");
 });
 
 //-- ROUTES --//
 
 //create a topic DONE
-app.post('/topics', async(req,res) => {
+app.post("/topics", async (req, res) => {
   try {
     console.log(req.body);
-    const {topic} = req.body;
+    const { topic } = req.body;
     const newTopic = await pool.query(
       "INSERT INTO public.tbl_topic (topic) VALUES($1) RETURNING *",
       [topic]
@@ -26,42 +26,40 @@ app.post('/topics', async(req,res) => {
     console.log("oopsie, something went wrong");
     console.error(error.message);
   }
-}); 
+});
 
 //get all topics DONE
-app.get('/topics', async(req,res) => {
+app.get("/topics", async (req, res) => {
   try {
     console.log(req.body);
-    const allTopics = await pool.query(
-      "SELECT * FROM public.tbl_topic"
-      );
-      res.json(allTopics.rows);
-      console.log("GET SUCCESS. You got all topics");
-    } catch (error) {
-      console.log("oopsie, something went wrong");
-      console.error(error.message);
-    }
+    const allTopics = await pool.query("SELECT * FROM public.tbl_topic");
+    res.json(allTopics.rows);
+    console.log("GET SUCCESS. You got all topics");
+  } catch (error) {
+    console.log("oopsie, something went wrong");
+    console.error(error.message);
+  }
 });
 
 //get a single topic DONE
-app.get('/topics/:id_topic', async(req,res) => {
+app.get("/topics/:topic", async (req, res) => {
   try {
     console.log(req.params);
-    const { id_topic } = req.params;
+    const { topic } = req.params;
     const singleTopic = await pool.query(
-      'SELECT topic FROM public.tbl_topic WHERE id_topic = $1',
-      [id_topic]
-      );
-      res.json(singleTopic.rows);
-      console.log("GET SUCCESS. You got a single topic");
-    } catch (error) {
-      console.log("oopsie, something went wrong");
-      console.error(error.message);
-    }
+      "SELECT topic FROM public.tbl_topic WHERE topic = $1",
+      [topic]
+    );
+    res.json(singleTopic.rows);
+    console.log("GET SUCCESS. You got a single topic");
+  } catch (error) {
+    console.log("oopsie, something went wrong");
+    console.error(error.message);
+  }
 });
 
 //update a topic DONE
-app.put('/topics/:id_topic', async(req,res) => {
+app.put("/topics/:id_topic", async (req, res) => {
   try {
     console.log(req.params);
     console.log(req.body);
@@ -79,17 +77,24 @@ app.put('/topics/:id_topic', async(req,res) => {
 });
 
 //create a question DONE
-app.post('/topics/questions', async(req,res) => {
+app.post("/topics/questions", async (req, res) => {
   try {
     console.log(req.params);
     console.log(req.body);
-    const {question, definition, information, compare, example, fk_topic} = req.body;
+    const {
+      question,
+      definition,
+      information,
+      compare,
+      example,
+      fk_topic,
+    } = req.body;
     const newEntry = await pool.query(
       "INSERT INTO public.tbl_question (question, definition, information, compare, example, fk_topic) VALUES($1, $2, $3, $4, $5, $6) RETURNING *",
       [question, definition, information, compare, example, fk_topic] //these are variables, assigned from destructuring the request body, that go into the $values
-      );
-      res.json(newEntry.rows[0]);
-      console.log("POST success. You created a question");
+    );
+    res.json(newEntry.rows[0]);
+    console.log("POST success. You created a question");
   } catch (error) {
     console.log("oopsie something went wrong");
     console.error(error.message);
@@ -97,13 +102,13 @@ app.post('/topics/questions', async(req,res) => {
 });
 
 //get all questions DONE
-app.get('/questions', async(req,res) => {
+app.get("/questions", async (req, res) => {
   try {
     const allQuestions = await pool.query(
       "SELECT * FROM public.tbl_question ORDER BY id_question ASC"
-      );
-      res.json(allQuestions.rows);
-      console.log("GET success. You got all questions");
+    );
+    res.json(allQuestions.rows);
+    console.log("GET success. You got all questions");
   } catch (error) {
     console.log("oopsie something went wrong");
     console.error(error.message);
@@ -111,7 +116,7 @@ app.get('/questions', async(req,res) => {
 });
 
 // get all questions in a topic DONE
-app.get('/topics/:id_topic/questions', async(req,res) => {
+app.get("/topics/:id_topic/questions", async (req, res) => {
   try {
     console.log(req.params);
     console.log(req.body);
@@ -129,7 +134,7 @@ app.get('/topics/:id_topic/questions', async(req,res) => {
 });
 
 //get a single question and accompanying answers from a topic DONE
-app.get('/topics/:id_topic/questions/:id_question', async(req,res) => {
+app.get("/topics/:id_topic/questions/:id_question", async (req, res) => {
   try {
     console.log(req.params);
     console.log(req.body);
@@ -138,8 +143,11 @@ app.get('/topics/:id_topic/questions/:id_question', async(req,res) => {
       "SELECT * FROM public.tbl_question WHERE id_question = $1 AND fk_topic = $2",
       [id_question, id_topic]
     );
-    if (typeof singleQuestion.rows !== 'undefined' && singleQuestion.rows.length == 0) {
-      res.json("No question was found with those parameters.")
+    if (
+      typeof singleQuestion.rows !== "undefined" &&
+      singleQuestion.rows.length == 0
+    ) {
+      res.json("No question was found with those parameters.");
       return;
     }
     //console.log(singleQuestion.rows[0])
@@ -156,18 +164,18 @@ app.get('/topics/:id_topic/questions/:id_question', async(req,res) => {
 /* I assume there is a clean way to send a single PUT request to a whole table and only update one or two columns. I don't know how to do that yet, so as of now I'll just make a bunch of single PUT requests to update single columns*/
 
 //add a question to a topic DONE
-app.put('/topics/questions/:id_question', async(req,res) => {
+app.put("/topics/questions/:id_question", async (req, res) => {
   try {
     console.log(req.params);
-    console.log(req.body)
-    const {id_question} = req.params;
+    console.log(req.body);
+    const { id_question } = req.params;
     const { fk_topic } = req.body;
     const updateQuestionTopic = await pool.query(
       "UPDATE public.tbl_question SET fk_topic = $1 WHERE id_question = $2",
       [fk_topic, id_question]
     );
-    res.json(updateQuestionTopic.rows[0])
-    console.log("Success! Question was updated")
+    res.json(updateQuestionTopic.rows[0]);
+    console.log("Success! Question was updated");
   } catch (error) {
     console.log("oopsie, something went wrong");
     console.error(error.message);
@@ -175,105 +183,119 @@ app.put('/topics/questions/:id_question', async(req,res) => {
 });
 
 //update the body of a question DONE
-app.put('/topics/:id_topic/questions/:id_question/question', async(req,res) => {
-  try {
-    console.log(req.params);
-    console.log(req.body)
-    const {id_topic, id_question} = req.params;
-    const { question } = req.body;
-    const updateQuestionBody = await pool.query(
-      "UPDATE public.tbl_question SET question = $1 WHERE id_question = $2 AND fk_topic = $3",
-      [ question, id_question, id_topic ]
-    );
-    console.log(updateQuestionBody)
-    res.json(`Question was updated: ${question}`)
-    console.log(`Question was updated: ${question}`)
-  } catch (error) {
-    console.log("oopsie, something went wrong");
-    console.error(error.message);
+app.put(
+  "/topics/:id_topic/questions/:id_question/question",
+  async (req, res) => {
+    try {
+      console.log(req.params);
+      console.log(req.body);
+      const { id_topic, id_question } = req.params;
+      const { question } = req.body;
+      const updateQuestionBody = await pool.query(
+        "UPDATE public.tbl_question SET question = $1 WHERE id_question = $2 AND fk_topic = $3",
+        [question, id_question, id_topic]
+      );
+      console.log(updateQuestionBody);
+      res.json(`Question was updated: ${question}`);
+      console.log(`Question was updated: ${question}`);
+    } catch (error) {
+      console.log("oopsie, something went wrong");
+      console.error(error.message);
+    }
   }
-});
+);
 
 //update the definition DONE
-app.put('/topics/:id_topic/questions/:id_question/definition', async(req,res) => {
-  try {
-    console.log(req.params);
-    console.log(req.body)
-    const {id_topic, id_question} = req.params;
-    const { definition } = req.body;
-    const updateQuestionDefinition = await pool.query(
-      "UPDATE public.tbl_question SET definition = $1 WHERE id_question = $2 AND fk_topic = $3",
-      [ definition, id_question, id_topic]
-    );
-    console.log(updateQuestionDefinition)
-    res.json(`Definition was updated: ${definition}`)
-    console.log(`Definition was updated: ${definition}`)
-  } catch (error) {
-    console.log("oopsie, something went wrong");
-    console.error(error.message);
+app.put(
+  "/topics/:id_topic/questions/:id_question/definition",
+  async (req, res) => {
+    try {
+      console.log(req.params);
+      console.log(req.body);
+      const { id_topic, id_question } = req.params;
+      const { definition } = req.body;
+      const updateQuestionDefinition = await pool.query(
+        "UPDATE public.tbl_question SET definition = $1 WHERE id_question = $2 AND fk_topic = $3",
+        [definition, id_question, id_topic]
+      );
+      console.log(updateQuestionDefinition);
+      res.json(`Definition was updated: ${definition}`);
+      console.log(`Definition was updated: ${definition}`);
+    } catch (error) {
+      console.log("oopsie, something went wrong");
+      console.error(error.message);
+    }
   }
-});
+);
 
 //update the information DONE
-app.put('/topics/:id_topic/questions/:id_question/information', async(req,res) => {
-  try {
-    console.log(req.params);
-    console.log(req.body)
-    const { id_topic, id_question} = req.params;
-    const { information } = req.body;
-    const updateQuestionInformation = await pool.query(
-      "UPDATE public.tbl_question SET information = $1 WHERE id_question = $2 AND fk_topic = $3",
-      [ information, id_question, id_topic]
-    );
-    console.log(updateQuestionInformation)
-    res.json(`Information was updated: ${ information }`)
-    console.log(`Information was updated: ${ information }`)
-  } catch (error) {
-    console.log("oopsie, something went wrong");
-    console.error(error.message);
+app.put(
+  "/topics/:id_topic/questions/:id_question/information",
+  async (req, res) => {
+    try {
+      console.log(req.params);
+      console.log(req.body);
+      const { id_topic, id_question } = req.params;
+      const { information } = req.body;
+      const updateQuestionInformation = await pool.query(
+        "UPDATE public.tbl_question SET information = $1 WHERE id_question = $2 AND fk_topic = $3",
+        [information, id_question, id_topic]
+      );
+      console.log(updateQuestionInformation);
+      res.json(`Information was updated: ${information}`);
+      console.log(`Information was updated: ${information}`);
+    } catch (error) {
+      console.log("oopsie, something went wrong");
+      console.error(error.message);
+    }
   }
-});
+);
 
 //update the compare DONE
-app.put('/topics/:id_topic/questions/:id_question/compare', async(req,res) => {
-  try {
-    console.log(req.params);
-    console.log(req.body)
-    const {id_topic, id_question} = req.params;
-    const { compare } = req.body;
-    const updateQuestionCompare = await pool.query(
-      "UPDATE public.tbl_question SET compare = $1 WHERE id_question = $2 AND fk_topic = $3",
-      [ compare, id_question, id_topic]
-    );
-    console.log(updateQuestionCompare)
-    res.json(`Compare was updated: ${ compare }`)
-    console.log(`Compare was updated: ${ compare }`)
-  } catch (error) {
-    console.log("oopsie, something went wrong");
-    console.error(error.message);
+app.put(
+  "/topics/:id_topic/questions/:id_question/compare",
+  async (req, res) => {
+    try {
+      console.log(req.params);
+      console.log(req.body);
+      const { id_topic, id_question } = req.params;
+      const { compare } = req.body;
+      const updateQuestionCompare = await pool.query(
+        "UPDATE public.tbl_question SET compare = $1 WHERE id_question = $2 AND fk_topic = $3",
+        [compare, id_question, id_topic]
+      );
+      console.log(updateQuestionCompare);
+      res.json(`Compare was updated: ${compare}`);
+      console.log(`Compare was updated: ${compare}`);
+    } catch (error) {
+      console.log("oopsie, something went wrong");
+      console.error(error.message);
+    }
   }
-});
+);
 
 //update the example NOT DONE
-app.put('/topics/:id_topic/questions/:id_question/example', async(req,res) => {
-  try {
-    console.log(req.params);
-    console.log(req.body)
-    const {id_topic, id_question} = req.params;
-    const { example } = req.body;
-    const updateQuestionExample = await pool.query(
-      "UPDATE public.tbl_question SET example = $1 WHERE id_question = $2 AND fk_topic = $3",
-      [ example, id_question, id_topic]
-    );
-    console.log(updateQuestionExample)
-    res.json(`Example was updated: ${ example }`)
-    console.log(`Example was updated: ${ example }`)
-  } catch (error) {
-    console.log("oopsie, something went wrong");
-    console.error(error.message);
+app.put(
+  "/topics/:id_topic/questions/:id_question/example",
+  async (req, res) => {
+    try {
+      console.log(req.params);
+      console.log(req.body);
+      const { id_topic, id_question } = req.params;
+      const { example } = req.body;
+      const updateQuestionExample = await pool.query(
+        "UPDATE public.tbl_question SET example = $1 WHERE id_question = $2 AND fk_topic = $3",
+        [example, id_question, id_topic]
+      );
+      console.log(updateQuestionExample);
+      res.json(`Example was updated: ${example}`);
+      console.log(`Example was updated: ${example}`);
+    } catch (error) {
+      console.log("oopsie, something went wrong");
+      console.error(error.message);
+    }
   }
-});
-
+);
 
 //***The below will update all question fields, I'm not sure how to weild this yet */
 
@@ -294,15 +316,15 @@ app.put('/topics/:id_topic/questions/:id_question/example', async(req,res) => {
 // });
 
 //delete a topic DONE
-app.delete('/topics/:id_topic', async(req,res) => {
+app.delete("/topics/:id_topic", async (req, res) => {
   try {
     console.log(req.params);
-    const {id_topic} = req.params;
+    const { id_topic } = req.params;
     const deleteTopic = await pool.query(
       "DELETE FROM public.tbl_topic WHERE id_topic = $1",
       [id_topic]
     );
-    console.log(deleteTopic)
+    console.log(deleteTopic);
     console.log("DELETE SUCCESS. You deleted a topic");
     res.json(`Topic was deleted`);
   } catch (error) {
@@ -312,16 +334,16 @@ app.delete('/topics/:id_topic', async(req,res) => {
 });
 
 //delete a question DONE
-app.delete('/topics/:id_topic/questions/:id_question', async(req,res) => {
+app.delete("/topics/:id_topic/questions/:id_question", async (req, res) => {
   try {
     console.log(req.params);
-    const {id_topic, id_question} = req.params;
+    const { id_topic, id_question } = req.params;
     const deleteQuestion = await pool.query(
       "DELETE FROM public.tbl_question WHERE id_question = $1 AND fk_topic = $2",
       [id_question, id_topic]
     );
-    console.log(deleteQuestion)
-    console.log("DELETE SUCCESS. You deleted a question")
+    console.log(deleteQuestion);
+    console.log("DELETE SUCCESS. You deleted a question");
     res.json(`Question was deleted`);
   } catch (error) {
     console.log("oopsie, something went wrong");

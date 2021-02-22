@@ -17,7 +17,7 @@ const Flashcard = () => {
 
   return (
     <div className="main-UI">
-      <TopicSelect />
+      <TopicSelect topic={topic} setTopic={setTopic} />
       <Card
         topic={topic}
         setTopic={setTopic}
