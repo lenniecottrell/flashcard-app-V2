@@ -1,84 +1,84 @@
-import React from 'react'
+import React from "react";
 
 //TODO these all need click functions
 
-const DButton = ({setAnswer}) => {
-
+const DButton = ({ setAnswer }) => {
   return (
-      <button className="info-button" onClick={() => {
+    <button
+      className="info-button"
+      onClick={() => {
         fetch(`http://localhost:5000/topics/2/questions/2`)
-        .then(res => res.json())
-        .then((result) => setAnswer(result.definition))
-      }}>
+          .then((res) => res.json())
+          .then((result) => setAnswer(result.definition));
+      }}
+    >
       Definition
     </button>
-  )
-}
+  );
+};
 
-const IButton = ({setAnswer}) => {
-
+const IButton = ({ setAnswer }) => {
   return (
-    <button className="info-button" onClick={() => {
+    <button
+      className="info-button"
+      onClick={() => {
         fetch(`http://localhost:5000/topics/2/questions/2`)
-        .then(res => res.json())
-        .then((result) => setAnswer(result.information))
-      }}>
+          .then((res) => res.json())
+          .then((result) => setAnswer(result.information));
+      }}
+    >
       Information
     </button>
-  )
-}
+  );
+};
 
-const CButton = ({setAnswer}) => {
-
+const CButton = ({ setAnswer }) => {
   return (
-    <button className="info-button" onClick={() => {
+    <button
+      className="info-button"
+      onClick={() => {
         fetch(`http://localhost:5000/topics/2/questions/2`)
-        .then(res => res.json())
-        .then((result) => setAnswer(result.compare))
-      }}>
+          .then((res) => res.json())
+          .then((result) => setAnswer(result.compare));
+      }}
+    >
       Compare
     </button>
-  )
-}
+  );
+};
 
-const EButton = ({setAnswer}) => {
-
+const EButton = ({ setAnswer }) => {
   return (
-    <button className="info-button" onClick={() => {
+    <button
+      className="info-button"
+      onClick={() => {
         fetch(`http://localhost:5000/topics/2/questions/2`)
-        .then(res => res.json())
-        .then((result) => setAnswer(result.example))
-      }}>
+          .then((res) => res.json())
+          .then((result) => setAnswer(result.example));
+      }}
+    >
       Example
     </button>
-  )
-}
+  );
+};
 
-const ViewAll = () => {
-  return (
-    <button className="view-all">
-      All
-    </button>
-  )
-}
+// const ViewAll = () => {
+//   return (
+//     <button className="view-all">
+//       All
+//     </button>
+//   )
+// }
 
-const InfoButtonWrapper = ({setAnswer}) => {
+const InfoButtonWrapper = ({ setAnswer }) => {
   return (
     <aside className="info-button-wrapper">
-          <DButton 
-            setAnswer={setAnswer}
-          />
-          <IButton 
-            setAnswer={setAnswer}
-          />
-          <CButton
-            setAnswer={setAnswer}
-          />
-          <EButton
-            setAnswer={setAnswer}
-          />
-          <ViewAll/>
+      <DButton setAnswer={setAnswer} />
+      <IButton setAnswer={setAnswer} />
+      <CButton setAnswer={setAnswer} />
+      <EButton setAnswer={setAnswer} />
+      {/* <ViewAll/> */}
     </aside>
-  )
-}
-export { InfoButtonWrapper }
+  );
+};
+export { InfoButtonWrapper };

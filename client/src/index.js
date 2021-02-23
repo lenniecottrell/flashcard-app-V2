@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 // import './index.css';
 import "./styles/app.scss";
@@ -7,20 +7,42 @@ import Card from "./components/Card";
 import TopicSelect from "./components/TopicSelect";
 
 const Flashcard = () => {
-  const [topic, setTopic] = useState("");
+  const [topic, setTopic] = useState("JavaScript");
+  const [topicList, setTopicList] = useState([]);
   const [question, setQuestion] = useState("");
-  const [definition, setDefinition] = useState("Shoopa doop");
+  const [definition, setDefinition] = useState("");
   const [information, setInformation] = useState(/*fetch information data */);
   const [compare, setCompare] = useState(/*fetch context data */);
   const [example, setExample] = useState(/*fetch example data */);
   const [answer, setAnswer] = useState("");
 
+  //get all topics for the drop down list
+  const fetchTopics = async () => {
+    await fetch(`http://localhost:5000/topics/`)
+      .then((res) => res.json())
+      .then((result) => setTopicList(result));
+  };
+
+  useEffect(() => {
+    fetchTopics();
+  }, []);
+
+  //set initial topic
+  const firstTopic = async () => {
+    await fetch(`http://localhost:5000/topics/Javascript`)
+      .then((res) => res.json())
+      .then((result) => setTopic(result[0].topic));
+  };
+
+  useEffect(() => {
+    firstTopic();
+  }, []);
+
   return (
     <div className="main-UI">
-      <TopicSelect topic={topic} setTopic={setTopic} />
+      <TopicSelect setTopic={setTopic} topicList={topicList} />
       <Card
         topic={topic}
-        setTopic={setTopic}
         question={question}
         setQuestion={setQuestion}
         definition={definition}
