@@ -3,9 +3,10 @@
 ## Description
 
 This is a flashcard app to help me (and others eventually!) study programming and computer science concepts. It's made with PostgreSQL, Express, React, and Node.
-This project is my first solo full-stack project. It's a work in progress.
 
-The flashcard structure if based on a study technique I saw on LinkedIn called the "DICE" method, which stands for Definition, Information, Context, and Example. If you can describe those four elements for any topic or concept, you know it pretty well!
+The flashcard structure if based on a study technique I saw on LinkedIn called the "DICE" method, which stands for Definition, Information, Compare, and Example. If you can describe those four elements for any topic or concept, you know it pretty well!
+
+This project is my first solo full-stack project.
 
 ## User Story
 
@@ -14,6 +15,12 @@ The flashcard structure if based on a study technique I saw on LinkedIn called t
 `SO THAT I can deepen my knowledge about programming.`
 
 ## Progress
+
+### 2/22/2021
+Today I figured out how to dynamically render a drop down list of topics based on the information in the topics table. I also connected the drop down list selection to the component state, so it updates the title of the flashcard when a new topic is selected
+
+### 2/11/2021 
+I successfully implemented the fetch method to get data from the backend and render it on the frontend. I also added button functionality to make each button grab the proper answer, and I updated the style in the answer box component.
 
 ### 2/8/2021
 
