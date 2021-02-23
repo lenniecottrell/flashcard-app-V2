@@ -134,14 +134,14 @@ app.get("/topics/:id_topic/questions", async (req, res) => {
 });
 
 //get a single question and accompanying answers from a topic DONE
-app.get("/topics/:id_topic/questions/:id_question", async (req, res) => {
+app.get("/topics/:topic/questions/:id_question", async (req, res) => {
   try {
     console.log(req.params);
     console.log(req.body);
-    const { id_topic, id_question } = req.params;
+    const { topic, id_question } = req.params;
     const singleQuestion = await pool.query(
-      "SELECT * FROM public.tbl_question WHERE id_question = $1 AND fk_topic = $2",
-      [id_question, id_topic]
+      "SELECT question, topic FROM public.tbl_question INNER JOIN public.tbl_topic ON fk_topic = id_topic AND id_question = $1 AND topic = $2",
+      [id_question, topic]
     );
     if (
       typeof singleQuestion.rows !== "undefined" &&

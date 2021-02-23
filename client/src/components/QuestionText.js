@@ -1,19 +1,17 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from "react";
 
+const QuestionText = ({ question, setQuestion, topic }) => {
+  useEffect(() => {
+    fetch(`http://localhost:5000/topics/${topic}/questions/1`)
+      .then((res) => res.json())
+      .then((result) => setQuestion(result.question));
+  });
 
-const QuestionText = ({question, setQuestion}) => {
-    useEffect(() => {
-      fetch(`http://localhost:5000/topics/2/questions/2`)
-      .then(res => res.json())
-      .then((result) => setQuestion(result.question))
-  })
+  return (
+    <section className="question">
+      <p>{question}</p>
+    </section>
+  );
+};
 
-      
-      return(
-      <section className="question">
-            <p>{question}</p>
-      </section>
-      )
-}
-
-export default QuestionText
+export default QuestionText;
