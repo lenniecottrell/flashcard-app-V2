@@ -2,14 +2,16 @@ import React from "react";
 
 //TODO these all need click functions
 
-const DButton = ({ setAnswer }) => {
+const DButton = ({ setAnswer, definition }) => {
   return (
     <button
       className="info-button"
       onClick={() => {
-        fetch(`http://localhost:5000/topics/2/questions/2`)
-          .then((res) => res.json())
-          .then((result) => setAnswer(result.definition));
+        setAnswer(definition);
+
+        // fetch(`http://localhost:5000/topics/2/questions/2`)
+        //   .then((res) => res.json())
+        //   .then((result) => setAnswer(result.definition));
       }}
     >
       Definition
@@ -17,14 +19,16 @@ const DButton = ({ setAnswer }) => {
   );
 };
 
-const IButton = ({ setAnswer }) => {
+const IButton = ({ setAnswer, information }) => {
   return (
     <button
       className="info-button"
       onClick={() => {
-        fetch(`http://localhost:5000/topics/2/questions/2`)
-          .then((res) => res.json())
-          .then((result) => setAnswer(result.information));
+        setAnswer(information);
+
+        // fetch(`http://localhost:5000/topics/2/questions/2`)
+        //   .then((res) => res.json())
+        //   .then((result) => setAnswer(result.information));
       }}
     >
       Information
@@ -32,14 +36,16 @@ const IButton = ({ setAnswer }) => {
   );
 };
 
-const CButton = ({ setAnswer }) => {
+const CButton = ({ setAnswer, compare }) => {
   return (
     <button
       className="info-button"
       onClick={() => {
-        fetch(`http://localhost:5000/topics/2/questions/2`)
-          .then((res) => res.json())
-          .then((result) => setAnswer(result.compare));
+        setAnswer(compare);
+
+        // fetch(`http://localhost:5000/topics/2/questions/2`)
+        //   .then((res) => res.json())
+        //   .then((result) => setAnswer(result.compare));
       }}
     >
       Compare
@@ -47,14 +53,16 @@ const CButton = ({ setAnswer }) => {
   );
 };
 
-const EButton = ({ setAnswer }) => {
+const EButton = ({ setAnswer, example }) => {
   return (
     <button
       className="info-button"
       onClick={() => {
-        fetch(`http://localhost:5000/topics/2/questions/2`)
-          .then((res) => res.json())
-          .then((result) => setAnswer(result.example));
+        setAnswer(example);
+
+        // fetch(`http://localhost:5000/topics/2/questions/2`)
+        //   .then((res) => res.json())
+        //   .then((result) => setAnswer(result.example));
       }}
     >
       Example
@@ -70,13 +78,19 @@ const EButton = ({ setAnswer }) => {
 //   )
 // }
 
-const InfoButtonWrapper = ({ setAnswer }) => {
+const InfoButtonWrapper = ({
+  setAnswer,
+  definition,
+  information,
+  compare,
+  example,
+}) => {
   return (
     <aside className="info-button-wrapper">
-      <DButton setAnswer={setAnswer} />
-      <IButton setAnswer={setAnswer} />
-      <CButton setAnswer={setAnswer} />
-      <EButton setAnswer={setAnswer} />
+      <DButton setAnswer={setAnswer} definition={definition} />
+      <IButton setAnswer={setAnswer} information={information} />
+      <CButton setAnswer={setAnswer} compare={compare} />
+      <EButton setAnswer={setAnswer} example={example} />
       {/* <ViewAll/> */}
     </aside>
   );

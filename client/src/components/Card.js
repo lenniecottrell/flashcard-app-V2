@@ -6,11 +6,12 @@ import AnswerText from "./AnswerText";
 const Card = ({
   topic,
   question,
+  questionId,
   setQuestion,
-  setDefinition,
-  setInformation,
-  setCompare,
-  setExample,
+  definition,
+  information,
+  compare,
+  example,
   answer,
   setAnswer,
 }) => {
@@ -20,11 +21,12 @@ const Card = ({
       <MidsectionWrapper
         topic={topic}
         question={question}
+        questionId={questionId}
         setQuestion={setQuestion}
-        setDefinition={setDefinition}
-        setInformation={setInformation}
-        setCompare={setCompare}
-        setExample={setExample}
+        definition={definition}
+        information={information}
+        compare={compare}
+        example={example}
         setAnswer={setAnswer}
       />
       <AnswerText answer={answer} />

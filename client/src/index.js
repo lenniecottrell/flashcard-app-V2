@@ -7,9 +7,10 @@ import Card from "./components/Card";
 import TopicSelect from "./components/TopicSelect";
 
 const Flashcard = () => {
-  const [topic, setTopic] = useState("JavaScript");
-  const [topicList, setTopicList] = useState([]);
-  const [question, setQuestion] = useState("");
+  const [topic, setTopic] = useState("Javascript");
+  const [topicList, setTopicList] = useState(["Javascript"]);
+  const [question, setQuestion] = useState([]);
+  const [questionId, setQuestionId] = useState(1);
   const [definition, setDefinition] = useState("");
   const [information, setInformation] = useState(/*fetch information data */);
   const [compare, setCompare] = useState(/*fetch context data */);
@@ -38,6 +39,25 @@ const Flashcard = () => {
     firstTopic();
   }, []);
 
+  //set initial question response
+  const firstQuestion = async () => {
+    await fetch(`http://localhost:5000/topics/Javascript/questions`)
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        setQuestion(result[0].question);
+        setQuestionId(result[0].id_question);
+        setDefinition(result[0].definition);
+        setInformation(result[0].information);
+        setCompare(result[0].compare);
+        setExample(result[0].example);
+      });
+  };
+
+  useEffect(() => {
+    firstQuestion();
+  }, []);
+
   return (
     <div className="main-UI">
       <TopicSelect setTopic={setTopic} topicList={topicList} />
@@ -45,14 +65,11 @@ const Flashcard = () => {
         topic={topic}
         question={question}
         setQuestion={setQuestion}
+        questionId={questionId}
         definition={definition}
-        setDefinition={setDefinition}
         information={information}
-        setInformation-={setInformation}
         compare={compare}
-        setCompare={setCompare}
         example={example}
-        setExample={setExample}
         answer={answer}
         setAnswer={setAnswer}
       />

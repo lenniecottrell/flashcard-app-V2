@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 
-const QuestionText = ({ question, setQuestion, topic }) => {
+const QuestionText = ({ question, setQuestion, topic, questionId }) => {
   useEffect(() => {
-    fetch(`http://localhost:5000/topics/${topic}/questions/1`)
+    //the question ID needs to be dynamic
+    fetch(`http://localhost:5000/topics/${topic}/questions/${questionId}`)
       .then((res) => res.json())
       .then((result) => setQuestion(result.question));
   });
