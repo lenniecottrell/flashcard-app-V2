@@ -1,7 +1,7 @@
 import React from "react";
 
 const TopicText = ({ topic }) => {
-  return <header className="topic">{topic}</header>;
+  return <h3 className="topic">{topic}</h3>;
 };
 
 export default TopicText;

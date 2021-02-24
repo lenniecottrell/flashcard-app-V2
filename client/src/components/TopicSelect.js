@@ -1,6 +1,6 @@
 import React from "react";
 
-const TopicSelect = ({ setTopic, topicList }) => {
+const TopicSelect = ({ topicList, handleTopicChange }) => {
   //make an array from the topicList object
   const topicChoices = topicList.map((item) => item.topic);
 
@@ -13,9 +13,9 @@ const TopicSelect = ({ setTopic, topicList }) => {
     );
   });
 
-  const handleTopicChange = (e) => {
-    setTopic(e.target.value);
-  };
+  // const handleTopicChange = (e) => {
+  //   setTopic(e.target.value);
+  // };
 
   return (
     <div className="topicSelect">

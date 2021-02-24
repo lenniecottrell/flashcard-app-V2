@@ -159,8 +159,6 @@ app.get("/topics/:topic/questions/:id_question", async (req, res) => {
   }
 });
 
-/* There may be an issue with the way ID's are set up. Should there be a sub ID under topic? so like topic 1, question 1? In that case, the questions need TWO IDs, one unique and one subordinate to the topic */
-
 /* I assume there is a clean way to send a single PUT request to a whole table and only update one or two columns. I don't know how to do that yet, so as of now I'll just make a bunch of single PUT requests to update single columns*/
 
 //add a question to a topic DONE
@@ -182,28 +180,26 @@ app.put("/topics/questions/:id_question", async (req, res) => {
   }
 });
 
-//update the body of a question DONE
-app.put(
-  "/topics/:id_topic/questions/:id_question/question",
-  async (req, res) => {
-    try {
-      console.log(req.params);
-      console.log(req.body);
-      const { id_topic, id_question } = req.params;
-      const { question } = req.body;
-      const updateQuestionBody = await pool.query(
-        "UPDATE public.tbl_question SET question = $1 WHERE id_question = $2 AND fk_topic = $3",
-        [question, id_question, id_topic]
-      );
-      console.log(updateQuestionBody);
-      res.json(`Question was updated: ${question}`);
-      console.log(`Question was updated: ${question}`);
-    } catch (error) {
-      console.log("oopsie, something went wrong");
-      console.error(error.message);
-    }
+//update the body of a question THIS IS WHERE I LEFT OFF, TRYING TO UPDATE THE QUESTION BODY
+// this was also in service of trying to figure out how to update the question contents based on the selected topic
+app.put("/topics/:topic/questions/:id_question/", async (req, res) => {
+  try {
+    console.log(req.params);
+    console.log(req.body);
+    const { topic, id_question } = req.params;
+    const { question } = req.body;
+    const updateQuestionBody = await pool.query(
+      "UPDATE public.tbl_question SET question = $1 WHERE id_question = $2 AND topic = $3",
+      [question, id_question, topic]
+    );
+    console.log(updateQuestionBody);
+    res.json(`Question was updated: ${question}`);
+    console.log(`Question was updated: ${question}`);
+  } catch (error) {
+    console.log("oopsie, something went wrong");
+    console.error(error.message);
   }
-);
+});
 
 //update the definition DONE
 app.put(
