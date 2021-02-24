@@ -16,10 +16,16 @@ This project is my first solo full-stack project.
 
 ## Progress
 
+### 2/23/2021
+
+My next task is getting the first question of each topic to render as soon as the topic is selected. This means I need to restructure some of my API calls and figure out the best place to put my state. I know Redux will help with this, but I want to get it to work on its own before I add another tool on top of it.
+
 ### 2/22/2021
+
 Today I figured out how to dynamically render a drop down list of topics based on the information in the topics table. I also connected the drop down list selection to the component state, so it updates the title of the flashcard when a new topic is selected
 
-### 2/11/2021 
+### 2/11/2021
+
 I successfully implemented the fetch method to get data from the backend and render it on the frontend. I also added button functionality to make each button grab the proper answer, and I updated the style in the answer box component.
 
 ### 2/8/2021
