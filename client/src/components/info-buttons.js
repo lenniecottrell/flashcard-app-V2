@@ -8,10 +8,6 @@ const DButton = ({ setAnswer, definition }) => {
       className="info-button"
       onClick={() => {
         setAnswer(definition);
-
-        // fetch(`http://localhost:5000/topics/2/questions/2`)
-        //   .then((res) => res.json())
-        //   .then((result) => setAnswer(result.definition));
       }}
     >
       Definition
@@ -25,10 +21,6 @@ const IButton = ({ setAnswer, information }) => {
       className="info-button"
       onClick={() => {
         setAnswer(information);
-
-        // fetch(`http://localhost:5000/topics/2/questions/2`)
-        //   .then((res) => res.json())
-        //   .then((result) => setAnswer(result.information));
       }}
     >
       Information
@@ -42,10 +34,6 @@ const CButton = ({ setAnswer, compare }) => {
       className="info-button"
       onClick={() => {
         setAnswer(compare);
-
-        // fetch(`http://localhost:5000/topics/2/questions/2`)
-        //   .then((res) => res.json())
-        //   .then((result) => setAnswer(result.compare));
       }}
     >
       Compare
@@ -59,10 +47,6 @@ const EButton = ({ setAnswer, example }) => {
       className="info-button"
       onClick={() => {
         setAnswer(example);
-
-        // fetch(`http://localhost:5000/topics/2/questions/2`)
-        //   .then((res) => res.json())
-        //   .then((result) => setAnswer(result.example));
       }}
     >
       Example

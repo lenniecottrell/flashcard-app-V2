@@ -13,10 +13,6 @@ const TopicSelect = ({ topicList, handleTopicChange }) => {
     );
   });
 
-  // const handleTopicChange = (e) => {
-  //   setTopic(e.target.value);
-  // };
-
   return (
     <div className="topicSelect">
       <label htmlFor="topicSelect">Select a topic:</label>

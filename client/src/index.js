@@ -11,7 +11,7 @@ const Flashcard = () => {
   const [topicList, setTopicList] = useState(["Javascript"]);
   const [question, setQuestion] = useState([]);
   const [questionId, setQuestionId] = useState(1);
-  const [questionList, setquestionList] = useState([]);
+  const [questionList, setQuestionList] = useState([]);
   const [definition, setDefinition] = useState("");
   const [information, setInformation] = useState("");
   const [compare, setCompare] = useState("");
@@ -24,6 +24,8 @@ const Flashcard = () => {
       .then((res) => res.json())
       .then((result) => {
         setTopicList(result);
+        //console.log("topic list from index =  " + JSON.stringify(result));
+        //set the first topic
         setTopic(result[0].topic);
       });
   };
@@ -32,40 +34,10 @@ const Flashcard = () => {
     fetchTopics();
   }, []);
 
-  //set initial topic
-  // const fetchTopic = async () => {
-  //   await fetch(`http://localhost:5000/topics/Javascript`)
-  //     .then((res) => res.json())
-  //     .then((result) => setTopic(result[0].topic));
-  // };
-
-  // useEffect(() => {
-  //   fetchTopic();
-  // }, []);
-
-  //grab all the questions in a topic and set the answers
-  const fetchQuestion = async (topic) => {
-    await fetch(`http://localhost:5000/topics/${topic}/questions`)
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        setquestionList(result);
-        setQuestion(result[0].question);
-        setQuestionId(result[0].id_question);
-        setDefinition(result[0].definition);
-        setInformation(result[0].information);
-        setCompare(result[0].compare);
-        setExample(result[0].example);
-      });
-  };
-
-  // useEffect(() => {
-  //   fetchQuestion();
-  // }, []);
-
+  //change topic state from the dropdown component
   const handleTopicChange = (e) => {
     setTopic(e.target.value);
-    fetchQuestion(topic);
+    //when the topic changes, topic state is passed to the card, where it fetches all questions in that topic
   };
 
   return (
@@ -78,11 +50,18 @@ const Flashcard = () => {
         topic={topic}
         question={question}
         setQuestion={setQuestion}
+        questionList={questionList}
+        setQuestionList={setQuestionList}
         questionId={questionId}
+        setQuestionId={setQuestionId}
         definition={definition}
+        setDefinition={setDefinition}
         information={information}
+        setInformation={setInformation}
         compare={compare}
+        setCompare={setCompare}
         example={example}
+        setExample={setExample}
         answer={answer}
         setAnswer={setAnswer}
       />

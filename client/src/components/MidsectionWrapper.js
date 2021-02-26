@@ -13,6 +13,7 @@ function MidsectionWrapper({
   compare,
   example,
 }) {
+  console.log("from midsection wrapper: " + question);
   return (
     <section className="mid">
       <QuestionText
@@ -23,7 +24,6 @@ function MidsectionWrapper({
       />
       <InfoButtonWrapper
         setAnswer={setAnswer}
-        topic={topic}
         definition={definition}
         information={information}
         compare={compare}
