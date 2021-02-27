@@ -16,6 +16,20 @@ This project is my first solo full-stack project.
 
 ## Progress
 
+### 2/26/2021
+
+After some thinking and planning over the last couple of days, I realized that I've overcomplicated things a bit. All I really need for this to work is to get a topic, and then get all the questions in that topic. From all of the questions, I need to store each individual piece of information in its own state, but I don't need to make a `fetch()` call for every little thing.
+
+Easier said than done, of course. The implementation was a little trickier for me than I had hoped, but I did get it working eventually! I was successfully getting the list of questions, but for a while the question list wasn't updating with the topic state. I asked a question on Coding Coach and they pointed me to a missing dependency in useEffect. I definitely need to study useEffect closer to understand better how it worked.
+
+#### Version control saved me today!
+
+After I connected question state to topic state, I pushed up my changes. Then I started working on making the 'next' and 'previous' buttons work. I made a bunch of changes, including moving the question state back to the top level, and then... everything broke. All the way back to topic state not working. I learned about `git clean` and `git reset` today.
+
+I feel really good about my progress this week. Slow but steady. I'll feel comfortable deploying a production version once I get the navigation buttons working.
+
+Even though I don't need the create edit and delete functionality yet, I'm glad I already have it written out. I'm positive that I'll need to rewrite it, but at least I've tested what I have and know that the skeleton works.
+
 ### 2/23/2021
 
 My next task is getting the first question of each topic to render as soon as the topic is selected. This means I need to restructure some of my API calls and figure out the best place to put my state. I know Redux will help with this, but I want to get it to work on its own before I add another tool on top of it.
