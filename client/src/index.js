@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 // import './index.css';
 import "./styles/app.scss";
-import { NavButtonWrapper } from "./components/nav-buttons";
+import ChangeQuestionWrapper from "./components/ChangeQuestionWrapper";
 import Card from "./components/Card";
 import TopicSelect from "./components/TopicSelect";
 
@@ -24,7 +24,6 @@ const Flashcard = () => {
       .then((res) => res.json())
       .then((result) => {
         setTopicList(result);
-        //console.log("topic list from index =  " + JSON.stringify(result));
         //set the first topic
         setTopic(result[0].topic);
       });
@@ -65,7 +64,7 @@ const Flashcard = () => {
         answer={answer}
         setAnswer={setAnswer}
       />
-      <NavButtonWrapper />
+      <ChangeQuestionWrapper />
     </div>
   );
 };

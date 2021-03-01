@@ -1,7 +1,5 @@
 import React from "react";
 
-//TODO these all need click functions
-
 const DButton = ({ setAnswer, definition }) => {
   return (
     <button

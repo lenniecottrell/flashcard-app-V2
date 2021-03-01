@@ -13,7 +13,7 @@ function MidsectionWrapper({
   compare,
   example,
 }) {
-  console.log("from midsection wrapper: " + question);
+  //console.log("from midsection wrapper: " + question);
   return (
     <section className="mid">
       <QuestionText
