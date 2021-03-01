@@ -69,6 +69,7 @@ app.put("/topics/:id_topic", async (req, res) => {
       "UPDATE public.tbl_topic SET topic = $1 WHERE id_topic = $2",
       [topic, id_topic]
     );
+    console.log(`Success, topic was updated to ${topic}`);
     res.json(updateTopic.rows[0]);
   } catch (error) {
     console.log("oopsie, something went wrong");
@@ -180,16 +181,15 @@ app.put("/topics/questions/:id_question", async (req, res) => {
   }
 });
 
-//update the body of a question THIS IS WHERE I LEFT OFF, TRYING TO UPDATE THE QUESTION BODY
-// this was also in service of trying to figure out how to update the question contents based on the selected topic
-app.put("/topics/:topic/questions/:id_question/", async (req, res) => {
+//update the body of a question DONE
+app.put("/topics/:topic/questions/:id_question/question", async (req, res) => {
   try {
     console.log(req.params);
     console.log(req.body);
     const { topic, id_question } = req.params;
     const { question } = req.body;
     const updateQuestionBody = await pool.query(
-      "UPDATE public.tbl_question SET question = $1 WHERE id_question = $2 AND topic = $3",
+      "UPDATE public.tbl_question SET question = $1 FROM public.tbl_topic WHERE id_question = $2 AND topic = $3",
       [question, id_question, topic]
     );
     console.log(updateQuestionBody);
@@ -203,16 +203,16 @@ app.put("/topics/:topic/questions/:id_question/", async (req, res) => {
 
 //update the definition DONE
 app.put(
-  "/topics/:id_topic/questions/:id_question/definition",
+  "/topics/:topic/questions/:id_question/definition",
   async (req, res) => {
     try {
       console.log(req.params);
       console.log(req.body);
-      const { id_topic, id_question } = req.params;
+      const { topic, id_question } = req.params;
       const { definition } = req.body;
       const updateQuestionDefinition = await pool.query(
-        "UPDATE public.tbl_question SET definition = $1 WHERE id_question = $2 AND fk_topic = $3",
-        [definition, id_question, id_topic]
+        "UPDATE public.tbl_question SET definition = $1 FROM public.tbl_topic WHERE id_question = $2 AND topic = $3",
+        [definition, id_question, topic]
       );
       console.log(updateQuestionDefinition);
       res.json(`Definition was updated: ${definition}`);
@@ -226,16 +226,16 @@ app.put(
 
 //update the information DONE
 app.put(
-  "/topics/:id_topic/questions/:id_question/information",
+  "/topics/:topic/questions/:id_question/information",
   async (req, res) => {
     try {
       console.log(req.params);
       console.log(req.body);
-      const { id_topic, id_question } = req.params;
+      const { topic, id_question } = req.params;
       const { information } = req.body;
       const updateQuestionInformation = await pool.query(
-        "UPDATE public.tbl_question SET information = $1 WHERE id_question = $2 AND fk_topic = $3",
-        [information, id_question, id_topic]
+        "UPDATE public.tbl_question SET information = $1 FROM public.tbl_topic WHERE id_question = $2 AND topic = $3",
+        [information, id_question, topic]
       );
       console.log(updateQuestionInformation);
       res.json(`Information was updated: ${information}`);
@@ -248,50 +248,44 @@ app.put(
 );
 
 //update the compare DONE
-app.put(
-  "/topics/:id_topic/questions/:id_question/compare",
-  async (req, res) => {
-    try {
-      console.log(req.params);
-      console.log(req.body);
-      const { id_topic, id_question } = req.params;
-      const { compare } = req.body;
-      const updateQuestionCompare = await pool.query(
-        "UPDATE public.tbl_question SET compare = $1 WHERE id_question = $2 AND fk_topic = $3",
-        [compare, id_question, id_topic]
-      );
-      console.log(updateQuestionCompare);
-      res.json(`Compare was updated: ${compare}`);
-      console.log(`Compare was updated: ${compare}`);
-    } catch (error) {
-      console.log("oopsie, something went wrong");
-      console.error(error.message);
-    }
+app.put("/topics/:topic/questions/:id_question/compare", async (req, res) => {
+  try {
+    console.log(req.params);
+    console.log(req.body);
+    const { topic, id_question } = req.params;
+    const { compare } = req.body;
+    const updateQuestionCompare = await pool.query(
+      "UPDATE public.tbl_question SET compare = $1 FROM public.tbl_topic WHERE id_question = $2 AND topic = $3",
+      [compare, id_question, topic]
+    );
+    console.log(updateQuestionCompare);
+    res.json(`Compare was updated: ${compare}`);
+    console.log(`Compare was updated: ${compare}`);
+  } catch (error) {
+    console.log("oopsie, something went wrong");
+    console.error(error.message);
   }
-);
+});
 
-//update the example NOT DONE
-app.put(
-  "/topics/:id_topic/questions/:id_question/example",
-  async (req, res) => {
-    try {
-      console.log(req.params);
-      console.log(req.body);
-      const { id_topic, id_question } = req.params;
-      const { example } = req.body;
-      const updateQuestionExample = await pool.query(
-        "UPDATE public.tbl_question SET example = $1 WHERE id_question = $2 AND fk_topic = $3",
-        [example, id_question, id_topic]
-      );
-      console.log(updateQuestionExample);
-      res.json(`Example was updated: ${example}`);
-      console.log(`Example was updated: ${example}`);
-    } catch (error) {
-      console.log("oopsie, something went wrong");
-      console.error(error.message);
-    }
+//update the example DONE
+app.put("/topics/:topic/questions/:id_question/example", async (req, res) => {
+  try {
+    console.log(req.params);
+    console.log(req.body);
+    const { topic, id_question } = req.params;
+    const { example } = req.body;
+    const updateQuestionExample = await pool.query(
+      "UPDATE public.tbl_question SET example = $1 FROM public.tbl_topic WHERE id_question = $2 AND topic = $3",
+      [example, id_question, topic]
+    );
+    console.log(updateQuestionExample);
+    res.json(`Example was updated: ${example}`);
+    console.log(`Example was updated: ${example}`);
+  } catch (error) {
+    console.log("oopsie, something went wrong");
+    console.error(error.message);
   }
-);
+});
 
 //***The below will update all question fields, I'm not sure how to weild this yet */
 
@@ -312,16 +306,16 @@ app.put(
 // });
 
 //delete a topic DONE
-app.delete("/topics/:id_topic", async (req, res) => {
+app.delete("/topics/:topic", async (req, res) => {
   try {
     console.log(req.params);
-    const { id_topic } = req.params;
+    const { topic } = req.params;
     const deleteTopic = await pool.query(
-      "DELETE FROM public.tbl_topic WHERE id_topic = $1",
-      [id_topic]
+      "DELETE FROM public.tbl_topic WHERE topic = $1",
+      [topic]
     );
     console.log(deleteTopic);
-    console.log("DELETE SUCCESS. You deleted a topic");
+    console.log(`DELETE SUCCESS. You deleted ${topic}`);
     res.json(`Topic was deleted`);
   } catch (error) {
     console.log("oopsie, something went wrong");
@@ -330,13 +324,13 @@ app.delete("/topics/:id_topic", async (req, res) => {
 });
 
 //delete a question DONE
-app.delete("/topics/:id_topic/questions/:id_question", async (req, res) => {
+app.delete("/topics/:topic/questions/:id_question", async (req, res) => {
   try {
     console.log(req.params);
-    const { id_topic, id_question } = req.params;
+    const { id_question } = req.params;
     const deleteQuestion = await pool.query(
-      "DELETE FROM public.tbl_question WHERE id_question = $1 AND fk_topic = $2",
-      [id_question, id_topic]
+      "DELETE FROM public.tbl_question WHERE id_question = $1",
+      [id_question]
     );
     console.log(deleteQuestion);
     console.log("DELETE SUCCESS. You deleted a question");

@@ -20,6 +20,10 @@ const ChangeQuestionWrapper = ({
     );
     console.log(currentIndex);
     if (action === "next") {
+      if (currentIndex + 1 >= questionList.length) {
+        alert("You've reached the last question in this topic");
+        return;
+      }
       await setAnswer("");
       setQuestion(questionList[currentIndex + 1].question);
       setQuestionId(questionList[currentIndex + 1].id_question);
@@ -30,7 +34,6 @@ const ChangeQuestionWrapper = ({
     }
     if (action === "prev") {
       if (currentIndex === 0) {
-        console.log("can't go back");
         alert("You are currently on the first question");
         return;
       } else {
