@@ -7,12 +7,12 @@ const ChangeQuestionWrapper = ({
   questionList,
   setQuestion,
   questionId,
-  question,
   setCompare,
   setDefinition,
   setExample,
   setInformation,
   setQuestionId,
+  setAnswer,
 }) => {
   const handleQuestionChange = async (action) => {
     let currentIndex = questionList.findIndex(
@@ -20,7 +20,8 @@ const ChangeQuestionWrapper = ({
     );
     console.log(currentIndex);
     if (action === "next") {
-      await setQuestion(questionList[currentIndex + 1].question);
+      await setAnswer("");
+      setQuestion(questionList[currentIndex + 1].question);
       setQuestionId(questionList[currentIndex + 1].id_question);
       setDefinition(questionList[currentIndex + 1].definition);
       setInformation(questionList[currentIndex + 1].information);
@@ -30,9 +31,11 @@ const ChangeQuestionWrapper = ({
     if (action === "prev") {
       if (currentIndex === 0) {
         console.log("can't go back");
+        alert("You are currently on the first question");
         return;
       } else {
-        await setQuestion(questionList[currentIndex - 1].question);
+        await setAnswer("");
+        setQuestion(questionList[currentIndex - 1].question);
         setQuestionId(questionList[currentIndex - 1].id_question);
         setDefinition(questionList[currentIndex - 1].definition);
         setInformation(questionList[currentIndex - 1].information);
@@ -41,13 +44,21 @@ const ChangeQuestionWrapper = ({
       }
     }
     if (action === "random") {
-      let randomInt = Math.floor(Math.random() * questionList.length + 1);
-      await setQuestion(questionList[currentIndex + randomInt].question);
+      let randomInt = Math.floor(Math.random() * questionList.length);
+      console.log(randomInt);
+      if (questionList[currentIndex + randomInt] === undefined) {
+        alert("there was an issue");
+        return;
+      }
+      await setAnswer("");
+      setQuestion(questionList[currentIndex + randomInt].question);
+      setQuestionId(questionList[currentIndex + randomInt].id_question);
+      setDefinition(questionList[currentIndex + randomInt].definition);
+      setInformation(questionList[currentIndex + randomInt].information);
+      setCompare(questionList[currentIndex + randomInt].compare);
+      setExample(questionList[currentIndex + randomInt].example);
     }
   };
-
-  console.log(question);
-  console.log(questionList);
 
   return (
     <section className="nav-btn-wrapper">

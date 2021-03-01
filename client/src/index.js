@@ -67,7 +67,7 @@ const Flashcard = () => {
       <ChangeQuestionWrapper
         questionList={questionList}
         setQuestion={setQuestion}
-        question={question}
+        setAnswer={setAnswer}
         questionId={questionId}
         setQuestionId={setQuestionId}
         setDefinition={setDefinition}
