@@ -1,8 +1,12 @@
 import React from "react";
 
-const PrevButton = () => {
+const PrevButton = ({ handleQuestionChange }) => {
   return (
-    <button className="nav-btn" id="prevBtn">
+    <button
+      className="nav-btn"
+      id="prevBtn"
+      onClick={() => handleQuestionChange("prev")}
+    >
       Previous
     </button>
   );

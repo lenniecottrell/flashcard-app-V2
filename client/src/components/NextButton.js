@@ -1,8 +1,12 @@
 import React from "react";
 
-const NextButton = () => {
+const NextButton = ({ handleQuestionChange }) => {
   return (
-    <button className="nav-btn" id="nextBtn">
+    <button
+      className="nav-btn"
+      id="nextBtn"
+      onClick={() => handleQuestionChange("next")}
+    >
       Next
     </button>
   );

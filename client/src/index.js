@@ -64,7 +64,17 @@ const Flashcard = () => {
         answer={answer}
         setAnswer={setAnswer}
       />
-      <ChangeQuestionWrapper />
+      <ChangeQuestionWrapper
+        questionList={questionList}
+        setQuestion={setQuestion}
+        question={question}
+        questionId={questionId}
+        setQuestionId={setQuestionId}
+        setDefinition={setDefinition}
+        setInformation={setInformation}
+        setCompare={setCompare}
+        setExample={setExample}
+      />
     </div>
   );
 };

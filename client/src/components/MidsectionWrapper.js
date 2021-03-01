@@ -1,5 +1,5 @@
 import React from "react";
-import { InfoButtonWrapper } from "./info-buttons";
+import { InfoButtonWrapper } from "./InfoButtonWrapper";
 import QuestionText from "./QuestionText";
 
 function MidsectionWrapper({
