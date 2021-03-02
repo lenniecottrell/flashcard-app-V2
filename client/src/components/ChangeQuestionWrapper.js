@@ -46,20 +46,22 @@ const ChangeQuestionWrapper = ({
         setExample(questionList[currentIndex - 1].example);
       }
     }
+
+    //TODO: fix this
     if (action === "random") {
       let randomInt = Math.floor(Math.random() * questionList.length);
-      console.log(randomInt);
-      if (questionList[currentIndex + randomInt] === undefined) {
-        alert("there was an issue");
+      const newIndex = (currentIndex + randomInt) % questionList.length;
+      if (newIndex >= questionList.length) {
+        alert("oops");
         return;
       }
       await setAnswer("");
-      setQuestion(questionList[currentIndex + randomInt].question);
-      setQuestionId(questionList[currentIndex + randomInt].id_question);
-      setDefinition(questionList[currentIndex + randomInt].definition);
-      setInformation(questionList[currentIndex + randomInt].information);
-      setCompare(questionList[currentIndex + randomInt].compare);
-      setExample(questionList[currentIndex + randomInt].example);
+      setQuestion(questionList[newIndex].question);
+      setQuestionId(questionList[newIndex].id_question);
+      setDefinition(questionList[newIndex].definition);
+      setInformation(questionList[newIndex].information);
+      setCompare(questionList[newIndex].compare);
+      setExample(questionList[newIndex].example);
     }
   };
 
