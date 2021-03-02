@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   /* -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
@@ -13,10 +17,11 @@ body {
     rgba(61, 71, 88, 1)
   );
   display: flex;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
   justify-content: center;
   align-items: center;
-  font-family: "Raleway", sans-serif;
+  font-family: "Noto Sans HK", sans-serif;
 }
 
 /* Wrapper for everything but the background */
@@ -25,9 +30,15 @@ body {
   flex-flow: column wrap;
   align-items: center;
   justify-content: center;
-  max-width: 50vw;
-  margin-top: auto;
-  padding: 10px;
+  margin: auto;
+  padding: 2rem;
+  min-width: 80%;
+}
+
+@media screen and (max-width: 1000px) {
+  .main-UI {
+    flex-direction: column;
+  }
 }
 
 @import "./card";
