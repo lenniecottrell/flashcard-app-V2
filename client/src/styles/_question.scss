@@ -1,0 +1,17 @@
+.question {
+  flex: 2;
+  border-radius: 5px;
+  padding: 10px;
+  background: #fffaff;
+  font-size: 2rem;
+  text-align: center;
+  margin: 0px 10px 0px 0px;
+}
+
+@media screen and (max-width: 1000px) {
+  .question {
+    font-size: 1.75rem;
+    margin: 0px;
+    flex: 1;
+  }
+}

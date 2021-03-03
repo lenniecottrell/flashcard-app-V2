@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 // import './index.css';
 import "./styles/app.scss";
-import ChangeQuestionWrapper from "./components/ChangeQuestionWrapper";
+//import ChangeQuestionWrapper from "./components/ChangeQuestionWrapper";
 import Card from "./components/Card";
-import TopicSelect from "./components/TopicSelect";
+//import TopicSelect from "./components/TopicSelect";
 
 const Flashcard = () => {
   const [topic, setTopic] = useState("Javascript");

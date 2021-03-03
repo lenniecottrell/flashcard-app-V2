@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import TopicText from "./TopicText";
+//import TopicText from "./TopicText";
 import MidsectionWrapper from "./MidsectionWrapper";
 import AnswerText from "./AnswerText";
 import ChangeQuestionWrapper from "./ChangeQuestionWrapper";
