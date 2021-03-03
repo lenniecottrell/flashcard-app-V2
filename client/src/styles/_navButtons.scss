@@ -3,7 +3,6 @@
   flex-flow: row wrap;
   justify-content: space-between;
   margin: 5px 10px;
-  flex: 1;
 }
 
 /* All the buttons */
@@ -19,23 +18,27 @@
 }
 
 #nextBtn {
-  background: #5533ff;
+  background: #44389e;
+  color: #b2b5f3;
   &:hover {
     background: #5533ffa1;
+    color: #fff;
   }
 }
 
 #prevBtn {
-  background: #5533ff;
+  background: #44389e;
+  color: #b2b5f3;
   &:hover {
     background: #5533ffa1;
+    color: #fff;
   }
 }
 
 #randomBtn {
-  background: #7cddb2;
+  background: #7cddb1ce;
   &:hover {
-    background: #7cddb1ce;
+    background: #7cddb2;
   }
 }
 
@@ -43,6 +46,7 @@
   .nav-button-wrapper {
     display: flex;
     margin: 10px 0px;
+    flex: 1;
   }
   .nav-btn-wrapper > * {
     font-size: 1em;

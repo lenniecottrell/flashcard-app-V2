@@ -1,6 +1,6 @@
 .answer {
   flex: 1;
-  font-size: 1rem;
+  font-size: 1.25rem;
   text-align: center;
   margin: 10px;
   padding: 1rem 1rem;
@@ -10,8 +10,8 @@
   //box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
 }
 
-@media screen and (max-width: 1000px) {
-  .answer {
-    font-size: 1.25rem;
-  }
-}
+// @media screen and (max-width: 1000px) {
+//   .answer {
+//     font-size: 1.25rem;
+//   }
+// }
