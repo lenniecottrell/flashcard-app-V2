@@ -12,7 +12,7 @@
   //box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   width: 30%;
-  border: 1px solid white;
+
   border-radius: 5px;
   color: white;
   font-family: "PT Sans", sans-serif;
@@ -35,8 +35,8 @@
 }
 
 #randomBtn {
-  background: #059862;
+  background: #7cddb2;
   &:hover {
-    background: #059862bb;
+    background: #7cddb1ce;
   }
 }

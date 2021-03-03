@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: #8450e4;
+  background: #9772ff;
   //min-width: 25%;
   width: 30%;
 }
@@ -12,8 +12,8 @@
   flex: 0 1 auto;
   font-family: "Cabin", sans-serif;
   font-size: 1em;
+  font-weight: bold;
   background: white;
-  border: 1px solid black;
   border-radius: 5px;
   min-height: fit-content;
   width: 100%;
@@ -22,6 +22,19 @@
   text-align: center;
   cursor: pointer;
   //box-shadow: 1px 1px 5px rgb(122, 122, 122);
+}
+
+#definition {
+  background: #e3384b;
+}
+#information {
+  background: #e3389c;
+}
+#compare {
+  background: #e37a35;
+}
+#example {
+  background: #ecbb35;
 }
 
 @media screen and (max-width: 1450px) {

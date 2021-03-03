@@ -4,6 +4,7 @@ const DButton = ({ setAnswer, definition }) => {
   return (
     <button
       className="info-button"
+      id="definition"
       onClick={() => {
         setAnswer(definition);
       }}
@@ -17,6 +18,7 @@ const IButton = ({ setAnswer, information }) => {
   return (
     <button
       className="info-button"
+      id="information"
       onClick={() => {
         setAnswer(information);
       }}
@@ -30,6 +32,7 @@ const CButton = ({ setAnswer, compare }) => {
   return (
     <button
       className="info-button"
+      id="compare"
       onClick={() => {
         setAnswer(compare);
       }}
@@ -43,6 +46,7 @@ const EButton = ({ setAnswer, example }) => {
   return (
     <button
       className="info-button"
+      id="example"
       onClick={() => {
         setAnswer(example);
       }}
