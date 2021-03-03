@@ -41,12 +41,14 @@ const Flashcard = () => {
 
   return (
     <div className="main-UI">
-      <TopicSelect
+      {/* <TopicSelect
         topicList={topicList}
         handleTopicChange={handleTopicChange}
-      />
+      /> */}
       <Card
         topic={topic}
+        topicList={topicList}
+        handleTopicChange={handleTopicChange}
         question={question}
         setQuestion={setQuestion}
         questionList={questionList}
@@ -64,7 +66,7 @@ const Flashcard = () => {
         answer={answer}
         setAnswer={setAnswer}
       />
-      <ChangeQuestionWrapper
+      {/* <ChangeQuestionWrapper
         questionList={questionList}
         setQuestion={setQuestion}
         setAnswer={setAnswer}
@@ -74,7 +76,7 @@ const Flashcard = () => {
         setInformation={setInformation}
         setCompare={setCompare}
         setExample={setExample}
-      />
+      /> */}
     </div>
   );
 };

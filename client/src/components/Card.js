@@ -2,9 +2,13 @@ import React, { useEffect } from "react";
 import TopicText from "./TopicText";
 import MidsectionWrapper from "./MidsectionWrapper";
 import AnswerText from "./AnswerText";
+import ChangeQuestionWrapper from "./ChangeQuestionWrapper";
+import TopicSelect from "./TopicSelect";
 
 const Card = ({
   topic,
+  topicList,
+  handleTopicChange,
   question,
   setQuestion,
   questionId,
@@ -47,7 +51,11 @@ const Card = ({
 
   return (
     <section className="card">
-      <TopicText topic={topic} />
+      {/* <TopicText topic={topic} /> */}
+      <TopicSelect
+        topicList={topicList}
+        handleTopicChange={handleTopicChange}
+      />
       <MidsectionWrapper
         topic={topic}
         question={question}
@@ -61,6 +69,17 @@ const Card = ({
         setAnswer={setAnswer}
       />
       <AnswerText answer={answer} />
+      <ChangeQuestionWrapper
+        questionList={questionList}
+        setQuestion={setQuestion}
+        setAnswer={setAnswer}
+        questionId={questionId}
+        setQuestionId={setQuestionId}
+        setDefinition={setDefinition}
+        setInformation={setInformation}
+        setCompare={setCompare}
+        setExample={setExample}
+      />
     </section>
   );
 };
