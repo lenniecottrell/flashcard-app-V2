@@ -4,25 +4,22 @@
   justify-content: space-between;
   align-items: center;
   background: #9772ff;
-  //min-width: 25%;
-  width: 30%;
+  margin: 0px 0px 0px 10px;
+  flex: 1;
 }
 
 .info-button {
-  flex: 1;
   font-family: "Cabin", sans-serif;
+  color: white;
   font-size: 1em;
   font-weight: bold;
   background: white;
   border-radius: 5px;
   border: none;
-  min-height: fit-content;
-  width: 100%;
-  letter-spacing: 1.5px;
-  padding: 0.5rem;
+  width: 90%;
+  padding: 0.5rem 0rem;
   text-align: center;
   cursor: pointer;
-  //box-shadow: 1px 1px 5px rgb(122, 122, 122);
 }
 
 #definition {
