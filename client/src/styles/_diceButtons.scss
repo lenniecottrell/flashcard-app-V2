@@ -25,15 +25,27 @@
 
 #definition {
   background: #e3384b;
+  &:hover {
+    background: #e3384cce;
+  }
 }
 #information {
   background: #e3389c;
+  &:hover {
+    background: #e3389cc9;
+  }
 }
 #compare {
   background: #e37a35;
+  &:hover {
+    background: #e37b35c0;
+  }
 }
 #example {
   background: #ecbb35;
+  &:hover {
+    background: #ecbb35c2;
+  }
 }
 
 @media screen and (max-width: 1000px) {

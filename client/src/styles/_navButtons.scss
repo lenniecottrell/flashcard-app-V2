@@ -1,9 +1,9 @@
 .nav-btn-wrapper {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-between;
   margin: 5px 10px;
-  width: 100%;
+  flex: 1;
 }
 
 /* All the buttons */
@@ -42,7 +42,7 @@
 @media screen and (max-width: 1000px) {
   .nav-button-wrapper {
     display: flex;
-    margin: 5px 5px;
+    margin: 10px 0px;
   }
   .nav-btn-wrapper > * {
     font-size: 1em;
