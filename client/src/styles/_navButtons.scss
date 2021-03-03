@@ -2,14 +2,12 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  margin: 5px 0px;
-  padding: 5px;
+  margin: 5px 10px;
   width: 100%;
 }
 
-/* All the nav buttons */
+/* All the buttons */
 .nav-btn-wrapper > * {
-  //box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.4);
   cursor: pointer;
   width: 30%;
   border-radius: 5px;
@@ -38,5 +36,16 @@
   background: #7cddb2;
   &:hover {
     background: #7cddb1ce;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .nav-button-wrapper {
+    display: flex;
+    margin: 5px 5px;
+  }
+  .nav-btn-wrapper > * {
+    font-size: 1em;
+    padding: 0.25rem 0.25rem;
   }
 }

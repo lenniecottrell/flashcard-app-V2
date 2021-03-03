@@ -1,8 +1,8 @@
 .card {
+  display: flex;
+  flex-flow: row wrap;
   border-radius: 20px;
   padding: 10px;
-  flex-flow: row wrap;
-  display: flex;
   background: #9772ff;
   box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.247);
 }
@@ -10,6 +10,15 @@
 /* All the card's children */
 .card > * {
   flex: 1 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  .card {
+    flex-flow: column nowrap;
+  }
+  .card > * {
+    flex: 1;
+  }
 }
 
 /*this isn't being used at the moment*/

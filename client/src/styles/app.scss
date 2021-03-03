@@ -25,13 +25,13 @@ body {
   justify-content: center;
   margin: auto;
   padding: 2rem;
-  width: 1000px;
+  width: 800px;
   font-family: "PT Sans", sans-serif;
 }
 
 @media screen and (max-width: 1000px) {
-  .main-UI {
-    flex-direction: column;
+  .main--UI {
+    width: 80%;
   }
 }
 

@@ -1,29 +1,29 @@
 .mid {
-  flex: 1;
   display: flex;
   justify-content: space-between;
   margin: 10px;
-  height: 200px;
+  height: 175px;
 }
 
 .question {
-  border-radius: 5px;
   flex: 2;
+  border-radius: 5px;
   padding: 10px;
   background: #fffaff;
-  font-size: 1.5rem;
+  font-size: 2rem;
   text-align: center;
   margin: 0px 10px 0px 0px;
 }
 
 @media screen and (max-width: 1000px) {
-  .question {
-    font-size: 1.5rem;
-    margin: 10px 10px;
-  }
   .mid {
     flex-direction: column;
-    margin: 0;
+    margin: 10px;
+  }
+  .question {
+    font-size: 1.75rem;
+    margin: 0px;
+    flex: 1;
   }
 }
 
