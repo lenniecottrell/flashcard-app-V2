@@ -3,29 +3,25 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid black;
-  border-radius: 10px;
-  background: white;
-  padding: 15px;
-  margin-left: 10px;
-  min-width: 25%;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+  background: #8450e4;
+  //min-width: 25%;
+  width: 30%;
 }
 
 .info-button {
   flex: 0 1 auto;
+  font-family: "Cabin", sans-serif;
+  font-size: 1em;
   background: white;
-  cursor: pointer;
   border: 1px solid black;
   border-radius: 5px;
-  height: auto;
-  width: 90%;
+  min-height: fit-content;
+  width: 100%;
   letter-spacing: 1.5px;
-  margin: 0.3rem;
   padding: 0.5rem;
   text-align: center;
-  font-size: 1.2em;
-  box-shadow: 1px 1px 5px rgb(122, 122, 122);
+  cursor: pointer;
+  //box-shadow: 1px 1px 5px rgb(122, 122, 122);
 }
 
 @media screen and (max-width: 1450px) {
@@ -44,6 +40,6 @@
     width: 75%;
     padding: 5px 0px;
     margin: 5px 0px;
-    box-shadow: 2px 2px 5px rgb(122, 122, 122);
+    //box-shadow: 2px 2px 5px rgb(122, 122, 122);
   }
 }

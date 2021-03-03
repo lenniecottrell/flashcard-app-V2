@@ -7,7 +7,7 @@ const NextButton = ({ handleQuestionChange }) => {
       id="nextBtn"
       onClick={() => handleQuestionChange("next")}
     >
-      Next
+      NEXT
     </button>
   );
 };

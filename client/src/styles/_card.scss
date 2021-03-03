@@ -1,10 +1,10 @@
 .card {
   border: 1px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
   flex-flow: row wrap;
   display: flex;
-  background: #808080;
-  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.4);
+  background: #8450e4;
+  //box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* All the card's children */
@@ -16,7 +16,9 @@
   padding: 8px;
   text-align: left;
   font-weight: bold;
+  font-size: 2em;
   max-height: fit-content;
-  background: tomato;
-  border-radius: 10px 10px 0 0;
+  background: #8450e4;
+  color: #fff;
+  border-radius: 5px;
 }

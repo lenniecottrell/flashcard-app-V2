@@ -15,8 +15,12 @@ const TopicSelect = ({ topicList, handleTopicChange }) => {
 
   return (
     <div className="topicSelect">
-      <label htmlFor="topicSelect">Select a topic:</label>
-      <select name="topicSelect" id="topicSelect" onChange={handleTopicChange}>
+      <label htmlFor="topicSelect">SELECT A TOPIC:</label>
+      <select
+        name="topicSelect"
+        className="selectMenu"
+        onChange={handleTopicChange}
+      >
         {topicsItems}
       </select>
     </div>

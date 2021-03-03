@@ -9,13 +9,34 @@
 
 /* All the nav buttons */
 .nav-btn-wrapper > * {
-  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.4);
-  //margin: 5px 0px;
+  //box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.4);
   cursor: pointer;
-  width: 8em;
-  height: 3em;
-  border: 3px solid white;
-  background: rgba(61, 71, 88, 0.7);
-  font-weight: bold;
+  width: 30%;
+  border: 1px solid white;
+  border-radius: 5px;
   color: white;
+  font-family: "PT Sans", sans-serif;
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+#nextBtn {
+  background: #5533ff;
+  &:hover {
+    background: #5533ffa1;
+  }
+}
+
+#prevBtn {
+  background: #5533ff;
+  &:hover {
+    background: #5533ffa1;
+  }
+}
+
+#randomBtn {
+  background: #059862;
+  &:hover {
+    background: #059862bb;
+  }
 }

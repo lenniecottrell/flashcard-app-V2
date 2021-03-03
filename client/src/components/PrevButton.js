@@ -7,7 +7,7 @@ const PrevButton = ({ handleQuestionChange }) => {
       id="prevBtn"
       onClick={() => handleQuestionChange("prev")}
     >
-      Previous
+      PREVIOUS
     </button>
   );
 };

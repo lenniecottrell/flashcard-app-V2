@@ -8,7 +8,7 @@ const DButton = ({ setAnswer, definition }) => {
         setAnswer(definition);
       }}
     >
-      Definition
+      DEFINITION
     </button>
   );
 };
@@ -21,7 +21,7 @@ const IButton = ({ setAnswer, information }) => {
         setAnswer(information);
       }}
     >
-      Information
+      INFORMATION
     </button>
   );
 };
@@ -34,7 +34,7 @@ const CButton = ({ setAnswer, compare }) => {
         setAnswer(compare);
       }}
     >
-      Compare
+      COMPARE
     </button>
   );
 };
@@ -47,7 +47,7 @@ const EButton = ({ setAnswer, example }) => {
         setAnswer(example);
       }}
     >
-      Example
+      EXAMPLE
     </button>
   );
 };

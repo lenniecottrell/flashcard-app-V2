@@ -7,7 +7,7 @@ const RandomButton = ({ handleQuestionChange }) => {
       id="randomBtn"
       onClick={() => handleQuestionChange("random")}
     >
-      Random
+      RANDOM
     </button>
   );
 };
