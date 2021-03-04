@@ -2,21 +2,20 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const pool = require("./db");
+const path = require("path");
 
 app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
-//MOVED TO THE END OF THE FILE
-// app.listen(PORT, () => {
-//   console.log(`CORS-enabled web server is listening on port ${PORT}`);
-// });
-
-// if (process.env.NODE_ENV === "production") {
-//   // Serve any static files
-//   app.use("/client", express.static(path.join(__dirname, "build")));
-// }
+if (process.env.NODE_ENV === "production") {
+  // Serve any static files
+  app.use("/client", express.static(path.join(__dirname, "build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 //-- ROUTES --//
 
