@@ -8,9 +8,10 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`CORS-enabled web server is listening on port ${PORT}`);
-});
+//MOVED TO THE END OF THE FILE
+// app.listen(PORT, () => {
+//   console.log(`CORS-enabled web server is listening on port ${PORT}`);
+// });
 
 // if (process.env.NODE_ENV === "production") {
 //   // Serve any static files
@@ -347,4 +348,8 @@ app.delete("/topics/:topic/questions/:id_question", async (req, res) => {
     console.log("oopsie, something went wrong");
     console.error(error.message);
   }
+});
+
+app.listen(PORT, () => {
+  console.log(`CORS-enabled web server is listening on port ${PORT}`);
 });
