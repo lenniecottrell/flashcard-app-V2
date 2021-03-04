@@ -9,10 +9,10 @@ app.listen(5000, () => {
   console.log("CORS-enabled web server is listening on port 5000");
 });
 
-if (process.env.NODE_ENV === "production") {
-  // Serve any static files
-  app.use("/client", express.static(path.join(__dirname, "build")));
-}
+// if (process.env.NODE_ENV === "production") {
+//   // Serve any static files
+//   app.use("/client", express.static(path.join(__dirname, "build")));
+// }
 
 //-- ROUTES --//
 
