@@ -3,11 +3,10 @@ const cors = require("cors");
 const app = express();
 const pool = require("./db");
 const path = require("path");
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
-
-const PORT = process.env.PORT || 5000;
 
 if (process.env.NODE_ENV === "production") {
   // Serve any static files
