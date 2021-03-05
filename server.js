@@ -2,6 +2,15 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const pool = require("./db");
+let port = process.env.PORT;
+
+if (port == null || port == "") {
+  port = 5000;
+}
+
+app.listen(port, () => {
+  console.log(`CORS-enabled web server is listening on port ${port}`);
+});
 
 app.use(cors());
 app.use(express.json());
