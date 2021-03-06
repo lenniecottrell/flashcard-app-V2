@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 const app = express();
 const pool = require("./db");
 let port = process.env.PORT;
@@ -8,9 +9,13 @@ if (port == null || port == "") {
   port = 5000;
 }
 
-app.listen(port, () => {
+app.listen(5000, () => {
   console.log(`CORS-enabled web server is listening on port ${port}`);
 });
+
+// let corsOptions = {
+//   origin: `http://localhost:${port}`,
+// };
 
 app.use(cors());
 app.use(express.json());
@@ -51,7 +56,7 @@ app.get("/topics", async (req, res) => {
     res.json(allTopics.rows);
     console.log("GET SUCCESS. You got all topics");
   } catch (error) {
-    console.log("oopsie, something went wrong");
+    console.log("error: you did not get all topics");
     console.error(error.message);
   }
 });
@@ -356,6 +361,6 @@ app.delete("/topics/:topic/questions/:id_question", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`CORS-enabled web server is listening on port ${PORT}`);
-});
+// app.listen(5000, () => {
+//   console.log(`CORS-enabled web server is listening on port ${port}`);
+// });

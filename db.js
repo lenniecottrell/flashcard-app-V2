@@ -10,9 +10,7 @@ const pool = new Pool({
   port: process.env.PORT,
   database: "flashcard_app",
   connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+  ssl: process.env.DATABASE_URL ? true : false,
 });
 
 module.exports = pool;
