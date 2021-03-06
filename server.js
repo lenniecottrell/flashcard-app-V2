@@ -5,25 +5,22 @@ const app = express();
 const pool = require("./db");
 let port = process.env.PORT || 5000;
 
-if (port == null || port == "") {
-  port = 5000;
-}
-
-console.log("NODE_ENV: " + process.env.NODE_ENV); // this returns undefined
-console.log("port: " + port);
-
-//in a dev environment, port MUST by hard coded to 5000. I have no clue why. It doesn't work otherwise.
-// It also affects Postman
-app.listen(port, () => {
-  console.log(`CORS-enabled web server is listening on port ${port}`);
-});
-
 // let corsOptions = {
 //   origin: `http://localhost:${port}`,
 // };
 
 app.use(cors());
 app.use(express.json());
+
+// if (port == null || port == "") {
+//   port = 5000;
+// }
+
+console.log("NODE_ENV: " + process.env.NODE_ENV); // this returns undefined
+console.log("port: " + port);
+
+//in a dev environment, port MUST by hard coded to 5000. I have no clue why. It doesn't work otherwise.
+// It also affects Postman
 
 //production route to index in server.js
 if (process.env.NODE_ENV === "production") {
@@ -154,7 +151,7 @@ app.get("/topics/:topic/questions", async (req, res) => {
     res.json(allQuestions.rows);
     console.log("Here are all of the questions for a specific topic");
   } catch (error) {
-    console.log("oopsie, something went wrong");
+    console.log("oopsie, you did not get all questions");
     console.error(error.message);
   }
 });
@@ -366,6 +363,6 @@ app.delete("/topics/:topic/questions/:id_question", async (req, res) => {
   }
 });
 
-// app.listen(5000, () => {
-//   console.log(`CORS-enabled web server is listening on port ${port}`);
-// });
+app.listen(port, () => {
+  console.log(`CORS-enabled web server is listening on port ${port}`);
+});

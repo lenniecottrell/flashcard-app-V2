@@ -7,7 +7,7 @@ const pool = new Pool({
   host: process.env.DATABASE_URL,
   user: user,
   password: secret,
-  port: process.env.PORT,
+  port: process.env.DB_PORT,
   database: "flashcard_app",
   connectionString: process.env.DATABASE_URL,
   ssl: process.env.DATABASE_URL ? true : false,
