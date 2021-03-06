@@ -27,12 +27,13 @@ const Card = ({
   setAnswer,
 }) => {
   //grab all the questions in a topic and set the answers
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchQuestions = async (topic) => {
     await fetch(`http://localhost:5000/topics/${topic}/questions`)
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
-        console.log(result.forEach((q) => console.log(q)));
+        //console.log(result);
+        //console.log(result.forEach((q) => console.log(q)));
         setQuestionList(result); //this is an array of question objects
         //these set all info for the first item in the question list
         setQuestion(result[0].question);

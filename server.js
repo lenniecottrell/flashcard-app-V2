@@ -3,13 +3,18 @@ const cors = require("cors");
 const path = require("path");
 const app = express();
 const pool = require("./db");
-let port = process.env.PORT;
+let port = process.env.PORT || 5000;
 
 if (port == null || port == "") {
   port = 5000;
 }
 
-app.listen(5000, () => {
+console.log("NODE_ENV: " + process.env.NODE_ENV); // this returns undefined
+console.log("port: " + port);
+
+//in a dev environment, port MUST by hard coded to 5000. I have no clue why. It doesn't work otherwise.
+// It also affects Postman
+app.listen(port, () => {
   console.log(`CORS-enabled web server is listening on port ${port}`);
 });
 
