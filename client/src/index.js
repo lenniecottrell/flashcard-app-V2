@@ -14,17 +14,21 @@ const Flashcard = () => {
   const [question, setQuestion] = useState([]);
   const [questionId, setQuestionId] = useState(1);
   const [questionList, setQuestionList] = useState([]);
-  const [definition, setDefinition] = useState("");
-  const [information, setInformation] = useState("");
-  const [compare, setCompare] = useState("");
-  const [example, setExample] = useState("");
-  const [answer, setAnswer] = useState("");
+  const [definition, setDefinition] = useState("a");
+  const [information, setInformation] = useState("b");
+  const [compare, setCompare] = useState("c");
+  const [example, setExample] = useState("d");
+  const [answer, setAnswer] = useState("e");
 
   //get all topics for the drop down list
   const fetchTopics = async () => {
     await fetch(`${productionURL}/topics/`)
-      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        res.json();
+      })
       .then((result) => {
+        console.log(result);
         setTopicList(result);
         //set the first topic
         setTopic(result[0].topic);
