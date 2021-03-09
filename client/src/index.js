@@ -6,7 +6,7 @@ import "./styles/app.scss";
 import Card from "./components/Card";
 //import TopicSelect from "./components/TopicSelect";
 require("dotenv").config({ debug: process.env.DEBUG });
-const productionURL = process.env.PROD_HOST;
+const productionURL = process.env.DATABASE_URL;
 
 const Flashcard = () => {
   const [topic, setTopic] = useState("Javascript");

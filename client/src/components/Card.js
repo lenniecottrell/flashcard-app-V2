@@ -4,7 +4,7 @@ import MidsectionWrapper from "./MidsectionWrapper";
 import AnswerText from "./AnswerText";
 import ChangeQuestionWrapper from "./ChangeQuestionWrapper";
 import TopicSelect from "./TopicSelect";
-const productionURL = process.env.PROD_HOST;
+const productionURL = process.env.DATABASE_URL;
 
 const Card = ({
   topic,
