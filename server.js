@@ -5,11 +5,22 @@ const app = express();
 const pool = require("./db");
 let port = process.env.PORT || 5000;
 
+// let corsOptions = {
+//   origin: `http://localhost:${port}`,
+// };
+
 app.use(cors());
 app.use(express.json());
 
+// if (port == null || port == "") {
+//   port = 5000;
+// }
+
 console.log("NODE_ENV: " + process.env.NODE_ENV); // this returns undefined
 console.log("port: " + port);
+
+//in a dev environment, port MUST by hard coded to 5000. I have no clue why. It doesn't work otherwise.
+// It also affects Postman
 
 //production route to index in server.js
 if (process.env.NODE_ENV === "production") {
