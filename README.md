@@ -17,10 +17,10 @@ This project is my first solo full-stack project.
 ## Progress
 
 ### 3/3/2021
-I've made significant progress over the past week! I thought it would be harder for me to implement the functionality of the buttons, but I got it worked out in about a day. As of today, I have all of the essential functionality worked out to navigate through existing questions, and basic layout issues resolved for large and small desktop screens. I have some styling to do for mobile devices still, but I'll get there. 
+
+I've made significant progress over the past week! I thought it would be harder for me to implement the functionality of the buttons, but I got it worked out in about a day. As of today, I have all of the essential functionality worked out to navigate through existing questions, and basic layout issues resolved for large and small desktop screens. I have some styling to do for mobile devices still, but I'll get there.
 
 I'll look in to deploying on Heroku tomorrow and hopefully have at least a simple public release by the end of the week.
-
 
 ### 2/26/2021
 
