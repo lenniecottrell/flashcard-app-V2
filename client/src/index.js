@@ -6,7 +6,7 @@ import "./styles/app.scss";
 import Card from "./components/Card";
 //import TopicSelect from "./components/TopicSelect";
 require("dotenv").config({ debug: process.env.DEBUG });
-const productionURL = process.env.PROD_HOST;
+// const productionURL = process.env.PROD_HOST;
 
 const Flashcard = () => {
   const [topic, setTopic] = useState("Javascript");
@@ -22,7 +22,7 @@ const Flashcard = () => {
 
   //get all topics for the drop down list
   const fetchTopics = async () => {
-    await fetch(`${productionURL}/topics/`)
+    await fetch(`https://lrc-flashcard-app.herokuapp.com/topics/`)
       .then((res) => {
         console.log(res);
         res.json();

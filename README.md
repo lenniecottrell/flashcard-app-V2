@@ -16,6 +16,20 @@ This project is my first solo full-stack project.
 
 ## Progress
 
+### 3/8/2021
+
+## Deployment struggles
+
+tl;dr - don't use Heroku.
+
+At the end of last week I was ready to deploy a demo version of this app, and went with Heroku because they offer a managed database service that uses Postgres. I thought it would be simple! Not so. I configured everything for production and no matter what I did I could not get the Heroku database instance to connect to the React app. I got some help from some excellent people at a meetup who helped me identify some issues with my environment variables, but it still doesn't work.
+
+After some significant googling, it appears that this is a Heroku issue, not a me issue, which in one sense is relieving and in another is super frustrating. This is the first and last time I use Heroku (unless I have to on a job)
+
+Version control has been my best friend through all of this, because I've needed to push all of my changes up to test whether it works on Heroku's servers or not. 32 deployments later, it still doesn't work and is somehow more broken than it was yesterday.
+
+I'll do some learning about AWS this week and try to get it going there instead.
+
 ### 3/3/2021
 
 I've made significant progress over the past week! I thought it would be harder for me to implement the functionality of the buttons, but I got it worked out in about a day. As of today, I have all of the essential functionality worked out to navigate through existing questions, and basic layout issues resolved for large and small desktop screens. I have some styling to do for mobile devices still, but I'll get there.

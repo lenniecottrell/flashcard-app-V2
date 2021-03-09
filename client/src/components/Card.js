@@ -4,7 +4,7 @@ import MidsectionWrapper from "./MidsectionWrapper";
 import AnswerText from "./AnswerText";
 import ChangeQuestionWrapper from "./ChangeQuestionWrapper";
 import TopicSelect from "./TopicSelect";
-const productionURL = process.env.PROD_HOST;
+// const productionURL = process.env.PROD_HOST;
 
 const Card = ({
   topic,
@@ -30,7 +30,9 @@ const Card = ({
   //grab all the questions in a topic and set the answers
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchQuestions = async (topic) => {
-    await fetch(`${productionURL}/topics/${topic}/questions`)
+    await fetch(
+      `$https://lrc-flashcard-app.herokuapp.com//topics/${topic}/questions`
+    )
       .then((res) => res.json())
       .then((result) => {
         //console.log(result);
