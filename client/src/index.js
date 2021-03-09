@@ -5,6 +5,8 @@ import "./styles/app.scss";
 //import ChangeQuestionWrapper from "./components/ChangeQuestionWrapper";
 import Card from "./components/Card";
 //import TopicSelect from "./components/TopicSelect";
+require("dotenv").config({ debug: process.env.DEBUG });
+const productionURL = process.env.PROD_HOST;
 
 const Flashcard = () => {
   const [topic, setTopic] = useState("Javascript");
@@ -20,7 +22,7 @@ const Flashcard = () => {
 
   //get all topics for the drop down list
   const fetchTopics = async () => {
-    await fetch(`http://localhost:5000/topics/`)
+    await fetch(`${productionURL}/topics/`)
       .then((res) => res.json())
       .then((result) => {
         setTopicList(result);
