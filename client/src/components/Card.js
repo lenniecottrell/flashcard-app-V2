@@ -31,7 +31,7 @@ const Card = ({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchQuestions = async (topic) => {
     await fetch(
-      `$https://lrc-flashcard-app.herokuapp.com//topics/${topic}/questions`
+      `https://lrc-flashcard-app.herokuapp.com/topics/${topic}/questions`
     )
       .then((res) => res.json())
       .then((result) => {
@@ -51,7 +51,7 @@ const Card = ({
 
   useEffect(() => {
     fetchQuestions(topic);
-  }, [topic]);
+  }, [fetchQuestions, topic]);
 
   return (
     <section className="card">
