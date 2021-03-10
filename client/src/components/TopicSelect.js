@@ -1,14 +1,11 @@
 import React from "react";
 
 const TopicSelect = ({ topicList, handleTopicChange }) => {
-  //make an array from the topicList object
-  const topicChoices = topicList.map((item) => item.topic);
-
   //render topics dynamically
-  const topicsItems = topicChoices.map((item) => {
+  const topicsItems = topicList.map((item) => {
     return (
-      <option key={item} value={item}>
-        {item}
+      <option key={item.id_topic} value={item.topic}>
+        {item.topic}
       </option>
     );
   });

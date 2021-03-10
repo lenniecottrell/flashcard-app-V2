@@ -22,16 +22,12 @@ const Flashcard = () => {
 
   //get all topics for the drop down list
   const fetchTopics = async () => {
-    await fetch(`https://lrc-flashcard-app.herokuapp.com/topics/`)
-      .then((res) => {
-        console.log(res);
-        res.json();
-      })
-      .then((result) => {
-        console.log(result);
-        setTopicList(result);
-        //set the first topic
-        setTopic(result[0].topic);
+    await fetch(`http://localhost:5000/topics/`)
+      .then((res) => res.json())
+      .then((data) => {
+        //console.log(data);
+        setTopicList(data);
+        setTopic(data[0].topic); //set the first topic
       });
   };
 

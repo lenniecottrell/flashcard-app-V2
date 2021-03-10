@@ -34,8 +34,8 @@ const Card = ({
       await fetch(`http://localhost:5000/topics/${topic}/questions`)
         .then((res) => res.json())
         .then((result) => {
-          console.log(result);
-          console.log(result.forEach((q) => console.log(q)));
+          console.log(result); //array of all questions
+          //console.log(result.forEach((q) => console.log(q)));
           setQuestionList(result); //this is an array of question objects
           //these set all info for the first item in the question list
           setQuestion(result[0].question);
