@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 //import TopicText from "./TopicText";
 import MidsectionWrapper from "./MidsectionWrapper";
 import AnswerText from "./AnswerText";
@@ -29,25 +29,35 @@ const Card = ({
 }) => {
   //grab all the questions in a topic and set the answers
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const fetchQuestions = async (topic) => {
-    await fetch(
-      `https://lrc-flashcard-app.herokuapp.com/topics/${topic}/questions`
-    )
-      .then((res) => res.json())
-      .then((result) => {
-        //console.log(result);
-        //console.log(result.forEach((q) => console.log(q)));
-        setQuestionList(result); //this is an array of question objects
-        //these set all info for the first item in the question list
-        setQuestion(result[0].question);
-        setQuestionId(result[0].id_question);
-        setDefinition(result[0].definition);
-        setInformation(result[0].information);
-        setCompare(result[0].compare);
-        setExample(result[0].example);
-        setAnswer("");
-      });
-  };
+  const fetchQuestions = useCallback(
+    async (topic) => {
+      await fetch(`http://localhost:5000/topics/${topic}/questions`)
+        .then((res) => res.json())
+        .then((result) => {
+          console.log(result);
+          console.log(result.forEach((q) => console.log(q)));
+          setQuestionList(result); //this is an array of question objects
+          //these set all info for the first item in the question list
+          setQuestion(result[0].question);
+          setQuestionId(result[0].id_question);
+          setDefinition(result[0].definition);
+          setInformation(result[0].information);
+          setCompare(result[0].compare);
+          setExample(result[0].example);
+          setAnswer("");
+        });
+    },
+    [
+      setAnswer,
+      setCompare,
+      setDefinition,
+      setExample,
+      setInformation,
+      setQuestion,
+      setQuestionId,
+      setQuestionList,
+    ]
+  );
 
   useEffect(() => {
     fetchQuestions(topic);
