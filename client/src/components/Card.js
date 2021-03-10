@@ -27,6 +27,7 @@ const Card = ({
   setAnswer,
 }) => {
   //grab all the questions in a topic and set the answers
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchQuestions = async (topic) => {
     await fetch(`http://localhost:5000/topics/${topic}/questions`)
       .then((res) => res.json())
@@ -47,7 +48,7 @@ const Card = ({
 
   useEffect(() => {
     fetchQuestions(topic);
-  }, [topic]);
+  }, [fetchQuestions, topic]);
 
   return (
     <section className="card">
