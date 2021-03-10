@@ -16,11 +16,15 @@ This project is my first solo full-stack project.
 
 ## Progress
 
+### 3/10/21
+
+## More deployment struggles
+
+I tried AWS elastic beanstalk and I wasn't able to get my environment to successfully deploy. I don't know what's wrong with my app that is causing all of these deployment issues, and searching for the problem is a needle in a haystack. I was hoping this wouldn't take more than a day or two, but it's going to be a while it seems.
+
 ### 3/8/2021
 
-## Deployment struggles
-
-tl;dr - don't use Heroku.
+#### Deployment struggles
 
 At the end of last week I was ready to deploy a demo version of this app, and went with Heroku because they offer a managed database service that uses Postgres. I thought it would be simple! Not so. I configured everything for production and no matter what I did I could not get the Heroku database instance to connect to the React app. I got some help from some excellent people at a meetup who helped me identify some issues with my environment variables, but it still doesn't work.
 
