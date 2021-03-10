@@ -14,9 +14,9 @@ app.listen(port, () => {
 
 app.use(cors());
 app.use(express.json());
-app.listen(5000, () => {
-  console.log("CORS-enabled web server is listening on port 5000");
-});
+// app.listen(port, () => {
+//   console.log("CORS-enabled web server is listening on port 5000");
+// });
 
 //production route to index in server.js
 if (process.env.NODE_ENV === "production") {
