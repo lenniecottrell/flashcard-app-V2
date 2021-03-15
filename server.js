@@ -10,6 +10,7 @@ app.use(express.json());
 
 console.log("NODE_ENV: " + process.env.NODE_ENV); // this returns undefined
 console.log("port: " + port);
+console.log("DB_url: " + process.env.DATABASE_URL);
 
 //production route to index in server.js
 if (process.env.NODE_ENV === "production") {
