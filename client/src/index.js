@@ -14,15 +14,15 @@ const Flashcard = () => {
   const [question, setQuestion] = useState([]);
   const [questionId, setQuestionId] = useState(1);
   const [questionList, setQuestionList] = useState([]);
-  const [definition, setDefinition] = useState("a");
-  const [information, setInformation] = useState("b");
-  const [compare, setCompare] = useState("c");
-  const [example, setExample] = useState("d");
-  const [answer, setAnswer] = useState("e");
+  const [definition, setDefinition] = useState("");
+  const [information, setInformation] = useState("");
+  const [compare, setCompare] = useState("");
+  const [example, setExample] = useState("");
+  const [answer, setAnswer] = useState("");
 
   //get all topics for the drop down list
   const fetchTopics = async () => {
-    await fetch(`http://localhost:5000/topics/`)
+    await fetch(`https://lrc-flashcard-app.herokuapp.com/topics/`)
       .then((res) => res.json())
       .then((data) => {
         //console.log(data);

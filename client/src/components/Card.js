@@ -31,7 +31,9 @@ const Card = ({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchQuestions = useCallback(
     async (topic) => {
-      await fetch(`http://localhost:5000/topics/${topic}/questions`)
+      await fetch(
+        `https://lrc-flashcard-app.herokuapp.com/topics/${topic}/questions`
+      )
         .then((res) => res.json())
         .then((result) => {
           console.log(result); //array of all questions
