@@ -22,7 +22,12 @@ const Flashcard = () => {
 
   //get all topics for the drop down list
   const fetchTopics = async () => {
-    await fetch(`https://lrc-flashcard-app.herokuapp.com/topics`)
+    await fetch(`https://lrc-flashcard-app.herokuapp.com/topics`, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application-json",
+      },
+    })
       .then((res) => {
         let text = res.text();
         console.log(text);
