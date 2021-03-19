@@ -3,14 +3,14 @@ const { Pool, Client } = require("pg");
 // const user = process.env.DB_USER;
 // const secret = process.env.DB_SECRET;
 
-const client = new Client({
+export const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false,
   },
 });
 
-const pool = new Pool({
+export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false,
@@ -22,7 +22,4 @@ const pool = new Pool({
   // database: "flashcard_app",
 });
 
-module.exports = {
-  pool = pool,
-  client = client,
-}
+export default { pool, client };
