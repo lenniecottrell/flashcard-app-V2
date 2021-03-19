@@ -2,15 +2,15 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const app = express();
-const pool = require("./db");
+const { pool, client } = require("./db");
 let port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 
-console.log("NODE_ENV: " + process.env.NODE_ENV); // this returns undefined
+console.log("NODE_ENV: " + process.env.NODE_ENV); // this returns undefined locally
+console.log(process.env);
 console.log("port: " + port);
-console.log("DB_url: " + process.env.DATABASE_URL);
 
 //production route to index in server.js
 if (process.env.NODE_ENV === "production") {
@@ -21,6 +21,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+client.connect();
 //-- ROUTES --//
 
 //create a topic DONE
@@ -44,7 +45,7 @@ app.post("/topics", async (req, res) => {
 app.get("/topics", async (req, res) => {
   try {
     console.log(req.body);
-    const allTopics = await pool.query("SELECT * FROM public.tbl_topic");
+    const allTopics = await client.query("SELECT * FROM public.tbl_topic");
     res.json(allTopics.rows);
     console.log("GET SUCCESS. You got all topics");
   } catch (error) {
@@ -64,8 +65,9 @@ app.get("/topics/:topic", async (req, res) => {
     );
     res.json(singleTopic.rows);
     console.log("GET SUCCESS. You got a single topic");
+    client.end();
   } catch (error) {
-    console.log("oopsie, something went wrong");
+    console.log("Getting a topic did not succeed");
     console.error(error.message);
   }
 });
@@ -84,7 +86,7 @@ app.put("/topics/:id_topic", async (req, res) => {
     console.log(`Success, topic was updated to ${topic}`);
     res.json(updateTopic.rows[0]);
   } catch (error) {
-    console.log("oopsie, something went wrong");
+    console.log("Updating a topic did not succeed");
     console.error(error.message);
   }
 });
@@ -134,14 +136,15 @@ app.get("/topics/:topic/questions", async (req, res) => {
     console.log(req.params);
     console.log(req.body);
     const { topic } = req.params;
-    const allQuestions = await pool.query(
+    const allQuestions = await client.query(
       "SELECT * FROM public.tbl_question INNER JOIN public.tbl_topic ON fk_topic = id_topic AND topic = $1 ORDER BY id_question ASC",
       [topic]
     );
     res.json(allQuestions.rows);
     console.log("Here are all of the questions for a specific topic");
+    client.end();
   } catch (error) {
-    console.log("oopsie, you did not get all questions");
+    console.log("Getting all questions for a topic did not succeed");
     console.error(error.message);
   }
 });
