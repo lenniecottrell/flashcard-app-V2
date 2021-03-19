@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const path = require("path");
 const app = express();
-import { pool, client } from "./db.js";
+const { pool, client } = require("./db.js");
 let port = process.env.PORT || 5000;
 
 app.use(cors());
