@@ -29,7 +29,7 @@ const Flashcard = () => {
       },
     })
       .then((res) => {
-        let text = res.text();
+        let text = res.json();
         console.log(text);
         return text;
       })
