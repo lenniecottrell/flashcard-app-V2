@@ -28,11 +28,7 @@ const Flashcard = () => {
         "Content-Type": "application-json",
       },
     })
-      .then((res) => {
-        let text = res.json();
-        console.log(text);
-        return text;
-      })
+      .then((res) => res.json())
       .then((data) => {
         console.log("topic fetch data: " + data);
         setTopicList(data);
