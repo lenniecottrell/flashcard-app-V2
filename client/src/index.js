@@ -22,9 +22,9 @@ const Flashcard = () => {
 
   //get all topics for the drop down list
   const fetchTopics = async () => {
-    await fetch(`https://lrc-flashcard-app.herokuapp.com/topics/`)
+    await fetch(`https://ec2-34-201-248-246.compute-1.amazonaws.com/topics/`)
       .then((res) => {
-        let text = res.text();
+        let text = res.json();
         console.log(text);
         return text;
       })
