@@ -24,7 +24,7 @@ const Flashcard = () => {
   const fetchTopics = async () => {
     await fetch(`https://lrc-flashcard-app.herokuapp.com/topics`)
       .then((res) => {
-        let text = res.json();
+        let text = res.text();
         console.log(text);
         return text;
       })

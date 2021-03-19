@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 console.log("NODE_ENV: " + process.env.NODE_ENV); // this returns undefined locally
-console.log(process.env);
+//console.log(process.env);
 console.log("port: " + port);
 
 //production route to index in server.js

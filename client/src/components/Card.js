@@ -32,7 +32,7 @@ const Card = ({
   const fetchQuestions = useCallback(
     async (topic) => {
       await fetch(
-        `https://ec2-34-201-248-246.compute-1.amazonaws.com/topics/${topic}/questions`
+        `https://lrc-flashcard-app.herokuapp.com/topics/${topic}/questions`
       )
         .then((res) => res.json())
         .then((result) => {
