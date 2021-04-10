@@ -16,6 +16,18 @@ This project is my first solo full-stack project.
 
 # Progress
 
+## 4/9/21
+
+### Revisiting the app after a month
+
+For most of March, I was preparing for two job interviews (one of which turned into a job!), so I wasn't spending as much time working on this. The time I did spend on it was mostly trying to get the Heroku deployment to work, which still hasn't quite happened.
+
+Getting the local environment working again took some time, since I fussed with it so much for Heroku. For now, I'm going to continue to build it locally, and worry about deployment again when the app is a little more robust.
+
+Next up are create a question/topic and update a question/topic. I have the backends mostly built for this already (though I'll need to tweak it a bit for sure), so it'll mostly be front-end building.
+
+I'm excited to get back to it! I've missed working with React.
+
 ## 3/10/21
 
 ### More deployment struggles

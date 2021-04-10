@@ -4,6 +4,7 @@ const user = process.env.USER_LOCAL;
 const secret = process.env.PASSWORD_LOCAL;
 const host = process.env.HOST_LOCAL;
 
+//I don't know if I'll need this
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: {
