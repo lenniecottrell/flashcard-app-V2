@@ -31,15 +31,13 @@ const Card = ({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchQuestions = useCallback(
     async (topic) => {
-      await fetch(
-        `https://lrc-flashcard-app.herokuapp.com/topics/${topic}/questions`,
-        {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application-json",
-          },
-        }
-      )
+      // heroku: `https://lrc-flashcard-app.herokuapp.com/topics/${topic}/questions`;
+      await fetch(`http://localhost:5000/topics/${topic}/questions`, {
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application-json",
+        },
+      })
         .then((res) => res.json())
         .then((result) => {
           console.log(result); //array of all questions
