@@ -71,7 +71,6 @@ const Card = ({
 
   return (
     <section className="card">
-      {/* <TopicText topic={topic} /> */}
       <TopicSelect
         topicList={topicList}
         handleTopicChange={handleTopicChange}

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
+//STYLES
 // import './index.css';
 import "./styles/app.scss";
-//import ChangeQuestionWrapper from "./components/ChangeQuestionWrapper";
+//COMPONENTS
 import Card from "./components/Card";
+import AddQuestionButton from "./components/AddQuestionButton";
+import AddTopicButton from "./components/AddTopicButton";
 //import TopicSelect from "./components/TopicSelect";
-require("dotenv").config({ debug: process.env.DEBUG });
-// const productionURL = process.env.PROD_HOST;
 
 const Flashcard = () => {
   const [topic, setTopic] = useState("Javascript");
@@ -19,6 +20,8 @@ const Flashcard = () => {
   const [compare, setCompare] = useState("");
   const [example, setExample] = useState("");
   const [answer, setAnswer] = useState("");
+  const [showNewTopicModal, setShowNewTopicModal] = useState(false);
+  const [showNewQuestionModal, setShowNewQuestionModal] = useState(false);
 
   //get all topics for the drop down list
   const fetchTopics = async () => {
@@ -31,7 +34,6 @@ const Flashcard = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("topic fetch data: " + data);
         setTopicList(data);
         setTopic(data[0].topic); //set the first topic
       });
@@ -49,10 +51,14 @@ const Flashcard = () => {
 
   return (
     <div className="main-UI">
-      {/* <TopicSelect
-        topicList={topicList}
-        handleTopicChange={handleTopicChange}
-      /> */}
+      <AddQuestionButton
+        showNewQuestionModal={showNewQuestionModal}
+        setShowNewQuestionModal={setShowNewQuestionModal}
+      />
+      <AddTopicButton
+        showNewTopicModal={showNewTopicModal}
+        setShowNewTopicModal={setShowNewTopicModal}
+      />
       <Card
         topic={topic}
         topicList={topicList}
