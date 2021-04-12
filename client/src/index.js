@@ -55,11 +55,10 @@ const Flashcard = () => {
         showNewQuestionModal={showNewQuestionModal}
         setShowNewQuestionModal={setShowNewQuestionModal}
       />
-      <AddTopicButton
+      <AddTopicButton setShowNewTopicModal={setShowNewTopicModal} />
+      <Card
         showNewTopicModal={showNewTopicModal}
         setShowNewTopicModal={setShowNewTopicModal}
-      />
-      <Card
         topic={topic}
         topicList={topicList}
         handleTopicChange={handleTopicChange}

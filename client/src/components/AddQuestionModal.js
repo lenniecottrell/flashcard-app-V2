@@ -1,5 +1,5 @@
 import React from "react";
-import AddQuestionForm from "AddQuestionForm";
+import AddQuestionForm from "AddQuestionForm.";
 import TopicSelect from "TopicSelect";
 
 const AddQuestionModal = ({ topicList }) => {

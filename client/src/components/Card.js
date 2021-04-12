@@ -4,6 +4,9 @@ import MidsectionWrapper from "./MidsectionWrapper";
 import AnswerText from "./AnswerText";
 import ChangeQuestionWrapper from "./ChangeQuestionWrapper";
 import TopicSelect from "./TopicSelect";
+import AddTopicModal from "./AddTopicModal";
+import AddQuestionModal from "./AddQuestionModal";
+
 // const productionURL = process.env.PROD_HOST;
 
 const Card = ({
@@ -26,6 +29,8 @@ const Card = ({
   setExample,
   answer,
   setAnswer,
+  showNewTopicModal,
+  setShowNewTopicModal,
 }) => {
   //grab all the questions in a topic and set the answers
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -75,6 +80,11 @@ const Card = ({
         topicList={topicList}
         handleTopicChange={handleTopicChange}
       />
+      <AddTopicModal
+        showNewTopicModal={showNewTopicModal}
+        setShowNewTopicModal={setShowNewTopicModal}
+      />
+      <AddQuestionModal />
       <MidsectionWrapper
         topic={topic}
         question={question}

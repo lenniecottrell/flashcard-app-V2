@@ -1,12 +1,16 @@
 import React from "react";
 
-import AddTopicForm from "NewTopicForm";
+import AddTopicForm from "./AddTopicForm";
 
-const AddTopicModal = () => {
+const AddTopicModal = ({ showNewTopicModal, setShowNewTopicModal }) => {
   return (
-    <div>
-      <AddTopicForm />
-    </div>
+    <>
+      {showNewTopicModal && (
+        <div className="add-topic-modal">
+          <AddTopicForm setShowNewTopicModal={setShowNewTopicModal} />
+        </div>
+      )}
+    </>
   );
 };
 
