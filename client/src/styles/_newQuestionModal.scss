@@ -1,6 +1,69 @@
+.question-modal-bg {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .add-question-modal {
-  height: 80%;
-  border-radius: 5px;
+  height: 600px;
+  width: 500px;
   padding: 10px;
+  position: relative;
+  z-index: 10;
+  border-radius: 20px;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.add-question-form {
+  //border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 1rem;
+
+  height: 90%;
+  label {
+    margin: 0px 0px 0px 30px;
+    padding: 10px 0px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  .buttons {
+    //border: 1px solid black;
+    margin: 0px 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+  button {
+    margin: 10px 0px;
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+  input[type="text"] {
+    margin: 0px 30px;
+    font-size: 20px;
+    border-radius: 2px;
+    height: 40px;
+  }
+}
+
+.modal-topic-select {
+  display: flex;
+  flex-direction: row;
+  .topicSelect {
+    margin: 10px 30px;
+    padding: 0;
+    color: black;
+    label {
+      margin: 0;
+      padding: 0;
+    }
+  }
 }

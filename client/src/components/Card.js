@@ -27,10 +27,6 @@ const Card = ({
   setExample,
   answer,
   setAnswer,
-  showNewTopicModal,
-  setShowNewTopicModal,
-  showNewQuestionModal,
-  setShowNewQuestionModal,
 }) => {
   //grab all the questions in a topic and set the answers
   // eslint-disable-next-line react-hooks/exhaustive-deps

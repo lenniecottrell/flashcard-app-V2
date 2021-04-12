@@ -1,6 +1,6 @@
 import React from "react";
 import AddQuestionForm from "./AddQuestionForm";
-import TopicSelect from "./TopicSelect";
+// import TopicSelect from "./TopicSelect";
 
 const AddQuestionModal = ({
   topicList,
@@ -10,9 +10,14 @@ const AddQuestionModal = ({
   return (
     <>
       {showNewQuestionModal && (
-        <div className="add-question-modal">
-          <TopicSelect topicList={topicList} />
-          <AddQuestionForm setShowNewQuestionModal={setShowNewQuestionModal} />
+        <div className="question-modal-bg">
+          <div className="add-question-modal">
+            {/* <TopicSelect topicList={topicList} /> */}
+            <AddQuestionForm
+              setShowNewQuestionModal={setShowNewQuestionModal}
+              topicList={topicList}
+            />
+          </div>
         </div>
       )}
     </>

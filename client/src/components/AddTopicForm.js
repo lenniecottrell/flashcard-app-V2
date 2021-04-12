@@ -10,13 +10,15 @@ const AddTopicForm = ({ setShowNewTopicModal }) => {
   };
 
   return (
-    <form action={addTopicHandler}>
-      <label for="new-topic">Topic:</label>
+    <form action={addTopicHandler} className="add-topic-form">
+      <label for="new-topic">ADD A TOPIC:</label>
       <input type="text" name="new-topic" />
-      <button type="reset" onClick={cancelHandler}>
-        Cancel
-      </button>
-      <button type="submit">Submit</button>
+      <div className="buttons">
+        <button type="reset" onClick={cancelHandler}>
+          Cancel
+        </button>
+        <button type="submit">Submit</button>
+      </div>
     </form>
   );
 };
