@@ -6,8 +6,10 @@ const AddTopicModal = ({ showNewTopicModal, setShowNewTopicModal }) => {
   return (
     <>
       {showNewTopicModal && (
-        <div className="add-topic-modal">
-          <AddTopicForm setShowNewTopicModal={setShowNewTopicModal} />
+        <div className="topic-modal-bg">
+          <div className="add-topic-modal">
+            <AddTopicForm setShowNewTopicModal={setShowNewTopicModal} />
+          </div>
         </div>
       )}
     </>

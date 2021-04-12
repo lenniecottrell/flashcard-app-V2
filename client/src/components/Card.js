@@ -4,8 +4,6 @@ import MidsectionWrapper from "./MidsectionWrapper";
 import AnswerText from "./AnswerText";
 import ChangeQuestionWrapper from "./ChangeQuestionWrapper";
 import TopicSelect from "./TopicSelect";
-import AddTopicModal from "./AddTopicModal";
-import AddQuestionModal from "./AddQuestionModal";
 
 // const productionURL = process.env.PROD_HOST;
 
@@ -81,15 +79,6 @@ const Card = ({
       <TopicSelect
         topicList={topicList}
         handleTopicChange={handleTopicChange}
-      />
-      <AddTopicModal
-        showNewTopicModal={showNewTopicModal}
-        setShowNewTopicModal={setShowNewTopicModal}
-      />
-      <AddQuestionModal
-        topicList={topicList}
-        showNewQuestionModal={showNewQuestionModal}
-        setShowNewQuestionModal={setShowNewQuestionModal}
       />
       <MidsectionWrapper
         topic={topic}

@@ -7,6 +7,8 @@ import "./styles/app.scss";
 import Card from "./components/Card";
 import AddQuestionButton from "./components/AddQuestionButton";
 import AddTopicButton from "./components/AddTopicButton";
+import AddTopicModal from "./components/AddTopicModal";
+import AddQuestionModal from "./components/AddQuestionModal";
 //import TopicSelect from "./components/TopicSelect";
 
 const Flashcard = () => {
@@ -55,7 +57,19 @@ const Flashcard = () => {
         showNewQuestionModal={showNewQuestionModal}
         setShowNewQuestionModal={setShowNewQuestionModal}
       />
-      <AddTopicButton setShowNewTopicModal={setShowNewTopicModal} />
+      <AddTopicButton
+        setShowNewTopicModal={setShowNewTopicModal}
+        showNewTopicModal={showNewTopicModal}
+      />
+      <AddTopicModal
+        showNewTopicModal={showNewTopicModal}
+        setShowNewTopicModal={setShowNewTopicModal}
+      />
+      <AddQuestionModal
+        topicList={topicList}
+        showNewQuestionModal={showNewQuestionModal}
+        setShowNewQuestionModal={setShowNewQuestionModal}
+      />
       <Card
         showNewQuestionModal={showNewQuestionModal}
         setShowNewQuestionModal={setShowNewQuestionModal}
