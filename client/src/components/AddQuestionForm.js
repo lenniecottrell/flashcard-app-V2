@@ -1,8 +1,12 @@
 import React from "react";
 
-const AddQuestionForm = () => {
+const AddQuestionForm = ({ setShowNewQuestionModal }) => {
   const addQuestionHandler = () => {
     //API call to add a new question
+  };
+
+  const cancelHandler = () => {
+    setShowNewQuestionModal(false);
   };
 
   return (
@@ -18,7 +22,9 @@ const AddQuestionForm = () => {
         <input type="text" name="compare-ans" id="compare-ans" />
         <label for="example-ans">Example:</label>
         <input type="text" name="example-ans" id="example-ans" />
-        <button type="reset">Cancel</button>
+        <button type="reset" onClick={cancelHandler}>
+          Cancel
+        </button>
         <button type="reset">Reset Data</button>
         <button type="submit">Submit</button>
       </form>

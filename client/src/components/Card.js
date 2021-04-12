@@ -31,6 +31,8 @@ const Card = ({
   setAnswer,
   showNewTopicModal,
   setShowNewTopicModal,
+  showNewQuestionModal,
+  setShowNewQuestionModal,
 }) => {
   //grab all the questions in a topic and set the answers
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -84,7 +86,11 @@ const Card = ({
         showNewTopicModal={showNewTopicModal}
         setShowNewTopicModal={setShowNewTopicModal}
       />
-      <AddQuestionModal />
+      <AddQuestionModal
+        topicList={topicList}
+        showNewQuestionModal={showNewQuestionModal}
+        setShowNewQuestionModal={setShowNewQuestionModal}
+      />
       <MidsectionWrapper
         topic={topic}
         question={question}

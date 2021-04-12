@@ -1,13 +1,21 @@
 import React from "react";
-import AddQuestionForm from "AddQuestionForm.";
-import TopicSelect from "TopicSelect";
+import AddQuestionForm from "./AddQuestionForm";
+import TopicSelect from "./TopicSelect";
 
-const AddQuestionModal = ({ topicList }) => {
+const AddQuestionModal = ({
+  topicList,
+  showNewQuestionModal,
+  setShowNewQuestionModal,
+}) => {
   return (
-    <div>
-      <TopicSelect topicList={topicList} />
-      <AddQuestionForm />
-    </div>
+    <>
+      {showNewQuestionModal && (
+        <div className="add-question-modal">
+          <TopicSelect topicList={topicList} />
+          <AddQuestionForm setShowNewQuestionModal={setShowNewQuestionModal} />
+        </div>
+      )}
+    </>
   );
 };
 

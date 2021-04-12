@@ -57,6 +57,8 @@ const Flashcard = () => {
       />
       <AddTopicButton setShowNewTopicModal={setShowNewTopicModal} />
       <Card
+        showNewQuestionModal={showNewQuestionModal}
+        setShowNewQuestionModal={setShowNewQuestionModal}
         showNewTopicModal={showNewTopicModal}
         setShowNewTopicModal={setShowNewTopicModal}
         topic={topic}
