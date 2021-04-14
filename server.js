@@ -33,9 +33,9 @@ app.post("/topics", async (req, res) => {
       [topic]
     );
     res.json(newTopic.rows[0]);
-    console.log("POST SUCCESS. You created a topic");
+    console.log(`POST SUCCESS. You created a topic: ${topic}`);
   } catch (error) {
-    console.log("oopsie, something went wrong");
+    console.log("something went wrong when creating a new topic");
     console.error(error.message);
   }
 });
