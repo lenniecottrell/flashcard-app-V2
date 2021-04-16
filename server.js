@@ -20,8 +20,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-// client.connect();
-
 //-- ROUTES --//
 //create a topic DONE
 app.post("/topics", async (req, res) => {
@@ -110,7 +108,7 @@ app.post("/topics/questions", async (req, res) => {
     res.json(newEntry.rows[0]);
     console.log("POST success. You created a question");
   } catch (error) {
-    console.log("oopsie something went wrong");
+    console.log("something went wrong trying to create a question");
     console.error(error.message);
   }
 });
@@ -124,7 +122,7 @@ app.get("/questions", async (req, res) => {
     res.json(allQuestions.rows);
     console.log("GET success. You got all questions");
   } catch (error) {
-    console.log("oopsie something went wrong");
+    console.log("something went wrong getting all questions");
     console.error(error.message);
   }
 });
@@ -141,7 +139,6 @@ app.get("/topics/:topic/questions", async (req, res) => {
     );
     res.json(allQuestions.rows);
     console.log("Here are all of the questions for a specific topic");
-    // client.end();
   } catch (error) {
     console.log("Getting all questions for a topic did not succeed");
     console.error(error.message);
@@ -188,9 +185,9 @@ app.put("/topics/questions/:id_question", async (req, res) => {
       [fk_topic, id_question]
     );
     res.json(updateQuestionTopic.rows[0]);
-    console.log("Success! Question was updated");
+    console.log("Success! Question topic was updated");
   } catch (error) {
-    console.log("oopsie, something went wrong");
+    console.log("something went wrong");
     console.error(error.message);
   }
 });
@@ -210,7 +207,7 @@ app.put("/topics/:topic/questions/:id_question/question", async (req, res) => {
     res.json(`Question was updated: ${question}`);
     console.log(`Question was updated: ${question}`);
   } catch (error) {
-    console.log("oopsie, something went wrong");
+    console.log("something went wrong trying to update the question body");
     console.error(error.message);
   }
 });
@@ -232,7 +229,7 @@ app.put(
       res.json(`Definition was updated: ${definition}`);
       console.log(`Definition was updated: ${definition}`);
     } catch (error) {
-      console.log("oopsie, something went wrong");
+      console.log("something went wrong trying to update the definition");
       console.error(error.message);
     }
   }
@@ -255,7 +252,7 @@ app.put(
       res.json(`Information was updated: ${information}`);
       console.log(`Information was updated: ${information}`);
     } catch (error) {
-      console.log("oopsie, something went wrong");
+      console.log("something went wrong trying to update the information");
       console.error(error.message);
     }
   }
@@ -276,7 +273,7 @@ app.put("/topics/:topic/questions/:id_question/compare", async (req, res) => {
     res.json(`Compare was updated: ${compare}`);
     console.log(`Compare was updated: ${compare}`);
   } catch (error) {
-    console.log("oopsie, something went wrong");
+    console.log("something went wrong trying to update compare");
     console.error(error.message);
   }
 });
@@ -296,7 +293,7 @@ app.put("/topics/:topic/questions/:id_question/example", async (req, res) => {
     res.json(`Example was updated: ${example}`);
     console.log(`Example was updated: ${example}`);
   } catch (error) {
-    console.log("oopsie, something went wrong");
+    console.log("something went wrong trying to update the example");
     console.error(error.message);
   }
 });
