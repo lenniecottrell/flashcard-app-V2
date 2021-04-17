@@ -1,23 +1,23 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const AddTopicForm = ({ setShowNewTopicModal }) => {
+const AddTopicForm = ({ setShowNewTopicModal, showNewTopicModal }) => {
   const { register, handleSubmit } = useForm();
 
   const cancelHandler = () => setShowNewTopicModal(false);
   const errorHandler = (errors) => console.error(errors);
   const dataHandler = async (data) => {
     console.log(data);
-    await fetch(`http://localhost:5000/topics`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    // await fetch(`http://localhost:5000/topics`, {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data));
 
     setShowNewTopicModal(false);
   };

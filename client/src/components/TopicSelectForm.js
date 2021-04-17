@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 const TopicSelectForm = ({ topicList, handleTopicChange }) => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
   const errorHandler = (errors) => console.error(errors);
   const dataHandler = async (data) => {
     console.log(data);
@@ -16,7 +16,6 @@ const TopicSelectForm = ({ topicList, handleTopicChange }) => {
       <label htmlFor="topicSelect">SELECT A TOPIC: </label>
       <select
         {...register("topic", { required: true })}
-        name="topicSelect"
         className="selectMenu"
         onChange={handleTopicChange}
       >
