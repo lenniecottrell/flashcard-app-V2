@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import AddTopicButton from "./AddTopicButton";
 
 const AddQuestionForm = ({ setShowNewQuestionModal, topicList }) => {
   const { register, handleSubmit } = useForm();
@@ -72,31 +71,31 @@ const AddQuestionForm = ({ setShowNewQuestionModal, topicList }) => {
       </select>
       <label htmlFor="question">Question: </label>
       <input
-        {...register("question")}
+        {...register("question", { required: true })}
         id="question-body"
         className="q-form-input"
       />
       <label htmlFor="definition">Definition: </label>
       <textarea
-        {...register("definition")}
+        {...register("definition", { required: true })}
         id="definition-ans"
         className="q-form-input"
       ></textarea>
       <label htmlFor="information">Information: </label>
       <textarea
-        {...register("information")}
+        {...register("information", { required: true })}
         id="information-ans"
         className="q-form-input"
       ></textarea>
       <label htmlFor="compare-ans">Compare: </label>
       <textarea
-        {...register("compare")}
+        {...register("compare", { required: true })}
         id="compare-ans"
         className="q-form-input"
       ></textarea>
       <label htmlFor="example">Example: </label>
       <textarea
-        {...register("example")}
+        {...register("example", { required: true })}
         id="example-ans"
         className="q-form-input"
       ></textarea>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const AddTopicButton = ({ setShowNewTopicModal, setShowNewQuestionModal }) => {
+const AddTopicButton = ({ setShowNewTopicModal }) => {
   const openTopicModal = () => {
     setShowNewTopicModal(true);
   };

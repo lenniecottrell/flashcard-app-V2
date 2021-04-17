@@ -9,8 +9,6 @@
 }
 
 .add-topic-modal {
-  height: 300px;
-  width: 500px;
   padding: 10px;
   position: relative;
   z-index: 10;
@@ -19,6 +17,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+  justify-content: center;
 }
 
 .add-topic-form {
@@ -27,32 +26,25 @@
   flex-direction: column;
   text-align: center;
   margin: 1.5rem 1rem 1rem 1rem;
-  //padding: 1.5rem 0rem;
-  height: 90%;
+  // height: 90%;
   label {
     padding: 10px 0px;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 20px;
   }
-  .buttons {
+  input {
+    font-size: 16px;
+  }
+  .button-container {
+    //border: 1px solid black;
+    width: 100%;
+    margin: 10px 0px;
     display: flex;
     justify-content: space-between;
   }
-  button {
-    margin: 10px 30px;
-    padding: 10px 50px;
-    font-size: 15px;
+  .btn {
+    margin: 10px 0px;
+    padding: 10px 20px;
+    font-size: 16px;
   }
-  input[type="text"] {
-    margin: 10px 30px;
-    font-size: 20px;
-    border-radius: 2px;
-    height: 40px;
-  }
-}
-
-.btn {
-  margin: 10px 0px;
-  padding: 10px 20px;
-  font-size: 16px;
 }

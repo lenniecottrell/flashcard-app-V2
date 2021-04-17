@@ -1,12 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const AddTopicForm = ({
-  setShowNewTopicModal,
-  showNewTopicModal,
-  showNewQuestionModal,
-  setShowNewQuestionModal,
-}) => {
+const AddTopicForm = ({ setShowNewTopicModal }) => {
   const { register, handleSubmit } = useForm();
 
   const cancelHandler = () => {
@@ -36,10 +31,12 @@ const AddTopicForm = ({
     >
       <label htmlFor="topic">ADD A TOPIC:</label>
       <input {...register("topic")} />
-      <button type="reset" onClick={cancelHandler}>
-        Cancel
-      </button>
-      <input type="submit" value="Submit" />
+      <div className="button-container">
+        <button type="reset" onClick={cancelHandler} className="btn">
+          Cancel
+        </button>
+        <input type="submit" value="Submit" className="btn" />
+      </div>
     </form>
   );
 };
