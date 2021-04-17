@@ -16,6 +16,14 @@ This project is my first solo full-stack project.
 
 # Progress
 
+## 4/17/21
+
+### No more baby steps
+
+I've been working on this project every day since the last progress update, and I feel like every time I sit down to work on it, I make a significant contribution. Something must have settled in the month I didn't look at it, because I'm so much more confident in how to build out features and fix bugs. Things are moving faster and I'm finding solutions to problems much easier.
+
+I'm having to use google less. I'm drawing on the skills I already have rather than needing to build new ones before I can progress. I feel like I actually kinda know what I'm doing!
+
 ## 4/9/21
 
 ### Revisiting the app after a month
