@@ -15,12 +15,12 @@ const AddQuestionModal = ({
       {showNewQuestionModal && (
         <div className="question-modal-bg">
           <div className="add-question-modal">
-            <AddTopicModal
+            {/* <AddTopicModal
               setShowNewTopicModal={setShowNewTopicModal}
               showNewTopicModal={showNewTopicModal}
               setShowNewQuestionModal={setShowNewQuestionModal}
               showNewQuestionModal={showNewQuestionModal}
-            />
+            /> */}
             <AddTopicButton
               setShowNewTopicModal={setShowNewTopicModal}
               showNewTopicModal={showNewTopicModal}

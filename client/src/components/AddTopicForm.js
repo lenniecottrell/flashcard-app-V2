@@ -11,7 +11,6 @@ const AddTopicForm = ({
 
   const cancelHandler = () => {
     setShowNewTopicModal(false);
-    setShowNewQuestionModal(true);
   };
   const errorHandler = (errors) => console.error(errors);
   const dataHandler = async (data) => {
@@ -28,7 +27,6 @@ const AddTopicForm = ({
     //   .then((data) => console.log(data));
 
     setShowNewTopicModal(false);
-    setShowNewQuestionModal(true);
   };
 
   return (

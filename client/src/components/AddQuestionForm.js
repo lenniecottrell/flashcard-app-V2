@@ -55,7 +55,7 @@ const AddQuestionForm = ({ setShowNewQuestionModal, topicList }) => {
       className="add-question-form"
     >
       <label htmlFor="topicSelect" id="selectLabel">
-        SELECT A TOPIC:{" "}
+        SELECT A TOPIC:
       </label>
       <select
         {...register("topic", { required: true })}

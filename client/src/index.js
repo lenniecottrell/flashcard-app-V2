@@ -56,16 +56,18 @@ const Flashcard = () => {
         showNewQuestionModal={showNewQuestionModal}
         setShowNewQuestionModal={setShowNewQuestionModal}
       />
-      <AddTopicModal
-        showNewTopicModal={showNewTopicModal}
-        setShowNewTopicModal={setShowNewTopicModal}
-      />
       <AddQuestionModal
         topicList={topicList}
         showNewQuestionModal={showNewQuestionModal}
         setShowNewQuestionModal={setShowNewQuestionModal}
         setShowNewTopicModal={setShowNewTopicModal}
         showNewTopicModal={showNewTopicModal}
+      />
+      <AddTopicModal
+        setShowNewTopicModal={setShowNewTopicModal}
+        showNewTopicModal={showNewTopicModal}
+        setShowNewQuestionModal={setShowNewQuestionModal}
+        showNewQuestionModal={showNewQuestionModal}
       />
       <Card
         showNewQuestionModal={showNewQuestionModal}
