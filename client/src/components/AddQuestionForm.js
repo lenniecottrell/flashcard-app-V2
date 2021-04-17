@@ -34,16 +34,16 @@ const AddQuestionForm = ({ setShowNewQuestionModal, topicList }) => {
     delete data.topic;
     console.log(data);
     //API call to add the question to the database
-    // await fetch(`http://localhost:5000/topics/questions`, {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
+    await fetch(`http://localhost:5000/topics/questions`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
 
     setShowNewQuestionModal(false);
   };
