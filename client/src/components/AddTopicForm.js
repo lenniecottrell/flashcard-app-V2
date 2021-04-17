@@ -1,10 +1,18 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const AddTopicForm = ({ setShowNewTopicModal, showNewTopicModal }) => {
+const AddTopicForm = ({
+  setShowNewTopicModal,
+  showNewTopicModal,
+  showNewQuestionModal,
+  setShowNewQuestionModal,
+}) => {
   const { register, handleSubmit } = useForm();
 
-  const cancelHandler = () => setShowNewTopicModal(false);
+  const cancelHandler = () => {
+    setShowNewTopicModal(false);
+    setShowNewQuestionModal(true);
+  };
   const errorHandler = (errors) => console.error(errors);
   const dataHandler = async (data) => {
     console.log(data);
@@ -20,6 +28,7 @@ const AddTopicForm = ({ setShowNewTopicModal, showNewTopicModal }) => {
     //   .then((data) => console.log(data));
 
     setShowNewTopicModal(false);
+    setShowNewQuestionModal(true);
   };
 
   return (

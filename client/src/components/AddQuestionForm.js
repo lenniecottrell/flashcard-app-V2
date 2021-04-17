@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-// import AddTopicButton from "./AddTopicButton";
+import AddTopicButton from "./AddTopicButton";
 
 const AddQuestionForm = ({ setShowNewQuestionModal, topicList }) => {
   const { register, handleSubmit } = useForm();
@@ -33,17 +33,18 @@ const AddQuestionForm = ({ setShowNewQuestionModal, topicList }) => {
     }
     data.fk_topic = selectionId;
     delete data.topic;
+    console.log(data);
     //API call to add the question to the database
-    await fetch(`http://localhost:5000/topics/questions`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    // await fetch(`http://localhost:5000/topics/questions`, {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data));
 
     setShowNewQuestionModal(false);
   };
@@ -53,7 +54,9 @@ const AddQuestionForm = ({ setShowNewQuestionModal, topicList }) => {
       onSubmit={handleSubmit(dataHandler, errorHandler)}
       className="add-question-form"
     >
-      <label htmlFor="topicSelect">SELECT A TOPIC: </label>
+      <label htmlFor="topicSelect" id="selectLabel">
+        SELECT A TOPIC:{" "}
+      </label>
       <select
         {...register("topic", { required: true })}
         className="selectMenu"
@@ -74,35 +77,37 @@ const AddQuestionForm = ({ setShowNewQuestionModal, topicList }) => {
         className="q-form-input"
       />
       <label htmlFor="definition">Definition: </label>
-      <input
+      <textarea
         {...register("definition")}
         id="definition-ans"
         className="q-form-input"
-      />
+      ></textarea>
       <label htmlFor="information">Information: </label>
-      <input
+      <textarea
         {...register("information")}
         id="information-ans"
         className="q-form-input"
-      />
+      ></textarea>
       <label htmlFor="compare-ans">Compare: </label>
-      <input
+      <textarea
         {...register("compare")}
         id="compare-ans"
         className="q-form-input"
-      />
+      ></textarea>
       <label htmlFor="example">Example: </label>
-      <input
+      <textarea
         {...register("example")}
         id="example-ans"
         className="q-form-input"
-      />
-      <div className="buttons">
-        <button type="reset" onClick={cancelHandler}>
+      ></textarea>
+      <div className="button-container">
+        <button type="reset" onClick={cancelHandler} className="btn">
           Cancel
         </button>
-        <button type="reset">Reset Data</button>
-        <input type="submit" value="Submit" />
+        <button type="reset" className="btn">
+          Reset Data
+        </button>
+        <input type="submit" value="Submit" className="btn" />
       </div>
     </form>
   );

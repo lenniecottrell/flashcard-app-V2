@@ -9,11 +9,12 @@
 }
 
 .add-question-modal {
-  height: 600px;
-  width: 500px;
+  //border: 2px solid black;
+  height: 55%;
+  width: 40%;
   padding: 10px;
   position: relative;
-  z-index: 10;
+  z-index: 5;
   border-radius: 20px;
   background-color: white;
   display: flex;
@@ -21,49 +22,58 @@
   justify-content: center;
 }
 
+.new-topic-btn-container {
+  //border: 1px solid black;
+  margin: 0rem 1rem;
+  padding: 10px 0px 0px 0px;
+  display: flex;
+  justify-content: flex-end;
+  button {
+    margin: 0px;
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
 .add-question-form {
-  //border: 2px solid black;
+  //border: 1px solid black;
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin: 1rem;
-
-  height: 90%;
+  margin: 0rem 1rem;
+  height: 100%;
   label {
-    margin: 0px 0px 0px 30px;
-    padding: 10px 0px;
+    margin: 0px;
+    padding: 10px 0px 5px 0px;
     font-weight: bold;
+    font-size: 20px;
+  }
+  #selectLabel {
+    margin: 0px;
+    padding: 0px 0px 5px 0px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  #question-body {
     font-size: 16px;
   }
-  .buttons {
+  textarea {
+    font-size: 16px;
+    font-family: "PT Sans", sans-serif;
+  }
+  .button-container {
     //border: 1px solid black;
-    margin: 0px 30px;
+    width: 100%;
+    margin: 10px 0px;
     display: flex;
     justify-content: space-between;
   }
-  button {
+  .btn {
     margin: 10px 0px;
     padding: 10px 20px;
-    font-size: 15px;
-  }
-  input[type="text"] {
-    margin: 0px 30px;
-    font-size: 20px;
-    border-radius: 2px;
-    height: 40px;
+    font-size: 16px;
   }
 }
 
-.modal-topic-select {
-  display: flex;
-  flex-direction: row;
-  .topicSelect {
-    margin: 10px 30px;
-    padding: 0;
-    color: black;
-    label {
-      margin: 0;
-      padding: 0;
-    }
-  }
+.selectMenu {
+  font-size: 16px;
 }

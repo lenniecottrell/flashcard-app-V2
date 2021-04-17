@@ -6,7 +6,6 @@ import "./styles/app.scss";
 //COMPONENTS
 import Card from "./components/Card";
 import AddQuestionButton from "./components/AddQuestionButton";
-import AddTopicButton from "./components/AddTopicButton";
 import AddTopicModal from "./components/AddTopicModal";
 import AddQuestionModal from "./components/AddQuestionModal";
 //import TopicSelect from "./components/TopicSelect";
@@ -57,10 +56,6 @@ const Flashcard = () => {
         showNewQuestionModal={showNewQuestionModal}
         setShowNewQuestionModal={setShowNewQuestionModal}
       />
-      {/* <AddTopicButton
-        setShowNewTopicModal={setShowNewTopicModal}
-        showNewTopicModal={showNewTopicModal}
-      /> */}
       <AddTopicModal
         showNewTopicModal={showNewTopicModal}
         setShowNewTopicModal={setShowNewTopicModal}
@@ -97,17 +92,6 @@ const Flashcard = () => {
         answer={answer}
         setAnswer={setAnswer}
       />
-      {/* <ChangeQuestionWrapper
-        questionList={questionList}
-        setQuestion={setQuestion}
-        setAnswer={setAnswer}
-        questionId={questionId}
-        setQuestionId={setQuestionId}
-        setDefinition={setDefinition}
-        setInformation={setInformation}
-        setCompare={setCompare}
-        setExample={setExample}
-      /> */}
     </div>
   );
 };
