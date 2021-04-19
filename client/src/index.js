@@ -81,6 +81,18 @@ const Flashcard = () => {
         topicList={topicList}
         showEditQuestionModal={showEditQuestionModal}
         setShowEditQuestionModal={setShowEditQuestionModal}
+        question={question}
+        setQuestion={setQuestion}
+        questionId={questionId}
+        setQuestionId={setQuestionId}
+        definition={definition}
+        setDefinition={setDefinition}
+        information={information}
+        setInformation={setInformation}
+        compare={compare}
+        setCompare={setCompare}
+        example={example}
+        setExample={setExample}
       />
       <Card
         topic={topic}

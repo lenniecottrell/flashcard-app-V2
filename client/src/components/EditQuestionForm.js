@@ -1,7 +1,22 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const AddQuestionForm = ({ setShowEditQuestionModal, topicList }) => {
+const AddQuestionForm = ({
+  setShowEditQuestionModal,
+  topicList,
+  question,
+  setQuestion,
+  questionId,
+  setQuestionId,
+  definition,
+  setDefinition,
+  information,
+  setInformation,
+  compare,
+  setCompare,
+  example,
+  setExample,
+}) => {
   const { register, handleSubmit } = useForm();
 
   const errorHandler = (errors) => console.error(errors);
@@ -23,6 +38,7 @@ const AddQuestionForm = ({ setShowEditQuestionModal, topicList }) => {
 
   //This uses the same logic as above, but replaces the topic string in the data object with it's ID in the database
   const dataHandler = async (data) => {
+    //compare everything and only make the calls that need to be made for the things that have changed
     let selection = data.topic;
     let selectionId = 0;
     for (let i = 0; i < topicList.length; i++) {
@@ -54,7 +70,7 @@ const AddQuestionForm = ({ setShowEditQuestionModal, topicList }) => {
       className="add-question-form"
     >
       <label htmlFor="topicSelect" id="selectLabel">
-        SELECT A TOPIC:
+        Topic:
       </label>
       <select
         {...register("topic", { required: true })}
@@ -74,38 +90,41 @@ const AddQuestionForm = ({ setShowEditQuestionModal, topicList }) => {
         {...register("question", { required: true })}
         id="question-body"
         className="q-form-input"
+        value={question}
       />
       <label htmlFor="definition">Definition: </label>
       <textarea
         {...register("definition", { required: true })}
         id="definition-ans"
         className="q-form-input"
+        value={definition}
       ></textarea>
       <label htmlFor="information">Information: </label>
       <textarea
         {...register("information", { required: true })}
         id="information-ans"
         className="q-form-input"
+        value={information}
       ></textarea>
       <label htmlFor="compare-ans">Compare: </label>
       <textarea
         {...register("compare", { required: true })}
         id="compare-ans"
         className="q-form-input"
+        value={compare}
       ></textarea>
       <label htmlFor="example">Example: </label>
       <textarea
         {...register("example", { required: true })}
         id="example-ans"
         className="q-form-input"
+        value={example}
       ></textarea>
       <div className="button-container">
         <button type="reset" onClick={cancelHandler} className="btn">
           Cancel
         </button>
-        <button type="reset" className="btn">
-          Reset Data
-        </button>
+
         <input type="submit" value="Submit" className="btn" />
       </div>
     </form>
