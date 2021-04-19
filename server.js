@@ -317,19 +317,21 @@ app.put("/topics/:topic/questions/:id_question/example", async (req, res) => {
 // });
 
 //delete a topic DONE
-app.delete("/topics/:topic", async (req, res) => {
+app.delete("/topics/:id_topic", async (req, res) => {
   try {
     console.log(req.params);
-    const { topic } = req.params;
+    const { id_topic } = req.params;
     const deleteTopic = await pool.query(
-      "DELETE FROM public.tbl_topic WHERE topic = $1",
-      [topic]
+      "DELETE FROM public.tbl_topic WHERE id_topic = $1",
+      [id_topic]
     );
     console.log(deleteTopic);
-    console.log(`DELETE SUCCESS. You deleted ${topic}`);
-    res.json(`Topic was deleted`);
+    console.log(
+      `DELETE SUCCESS. You deleted the topic with the ID ${id_topic}`
+    );
+    res.json(`Topic ${id_topic} was deleted`);
   } catch (error) {
-    console.log("oopsie, something went wrong");
+    console.log("error, topic was not deleted");
     console.error(error.message);
   }
 });
@@ -345,9 +347,9 @@ app.delete("/topics/:topic/questions/:id_question", async (req, res) => {
     );
     console.log(deleteQuestion);
     console.log("DELETE SUCCESS. You deleted a question");
-    res.json(`Question was deleted`);
+    res.json(`Question ${id_question} was deleted`);
   } catch (error) {
-    console.log("oopsie, something went wrong");
+    console.log("error, question was not deleted");
     console.error(error.message);
   }
 });

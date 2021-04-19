@@ -8,7 +8,7 @@ import Card from "./components/Card";
 import AddQuestionButton from "./components/AddQuestionButton";
 import AddTopicModal from "./components/AddTopicModal";
 import AddQuestionModal from "./components/AddQuestionModal";
-//import TopicSelect from "./components/TopicSelect";
+import EditQuestionButton from "./components/EditQuestionButton";
 
 const Flashcard = () => {
   const [topic, setTopic] = useState("Javascript");
@@ -23,6 +23,7 @@ const Flashcard = () => {
   const [answer, setAnswer] = useState("");
   const [showNewTopicModal, setShowNewTopicModal] = useState(false);
   const [showNewQuestionModal, setShowNewQuestionModal] = useState(false);
+  const [showEditQuestionModal, setShowEditQuestionModal] = useState(false);
 
   //get all topics for the drop down list
   const fetchTopics = async () => {
@@ -56,6 +57,10 @@ const Flashcard = () => {
         showNewQuestionModal={showNewQuestionModal}
         setShowNewQuestionModal={setShowNewQuestionModal}
       />
+      <EditQuestionButton
+        showEditQuestionModal={showEditQuestionModal}
+        setShowEditQuestionModal={setShowEditQuestionModal}
+      />
       <AddQuestionModal
         topicList={topicList}
         showNewQuestionModal={showNewQuestionModal}
@@ -72,10 +77,6 @@ const Flashcard = () => {
         topicList={topicList}
       />
       <Card
-        showNewQuestionModal={showNewQuestionModal}
-        setShowNewQuestionModal={setShowNewQuestionModal}
-        showNewTopicModal={showNewTopicModal}
-        setShowNewTopicModal={setShowNewTopicModal}
         topic={topic}
         topicList={topicList}
         handleTopicChange={handleTopicChange}
