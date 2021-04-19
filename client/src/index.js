@@ -9,6 +9,7 @@ import AddQuestionButton from "./components/AddQuestionButton";
 import AddTopicModal from "./components/AddTopicModal";
 import AddQuestionModal from "./components/AddQuestionModal";
 import EditQuestionButton from "./components/EditQuestionButton";
+import EditQuestionModal from "./components/EditQuestionModal";
 
 const Flashcard = () => {
   const [topic, setTopic] = useState("Javascript");
@@ -75,6 +76,11 @@ const Flashcard = () => {
         showNewQuestionModal={showNewQuestionModal}
         setTopicList={setTopicList}
         topicList={topicList}
+      />
+      <EditQuestionModal
+        topicList={topicList}
+        showEditQuestionModal={showEditQuestionModal}
+        setShowEditQuestionModal={setShowEditQuestionModal}
       />
       <Card
         topic={topic}

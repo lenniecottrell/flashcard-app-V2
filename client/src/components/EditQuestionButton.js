@@ -3,7 +3,7 @@ import React from "react";
 const EditQuestionButton = ({ setShowEditQuestionModal }) => {
   return (
     <button onClick={() => setShowEditQuestionModal(true)}>
-      Edit this question
+      Edit/delete this question
     </button>
   );
 };
