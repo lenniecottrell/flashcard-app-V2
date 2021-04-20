@@ -16,6 +16,7 @@ const AddQuestionForm = ({
   setCompare,
   example,
   setExample,
+  topicId,
 }) => {
   const { register, handleSubmit } = useForm();
 
@@ -23,41 +24,37 @@ const AddQuestionForm = ({
   const cancelHandler = () => setShowEditQuestionModal(false);
 
   //This checks the topic selection for it's ID from the database
-  const handleTopicChange = (e) => {
-    const selection = e.target.value;
-    //match the topic selection to the right object in topicList
-    //get the ID from that object
-    let selectionId = 0;
-    for (let i = 0; i < topicList.length; i++) {
-      if (topicList[i].topic === selection) {
-        selectionId = topicList[i].id_topic;
-      }
-    }
-    console.log(`ID for ${selection} is ${selectionId}`);
-  };
+  // const handleTopicChange = (e) => {
+  //   const selection = e.target.value;
+  //   //match the topic selection to the right object in topicList
+  //   //get the ID from that object
+  //   let selectionId = 0;
+  //   for (let i = 0; i < topicList.length; i++) {
+  //     if (topicList[i].topic === selection) {
+  //       selectionId = topicList[i].id_topic;
+  //     }
+  //   }
+  //   console.log(`ID for ${selection} is ${selectionId}`);
+  // };
 
   //This uses the same logic as above, but replaces the topic string in the data object with it's ID in the database
   const dataHandler = async (data) => {
     //compare everything and only make the calls that need to be made for the things that have changed
-    let selection = data.topic;
-    let selectionId = 0;
-    for (let i = 0; i < topicList.length; i++) {
-      if (topicList[i].topic === selection) {
-        selectionId = topicList[i].id_topic;
-      }
-    }
-    data.fk_topic = selectionId;
-    delete data.topic;
     console.log(data);
+    console.log(questionId);
+    console.log(topicId);
     //API call to add the question to the database
-    // await fetch(`http://localhost:5000/topics/questions`, {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // })
+    // await fetch(
+    //   `http://localhost:5000/topics/${topicId}/question/${questionId}`,
+    //   {
+    //     method: "PUT",
+    //     headers: {
+    //       Accept: "application/json",
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(data),
+    //   }
+    // )
     //   .then((res) => res.json())
     //   .then((data) => console.log(data));
 
@@ -72,7 +69,11 @@ const AddQuestionForm = ({
       <label htmlFor="topicSelect" id="selectLabel">
         Topic:
       </label>
-      <select
+      <h5>
+        <i>Under Construction</i>
+      </h5>
+      {/*TODO: Figure out how to get the correct topic to display by default */}
+      {/* <select
         {...register("topic", { required: true })}
         className="selectMenu"
         onChange={handleTopicChange}
@@ -83,8 +84,8 @@ const AddQuestionForm = ({
               {item.topic}
             </option>
           );
-        })}
-      </select>
+        })} 
+      </select>*/}
       <label htmlFor="question">Question: </label>
       <input
         {...register("question", { required: true })}

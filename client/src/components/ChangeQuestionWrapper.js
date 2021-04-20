@@ -47,7 +47,7 @@ const ChangeQuestionWrapper = ({
       }
     }
 
-    //TODO: fix this
+    //TODO: fix this so that it won't show the question that currently shows
     if (action === "random") {
       let randomInt = Math.floor(Math.random() * questionList.length);
       const newIndex = (currentIndex + randomInt) % questionList.length;

@@ -300,21 +300,35 @@ app.put("/topics/:topic/questions/:id_question/example", async (req, res) => {
 
 //***The below will update all question fields, I'm not sure how to weild this yet */
 
-// app.put('/topics/:id_topic/question/:id_question', async(req,res) => {
-//   try {
-//     console.log(req.params);
-//     const {id_topic, id_question} = req.params;
-//     const {question:questionUpdate, definition:defUpdate, information:infoUpdate, compare:contUpdate, example:exampUpdate} = req.body;
-//     const updateQuestion = await pool.query(
-//       "UPDATE public.tbl_question SET (question, definition, information, compare, example) = ($1, $2, $3, $4, $5) WHERE id_question = $6 AND fk_topic = $7",
-//       [questionUpdate, defUpdate, infoUpdate, contUpdate, exampUpdate, id_question, id_topic]
-//     );
-//       res.json("Success! Question was updated")
-//   } catch (error) {
-//     console.log("oopsie, something went wrong");
-//     console.error(error.message);
-//   }
-// });
+app.put("/topics/:id_topic/question/:id_question", async (req, res) => {
+  try {
+    console.log(req.params);
+    const { id_topic, id_question } = req.params;
+    const {
+      question: questionUpdate,
+      definition: defUpdate,
+      information: infoUpdate,
+      compare: compUpdate,
+      example: exampUpdate,
+    } = req.body;
+    const updateQuestion = await pool.query(
+      "UPDATE public.tbl_question SET (question, definition, information, compare, example) = ($1, $2, $3, $4, $5) WHERE id_question = $6 AND fk_topic = $7",
+      [
+        questionUpdate,
+        defUpdate,
+        infoUpdate,
+        compUpdate,
+        exampUpdate,
+        id_question,
+        id_topic,
+      ]
+    );
+    res.json("Success! Question was updated");
+  } catch (error) {
+    console.log("Error, the question was not updated");
+    console.error(error.message);
+  }
+});
 
 //delete a topic DONE
 app.delete("/topics/:id_topic", async (req, res) => {

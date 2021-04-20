@@ -13,6 +13,7 @@ import EditQuestionModal from "./components/EditQuestionModal";
 
 const Flashcard = () => {
   const [topic, setTopic] = useState("Javascript");
+  const [topicId, setTopicId] = useState(1);
   const [topicList, setTopicList] = useState(["Javascript"]);
   const [question, setQuestion] = useState([]);
   const [questionId, setQuestionId] = useState(1);
@@ -39,6 +40,7 @@ const Flashcard = () => {
       .then((data) => {
         setTopicList(data);
         setTopic(data[0].topic); //set the first topic
+        setTopicId(data[0].id_topic);
       });
   };
 
@@ -49,6 +51,11 @@ const Flashcard = () => {
   //change topic state from the dropdown component
   const handleTopicChange = (e) => {
     setTopic(e.target.value);
+    for (let i = 0; i < topicList.length; i++) {
+      if (e.target.value === topicList[i].topic) {
+        setTopicId(topicList[i].id_topic);
+      }
+    }
     //when the topic changes, topic state is passed to the card, where it fetches all questions in that topic
   };
 
@@ -93,6 +100,7 @@ const Flashcard = () => {
         setCompare={setCompare}
         example={example}
         setExample={setExample}
+        topicId={topicId}
       />
       <Card
         topic={topic}

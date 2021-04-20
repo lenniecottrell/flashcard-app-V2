@@ -18,6 +18,7 @@ const EditQuestionModal = ({
   setCompare,
   example,
   setExample,
+  topicId,
 }) => {
   return (
     <>
@@ -40,6 +41,7 @@ const EditQuestionModal = ({
               setCompare={setCompare}
               example={example}
               setExample={setExample}
+              topicId={topicId}
             />
           </div>
         </div>
