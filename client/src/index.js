@@ -101,6 +101,7 @@ const Flashcard = () => {
         example={example}
         setExample={setExample}
         topicId={topicId}
+        topic={topic}
       />
       <Card
         topic={topic}

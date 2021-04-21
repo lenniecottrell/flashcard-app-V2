@@ -1,5 +1,4 @@
 import React from "react";
-import DeleteQuestionButton from "./DeleteQuestionButton";
 import EditQuestionForm from "./EditQuestionForm";
 
 const EditQuestionModal = ({
@@ -7,41 +6,33 @@ const EditQuestionModal = ({
   showEditQuestionModal,
   setShowEditQuestionModal,
   question,
-  setQuestion,
   questionId,
   setQuestionId,
   definition,
-  setDefinition,
   information,
-  setInformation,
   compare,
-  setCompare,
   example,
-  setExample,
   topicId,
+  topic,
 }) => {
   return (
     <>
       {showEditQuestionModal && (
         <div className="question-modal-bg">
           <div className="add-question-modal">
-            <DeleteQuestionButton />
+            {/* TODO: show the current topic here with another button to change topic?? */}
             <EditQuestionForm
               setShowEditQuestionModal={setShowEditQuestionModal}
               topicList={topicList}
               question={question}
-              setQuestion={setQuestion}
               questionId={questionId}
               setQuestionId={setQuestionId}
               definition={definition}
-              setDefinition={setDefinition}
               information={information}
-              setInformation={setInformation}
               compare={compare}
-              setCompare={setCompare}
               example={example}
-              setExample={setExample}
               topicId={topicId}
+              topic={topic}
             />
           </div>
         </div>

@@ -3,20 +3,14 @@ import { useForm } from "react-hook-form";
 
 const AddQuestionForm = ({
   setShowEditQuestionModal,
-  topicList,
   question,
-  setQuestion,
   questionId,
-  setQuestionId,
   definition,
-  setDefinition,
   information,
-  setInformation,
   compare,
-  setCompare,
   example,
-  setExample,
   topicId,
+  topic,
 }) => {
   const { register, handleSubmit } = useForm();
 
@@ -37,7 +31,6 @@ const AddQuestionForm = ({
   //   console.log(`ID for ${selection} is ${selectionId}`);
   // };
 
-  //This uses the same logic as above, but replaces the topic string in the data object with it's ID in the database
   const dataHandler = async (data) => {
     //compare everything and only make the calls that need to be made for the things that have changed
     console.log(data);
@@ -57,26 +50,59 @@ const AddQuestionForm = ({
     // )
     //   .then((res) => res.json())
     //   .then((data) => console.log(data));
-
-    setShowEditQuestionModal(false);
+    alert("question was edited");
+    //add a window.confirm() to ask if the user is done editing
   };
+
+  const deleteHandler = async () => {
+    let confirm = window.confirm(
+      "Are you sure you want to delete this question?"
+    );
+    if (confirm) {
+      alert("fetch!");
+      //API call
+      // await fetch(
+      //   `http://localhost:5000/topics/${topicId}/questions/${questionId}`,
+      //   {
+      //     method: "DELETE",
+      //     headers: {
+      //       Accept: "application/json",
+      //       "Content-Type": "application/json",
+      //     },
+      //   }
+      // )
+      //   .then((res) => res.json())
+      //   .then((data) => console.log(data));
+      setShowEditQuestionModal(false);
+    } else {
+      alert("Question was not deleted");
+    }
+  };
+
+  //Store different submission options in two variables
+  const onSubmit = handleSubmit(dataHandler, errorHandler);
+  const onDelete = handleSubmit(deleteHandler, errorHandler);
 
   return (
     <form
-      onSubmit={handleSubmit(dataHandler, errorHandler)}
+      // onSubmit={handleSubmit(dataHandler, errorHandler)}
       className="add-question-form"
     >
       <label htmlFor="topicSelect" id="selectLabel">
         Topic:
       </label>
-      <h5>
-        <i>Under Construction</i>
-      </h5>
-      {/*TODO: Figure out how to get the correct topic to display by default */}
+      <div className="topic-section">
+        <h4>{topic}</h4>
+        {/*TODO: Make this button open ANOTHER topic change modal*/}
+        <button onClick={() => window.alert("This doesn't work yet")}>
+          Change Topic
+        </button>
+      </div>
       {/* <select
         {...register("topic", { required: true })}
         className="selectMenu"
         onChange={handleTopicChange}
+        defaultValue="select a topic"
       >
         {topicList.map((item) => {
           return (
@@ -91,42 +117,54 @@ const AddQuestionForm = ({
         {...register("question", { required: true })}
         id="question-body"
         className="q-form-input"
-        value={question}
+        defaultValue={question}
       />
       <label htmlFor="definition">Definition: </label>
       <textarea
         {...register("definition", { required: true })}
         id="definition-ans"
         className="q-form-input"
-        value={definition}
+        defaultValue={definition}
       ></textarea>
       <label htmlFor="information">Information: </label>
       <textarea
         {...register("information", { required: true })}
         id="information-ans"
         className="q-form-input"
-        value={information}
+        defaultValue={information}
       ></textarea>
       <label htmlFor="compare-ans">Compare: </label>
       <textarea
         {...register("compare", { required: true })}
         id="compare-ans"
         className="q-form-input"
-        value={compare}
+        defaultValue={compare}
       ></textarea>
       <label htmlFor="example">Example: </label>
       <textarea
         {...register("example", { required: true })}
         id="example-ans"
         className="q-form-input"
-        value={example}
+        defaultValue={example}
       ></textarea>
       <div className="button-container">
+        <input
+          type="submit"
+          value="Delete"
+          onClick={onDelete}
+          name="delete"
+          className="btn"
+        ></input>
         <button type="reset" onClick={cancelHandler} className="btn">
           Cancel
         </button>
-
-        <input type="submit" value="Submit" className="btn" />
+        <input
+          type="submit"
+          value="Submit"
+          onClick={onSubmit}
+          name="submit"
+          className="btn"
+        />
       </div>
     </form>
   );

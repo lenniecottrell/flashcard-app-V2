@@ -351,13 +351,13 @@ app.delete("/topics/:id_topic", async (req, res) => {
 });
 
 //delete a question DONE
-app.delete("/topics/:topic/questions/:id_question", async (req, res) => {
+app.delete("/topics/:fk_topic/questions/:id_question", async (req, res) => {
   try {
     console.log(req.params);
-    const { id_question } = req.params;
+    const { fk_topic, id_question } = req.params;
     const deleteQuestion = await pool.query(
-      "DELETE FROM public.tbl_question WHERE id_question = $1",
-      [id_question]
+      "DELETE FROM public.tbl_question WHERE id_question = $1 AND fk_topic = $2",
+      [id_question, fk_topic]
     );
     console.log(deleteQuestion);
     console.log("DELETE SUCCESS. You deleted a question");
