@@ -16,6 +16,29 @@ This project is my first solo full-stack project.
 
 # Progress
 
+## 4/24/21
+
+### To Dos
+
+I just wrapped up my first week of work at Optimizely, and also finished #100DaysOfCode on Tuesday. I found that getting the motivation for working on this after work was difficult, but once I was in it I had a good time. Kinda like going to the gym, in many ways.
+
+Now that I'm not working on it every day, I need a system for keeping track of what needs to be done. For now, here's a non-exhaustive list in a loosely prioritized order:
+
+- Fix bug when a topic is selected with no questions
+- edit topic?
+- Get rendered data to automatically update when added, edited, or deleted
+- Probably have to update state?
+- form validation
+- Style add/edit/delete buttons
+- figure out why React keeps telling me I don't have a key prop when I definitely have a key prop
+- add nice animations
+- fix mobile styles
+- refactor with a state management library
+- deploy a working production version
+- address any accessibility issues
+- Figure out how to create account authorization and individual instances of a database
+-
+
 ## 4/17/21
 
 ### No more baby steps

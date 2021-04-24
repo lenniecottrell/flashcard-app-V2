@@ -37,21 +37,25 @@ const AddQuestionForm = ({
     console.log(questionId);
     console.log(topicId);
     //API call to add the question to the database
-    // await fetch(
-    //   `http://localhost:5000/topics/${topicId}/question/${questionId}`,
-    //   {
-    //     method: "PUT",
-    //     headers: {
-    //       Accept: "application/json",
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(data),
-    //   }
-    // )
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data));
+    await fetch(
+      `http://localhost:5000/topics/${topicId}/question/${questionId}`,
+      {
+        method: "PUT",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => console.log(data));
     alert("question was edited");
     //add a window.confirm() to ask if the user is done editing
+    let confirm = window.confirm("are you done editing?");
+    if (confirm) {
+      setShowEditQuestionModal(false);
+    }
   };
 
   const deleteHandler = async () => {
