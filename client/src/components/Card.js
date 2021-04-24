@@ -32,27 +32,31 @@ const Card = ({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchQuestions = useCallback(
     async (topic) => {
-      // heroku: `https://lrc-flashcard-app.herokuapp.com/topics/${topic}/questions`;
-      await fetch(`http://localhost:5000/topics/${topic}/questions`, {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application-json",
-        },
-      })
-        .then((res) => res.json())
-        .then((result) => {
-          console.log(result); //array of all questions
-          //console.log(result.forEach((q) => console.log(q)));
-          setQuestionList(result); //this is an array of question objects
-          //these set all info for the first item in the question list
-          setQuestion(result[0].question);
-          setQuestionId(result[0].id_question);
-          setDefinition(result[0].definition);
-          setInformation(result[0].information);
-          setCompare(result[0].compare);
-          setExample(result[0].example);
-          setAnswer("");
-        });
+      try {
+        // heroku: `https://lrc-flashcard-app.herokuapp.com/topics/${topic}/questions`;
+        await fetch(`http://localhost:5000/topics/${topic}/questions`, {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application-json",
+          },
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            console.log(result); //array of all questions
+            //console.log(result.forEach((q) => console.log(q)));
+            setQuestionList(result); //this is an array of question objects
+            //these set all info for the first item in the question list
+            setQuestion(result[0].question);
+            setQuestionId(result[0].id_question);
+            setDefinition(result[0].definition);
+            setInformation(result[0].information);
+            setCompare(result[0].compare);
+            setExample(result[0].example);
+            setAnswer("");
+          });
+      } catch (error) {
+        alert("there was an error getting question information. See card.js");
+      }
     },
     [
       setAnswer,

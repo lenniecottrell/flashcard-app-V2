@@ -25,6 +25,7 @@ I just wrapped up my first week of work at Optimizely, and also finished #100Day
 Now that I'm not working on it every day, I need a system for keeping track of what needs to be done. For now, here's a non-exhaustive list in a loosely prioritized order:
 
 - Fix bug when a topic is selected with no questions
+- Delete topic functionality (what happens to associated questions? Probably delete them all? Check the database.)
 - edit topic?
 - Get rendered data to automatically update when added, edited, or deleted
 - Probably have to update state?
@@ -37,7 +38,6 @@ Now that I'm not working on it every day, I need a system for keeping track of w
 - deploy a working production version
 - address any accessibility issues
 - Figure out how to create account authorization and individual instances of a database
--
 
 ## 4/17/21
 

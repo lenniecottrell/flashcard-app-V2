@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
+/**** I DON'T THINK I NEED THIS ****/
+
 const TopicSelectForm = ({ topicList, handleTopicChange }) => {
   const { register, handleSubmit, setValue } = useForm();
   const errorHandler = (errors) => console.error(errors);
