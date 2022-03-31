@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 //STYLES
-// import './index.css';
 import "./styles/app.scss";
 //COMPONENTS
 import Card from "./components/Card";
