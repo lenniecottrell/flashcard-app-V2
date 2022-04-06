@@ -37,7 +37,7 @@ Now that I'm not working on it every day, I need a system for keeping track of w
 - Get rendered data to automatically update when added, edited, or deleted
 - Probably have to update state?
 - form validation
-- Style add/edit/delete buttons
+- ~~Style add/edit/delete buttons~~
 - figure out why React keeps telling me I don't have a key prop when I definitely have a key prop
 - add nice animations
 - fix mobile styles
