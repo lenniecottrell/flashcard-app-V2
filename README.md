@@ -16,14 +16,14 @@ This project is my first solo full-stack project.
 
 # Progress
 
-## 4/6/21
+## 4/6/22
 Added styles for the add/edit/delete buttons. They're not great, but I'll get another opinion about them and fix them later - looks fine for now.
 
 ## 3/31/22
 
 Time to jump back in. I'd like to have this project done so I have a demo to show to prospective employers. It will be slow going as I re-learn the code I wrote!
 
-## 4/24/22
+## 4/24/21
 
 ### To Dos
 
