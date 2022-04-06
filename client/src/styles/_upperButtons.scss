@@ -1,0 +1,23 @@
+.upperButtonWrapper {
+  //border: 2px solid red;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 10px 0px;
+  width: 71vw;
+  button {
+    cursor: pointer;
+    width: 23%;
+    border-radius: 5px;
+    border: none;
+    font-family: "PT Sans", sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.247);
+    background: #7cddb1ce;
+    &:hover {
+      background: #7cddb2;
+      color:#fff;
+      }
+    }
+  }

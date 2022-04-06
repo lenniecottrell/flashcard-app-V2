@@ -4,12 +4,7 @@ import ReactDOM from "react-dom";
 import "./styles/app.scss";
 //COMPONENTS
 import Card from "./components/Card";
-import AddQuestionButton from "./components/AddQuestionButton";
-import AddTopicModal from "./components/AddTopicModal";
-import AddQuestionModal from "./components/AddQuestionModal";
-import EditQuestionButton from "./components/EditQuestionButton";
-import EditQuestionModal from "./components/EditQuestionModal";
-import DeleteTopicButton from "./components/DeleteTopicButton";
+import UpperButtonWrapper from "./components/UpperButtonWrapper";
 
 const Flashcard = () => {
   const [topic, setTopic] = useState("Javascript");
@@ -67,53 +62,6 @@ const Flashcard = () => {
 
   return (
     <div className="main-UI">
-      <AddQuestionButton
-        showNewQuestionModal={showNewQuestionModal}
-        setShowNewQuestionModal={setShowNewQuestionModal}
-      />
-      <EditQuestionButton
-        showEditQuestionModal={showEditQuestionModal}
-        setShowEditQuestionModal={setShowEditQuestionModal}
-      />
-      <DeleteTopicButton
-        topic={topic}
-        topicId={topicId}
-        setTopicList={setTopicList}
-      />
-      <AddQuestionModal
-        topicList={topicList}
-        showNewQuestionModal={showNewQuestionModal}
-        setShowNewQuestionModal={setShowNewQuestionModal}
-        setShowNewTopicModal={setShowNewTopicModal}
-        showNewTopicModal={showNewTopicModal}
-      />
-      <AddTopicModal
-        setShowNewTopicModal={setShowNewTopicModal}
-        showNewTopicModal={showNewTopicModal}
-        setShowNewQuestionModal={setShowNewQuestionModal}
-        showNewQuestionModal={showNewQuestionModal}
-        setTopicList={setTopicList}
-        topicList={topicList}
-      />
-      <EditQuestionModal
-        topicList={topicList}
-        showEditQuestionModal={showEditQuestionModal}
-        setShowEditQuestionModal={setShowEditQuestionModal}
-        question={question}
-        setQuestion={setQuestion}
-        questionId={questionId}
-        setQuestionId={setQuestionId}
-        definition={definition}
-        setDefinition={setDefinition}
-        information={information}
-        setInformation={setInformation}
-        compare={compare}
-        setCompare={setCompare}
-        example={example}
-        setExample={setExample}
-        topicId={topicId}
-        topic={topic}
-      />
       <Card
         topic={topic}
         topicList={topicList}
@@ -135,6 +83,30 @@ const Flashcard = () => {
         answer={answer}
         setAnswer={setAnswer}
       />
+<UpperButtonWrapper
+  showNewQuestionModal={showNewQuestionModal}
+  setShowNewQuestionModal={setShowNewQuestionModal}
+  showEditQuestionModal={showEditQuestionModal}
+  setShowEditQuestionModal={setShowEditQuestionModal}
+  topic={topic}
+  topicId={topicId}
+  setTopicList={setTopicList}
+  topicList={topicList}
+  setShowNewTopicModal={setShowNewTopicModal}
+  showNewTopicModal={showNewTopicModal}
+  question={question}
+  setQuestion={setQuestion}
+  questionId={questionId}
+  setQuestionId={setQuestionId}
+  definition={definition}
+  setDefinition={setDefinition}
+  information={information}
+  setInformation={setInformation}
+  compare={compare}
+  setCompare={setCompare}
+  example={example}
+  setExample={setExample}
+/>
     </div>
   );
 };
