@@ -9,9 +9,9 @@ const TopicSelect = ({ topicList, handleTopicChange }) => {
         className="selectMenu"
         onChange={handleTopicChange}
       >
-        {topicList.map((item) => {
+        {topicList.map((item, index) => {
           return (
-            <option key={item.id_topic} value={item.topic}>
+            <option key={index} value={item.topic}>
               {item.topic}
             </option>
           );
