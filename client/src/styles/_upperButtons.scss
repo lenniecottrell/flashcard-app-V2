@@ -4,7 +4,7 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   padding: 10px 0px;
-  width: 71vw;
+  width: 800px;
   button {
     cursor: pointer;
     width: 23%;
@@ -21,3 +21,17 @@
       }
     }
   }
+
+@media screen and (max-width: 1000px) {
+  .upperButtonWrapper {
+    border: 2px solid red;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+  }
+  .upperButtonWrapper > * {
+    margin: 10px;
+    //flex: 1;
+  }
+}

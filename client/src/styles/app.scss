@@ -19,20 +19,22 @@ body {
 
 /* Wrapper for everything but the background */
 .main-UI {
+  border: 2px solid red;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   justify-content: center;
-  margin: auto;
-  padding: 2rem;
+  position: relative;
+  //margin: auto;
+  //padding: 2rem;
   width: 800px;
   font-family: "PT Sans", sans-serif;
 }
 
 @media screen and (max-width: 1000px) {
-  .main--UI {
-    width: 80%;
-  }
+  // .main-UI {
+  //   width: 80%;
+  // }
 }
 
 @import "./card";

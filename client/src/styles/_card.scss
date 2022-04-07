@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: row wrap;
   border-radius: 20px;
-  padding: 10px;
+  //padding: 10px;
   background: #9772ff;
   box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.247);
 }
@@ -20,15 +20,3 @@
     flex: 1;
   }
 }
-
-/*this isn't being used at the moment*/
-// .topic {
-//   padding: 8px;
-//   text-align: left;
-//   font-weight: bold;
-//   font-size: 2em;
-//   max-height: fit-content;
-//   background: #9772ff;
-//   color: #fff;
-//   border-radius: 20px;
-// }
