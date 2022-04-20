@@ -16,6 +16,18 @@ This project is my first solo full-stack project.
 
 # Progress
 
+## 4/20/22
+
+Here's an updated list of priorities:
+- fix the Add New Topic modal
+- fix the Add new question modal
+- fix the edit question modal
+- Get UI to automatically update when things are added, edited, or deleted
+- Handle when a topic is blank
+- Handle what happens when a topic is selected with no questions
+- Delete topic functionality (what happens to associated questions? Probably delete them all? Check the database.)
+- edit topic
+
 ## 4/6/22
 Added styles for the add/edit/delete buttons. They're not great, but I'll get another opinion about them and fix them later - looks fine for now.
 
@@ -38,7 +50,7 @@ Now that I'm not working on it every day, I need a system for keeping track of w
 - Probably have to update state?
 - form validation
 - ~~Style add/edit/delete buttons~~
-- figure out why React keeps telling me I don't have a key prop when I definitely have a key prop
+- ~~figure out why React keeps telling me I don't have a key prop when I definitely have a key prop~~
 - add nice animations
 - fix mobile styles
 - refactor with a state management library
