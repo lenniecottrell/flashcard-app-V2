@@ -17,7 +17,7 @@ This project is my first solo full-stack project.
 # Progress
 
 ## 4/6/22
-Added styles for the add/edit/delete buttons. They're not great, but I'll get another opinion about them and fix them later - looks fine for now.
+Added styles for the add/edit/delete buttons. They're not perfect, but I'll get another opinion about them and fix them later - looks fine for now.
 
 ## 3/31/22
 

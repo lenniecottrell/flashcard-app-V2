@@ -24,7 +24,7 @@ if (process.env.NODE_ENV === "production") {
 //create a topic DONE
 app.post("/topics", async (req, res) => {
   try {
-    console.log(req.body);
+    console.log("POST topics" + req.body);
     const { topic } = req.body;
     const newTopic = await pool.query(
       "INSERT INTO public.tbl_topic (topic) VALUES($1) RETURNING *",

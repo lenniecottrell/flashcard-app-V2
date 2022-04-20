@@ -83,30 +83,30 @@ const Flashcard = () => {
         answer={answer}
         setAnswer={setAnswer}
       />
-<UpperButtonWrapper
-  showNewQuestionModal={showNewQuestionModal}
-  setShowNewQuestionModal={setShowNewQuestionModal}
-  showEditQuestionModal={showEditQuestionModal}
-  setShowEditQuestionModal={setShowEditQuestionModal}
-  topic={topic}
-  topicId={topicId}
-  setTopicList={setTopicList}
-  topicList={topicList}
-  setShowNewTopicModal={setShowNewTopicModal}
-  showNewTopicModal={showNewTopicModal}
-  question={question}
-  setQuestion={setQuestion}
-  questionId={questionId}
-  setQuestionId={setQuestionId}
-  definition={definition}
-  setDefinition={setDefinition}
-  information={information}
-  setInformation={setInformation}
-  compare={compare}
-  setCompare={setCompare}
-  example={example}
-  setExample={setExample}
-/>
+      <UpperButtonWrapper
+        showNewQuestionModal={showNewQuestionModal}
+        setShowNewQuestionModal={setShowNewQuestionModal}
+        showEditQuestionModal={showEditQuestionModal}
+        setShowEditQuestionModal={setShowEditQuestionModal}
+        topic={topic}
+        topicId={topicId}
+        setTopicList={setTopicList}
+        topicList={topicList}
+        setShowNewTopicModal={setShowNewTopicModal}
+        showNewTopicModal={showNewTopicModal}
+        question={question}
+        setQuestion={setQuestion}
+        questionId={questionId}
+        setQuestionId={setQuestionId}
+        definition={definition}
+        setDefinition={setDefinition}
+        information={information}
+        setInformation={setInformation}
+        compare={compare}
+        setCompare={setCompare}
+        example={example}
+        setExample={setExample}
+      />
     </div>
   );
 };

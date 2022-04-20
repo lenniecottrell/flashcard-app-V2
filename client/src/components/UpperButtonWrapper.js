@@ -43,6 +43,7 @@ const UpperButtonWrapper = ({showNewQuestionModal,
       <DeleteTopicButton
         topic={topic}
         topicId={topicId}
+        topicList={topicList}
         setTopicList={setTopicList}
       />
       <AddTopicButton
