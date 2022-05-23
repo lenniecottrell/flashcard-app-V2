@@ -4,7 +4,7 @@
 
 This is a flashcard app to help me (and others eventually!) study programming and computer science concepts. It's made with PostgreSQL, Express, React, and Node.
 
-The flashcard structure if based on a study technique I saw on LinkedIn called the "DICE" method, which stands for Definition, Information, Compare, and Example. If you can describe those four elements for any topic or concept, you probably know it pretty well!
+The flashcard structure if based on a study technique I saw on LinkedIn called the "DICE" method, which stands for Definition, Information, Compare, and Example. If you can describe those four elements for any topic or concept, you probably know it pretty well.
 
 This project is my first solo full-stack project.
 
@@ -29,11 +29,11 @@ Here's an updated list of priorities:
 - edit topic
 
 ## 4/6/22
-Added styles for the add/edit/delete buttons. They're not great, but I'll get another opinion about them and fix them later - looks fine for now.
+Added styles for the add/edit/delete buttons. They're not perfect yet, but I'll get another opinion about them and fix them later - ok for now.
 
 ## 3/31/22
 
-Time to jump back in. I'd like to have this project done so I have a demo to show to prospective employers. It will be slow going as I re-learn the code I wrote!
+Time to jump back in. I'd like to hfinish this project! It will be slow going as I re-learn the code I wrote and since my time is limited, but consistency is key.
 
 ## 4/24/21
 
